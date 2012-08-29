@@ -6,20 +6,19 @@
 //  Copyright (c) 2012 Ian Gillis. All rights reserved.
 //
 
-#import "SecondViewController.h"
+#import "FilterViewController.h"
 
-@interface SecondViewController ()
+@interface FilterViewController ()
 
 @end
 
-@implementation SecondViewController
+@implementation FilterViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"Second", @"Second");
-        self.tabBarItem.image = [UIImage imageNamed:@"second"];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemSearch tag:98];
     }
     return self;
 }

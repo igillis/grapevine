@@ -8,9 +8,11 @@
 
 #import "AppDelegate.h"
 
-#import "FirstViewController.h"
+#import "HomeViewController.h"
 
-#import "SecondViewController.h"
+#import "FilterViewController.h"
+
+#import "ContactsViewController.h"
 
 @implementation AppDelegate
 
@@ -18,10 +20,12 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *viewController1 = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:nil];
-    UIViewController *viewController2 = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
+    UIViewController *homeViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
+    UIViewController *filterViewController = [[FilterViewController alloc] initWithNibName:@"FilterViewController" bundle:nil];
+    UIViewController *contactsViewController = [[ContactsViewController alloc]
+        initWithNibName:@"ContactsViewController" bundle:nil];
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[viewController1, viewController2];
+    self.tabBarController.viewControllers = @[homeViewController, filterViewController, contactsViewController];
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
     return YES;

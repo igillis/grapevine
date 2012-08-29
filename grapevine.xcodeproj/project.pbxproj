@@ -13,14 +13,17 @@
 		49A5F64D15ED7E2D00D3F73F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F64B15ED7E2D00D3F73F /* InfoPlist.strings */; };
 		49A5F64F15ED7E2D00D3F73F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F64E15ED7E2D00D3F73F /* main.m */; };
 		49A5F65315ED7E2D00D3F73F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F65215ED7E2D00D3F73F /* AppDelegate.m */; };
-		49A5F65615ED7E2D00D3F73F /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F65515ED7E2D00D3F73F /* FirstViewController.m */; };
+		49A5F65615ED7E2D00D3F73F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F65515ED7E2D00D3F73F /* HomeViewController.m */; };
 		49A5F65815ED7E2D00D3F73F /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F65715ED7E2D00D3F73F /* first.png */; };
 		49A5F65A15ED7E2D00D3F73F /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F65915ED7E2D00D3F73F /* first@2x.png */; };
-		49A5F65D15ED7E2D00D3F73F /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F65C15ED7E2D00D3F73F /* SecondViewController.m */; };
+		49A5F65D15ED7E2D00D3F73F /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F65C15ED7E2D00D3F73F /* FilterViewController.m */; };
 		49A5F65F15ED7E2D00D3F73F /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F65E15ED7E2D00D3F73F /* second.png */; };
 		49A5F66115ED7E2D00D3F73F /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66015ED7E2D00D3F73F /* second@2x.png */; };
-		49A5F66415ED7E2D00D3F73F /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66215ED7E2D00D3F73F /* FirstViewController.xib */; };
-		49A5F66715ED7E2D00D3F73F /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66515ED7E2D00D3F73F /* SecondViewController.xib */; };
+		49A5F66415ED7E2D00D3F73F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66215ED7E2D00D3F73F /* HomeViewController.xib */; };
+		49A5F66715ED7E2D00D3F73F /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66515ED7E2D00D3F73F /* FilterViewController.xib */; };
+		49A5F67015EDAE6200D3F73F /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F66E15EDAE6200D3F73F /* ContactsViewController.m */; };
+		49A5F67115EDAE6200D3F73F /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66F15EDAE6200D3F73F /* ContactsViewController.xib */; };
+		49A5F67315EDB45400D3F73F /* FakeContacts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F67215EDB45400D3F73F /* FakeContacts.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,16 +37,20 @@
 		49A5F65015ED7E2D00D3F73F /* grapevine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "grapevine-Prefix.pch"; sourceTree = "<group>"; };
 		49A5F65115ED7E2D00D3F73F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49A5F65215ED7E2D00D3F73F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		49A5F65415ED7E2D00D3F73F /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
-		49A5F65515ED7E2D00D3F73F /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		49A5F65415ED7E2D00D3F73F /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		49A5F65515ED7E2D00D3F73F /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		49A5F65715ED7E2D00D3F73F /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
 		49A5F65915ED7E2D00D3F73F /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
-		49A5F65B15ED7E2D00D3F73F /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		49A5F65C15ED7E2D00D3F73F /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		49A5F65B15ED7E2D00D3F73F /* FilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		49A5F65C15ED7E2D00D3F73F /* FilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
 		49A5F65E15ED7E2D00D3F73F /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
 		49A5F66015ED7E2D00D3F73F /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
-		49A5F66315ED7E2D00D3F73F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FirstViewController.xib; sourceTree = "<group>"; };
-		49A5F66615ED7E2D00D3F73F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SecondViewController.xib; sourceTree = "<group>"; };
+		49A5F66315ED7E2D00D3F73F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController.xib; sourceTree = "<group>"; };
+		49A5F66615ED7E2D00D3F73F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FilterViewController.xib; sourceTree = "<group>"; };
+		49A5F66D15EDAE6200D3F73F /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
+		49A5F66E15EDAE6200D3F73F /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
+		49A5F66F15EDAE6200D3F73F /* ContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
+		49A5F67215EDB45400D3F73F /* FakeContacts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FakeContacts.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,17 +99,20 @@
 			children = (
 				49A5F65115ED7E2D00D3F73F /* AppDelegate.h */,
 				49A5F65215ED7E2D00D3F73F /* AppDelegate.m */,
-				49A5F65415ED7E2D00D3F73F /* FirstViewController.h */,
-				49A5F65515ED7E2D00D3F73F /* FirstViewController.m */,
+				49A5F65415ED7E2D00D3F73F /* HomeViewController.h */,
+				49A5F65515ED7E2D00D3F73F /* HomeViewController.m */,
 				49A5F65715ED7E2D00D3F73F /* first.png */,
 				49A5F65915ED7E2D00D3F73F /* first@2x.png */,
-				49A5F65B15ED7E2D00D3F73F /* SecondViewController.h */,
-				49A5F65C15ED7E2D00D3F73F /* SecondViewController.m */,
+				49A5F65B15ED7E2D00D3F73F /* FilterViewController.h */,
+				49A5F65C15ED7E2D00D3F73F /* FilterViewController.m */,
 				49A5F65E15ED7E2D00D3F73F /* second.png */,
 				49A5F66015ED7E2D00D3F73F /* second@2x.png */,
-				49A5F66215ED7E2D00D3F73F /* FirstViewController.xib */,
-				49A5F66515ED7E2D00D3F73F /* SecondViewController.xib */,
+				49A5F66215ED7E2D00D3F73F /* HomeViewController.xib */,
+				49A5F66515ED7E2D00D3F73F /* FilterViewController.xib */,
 				49A5F64915ED7E2D00D3F73F /* Supporting Files */,
+				49A5F66D15EDAE6200D3F73F /* ContactsViewController.h */,
+				49A5F66E15EDAE6200D3F73F /* ContactsViewController.m */,
+				49A5F66F15EDAE6200D3F73F /* ContactsViewController.xib */,
 			);
 			path = grapevine;
 			sourceTree = "<group>";
@@ -114,6 +124,7 @@
 				49A5F64B15ED7E2D00D3F73F /* InfoPlist.strings */,
 				49A5F64E15ED7E2D00D3F73F /* main.m */,
 				49A5F65015ED7E2D00D3F73F /* grapevine-Prefix.pch */,
+				49A5F67215EDB45400D3F73F /* FakeContacts.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -174,8 +185,10 @@
 				49A5F65A15ED7E2D00D3F73F /* first@2x.png in Resources */,
 				49A5F65F15ED7E2D00D3F73F /* second.png in Resources */,
 				49A5F66115ED7E2D00D3F73F /* second@2x.png in Resources */,
-				49A5F66415ED7E2D00D3F73F /* FirstViewController.xib in Resources */,
-				49A5F66715ED7E2D00D3F73F /* SecondViewController.xib in Resources */,
+				49A5F66415ED7E2D00D3F73F /* HomeViewController.xib in Resources */,
+				49A5F66715ED7E2D00D3F73F /* FilterViewController.xib in Resources */,
+				49A5F67115EDAE6200D3F73F /* ContactsViewController.xib in Resources */,
+				49A5F67315EDB45400D3F73F /* FakeContacts.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,8 +201,9 @@
 			files = (
 				49A5F64F15ED7E2D00D3F73F /* main.m in Sources */,
 				49A5F65315ED7E2D00D3F73F /* AppDelegate.m in Sources */,
-				49A5F65615ED7E2D00D3F73F /* FirstViewController.m in Sources */,
-				49A5F65D15ED7E2D00D3F73F /* SecondViewController.m in Sources */,
+				49A5F65615ED7E2D00D3F73F /* HomeViewController.m in Sources */,
+				49A5F65D15ED7E2D00D3F73F /* FilterViewController.m in Sources */,
+				49A5F67015EDAE6200D3F73F /* ContactsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,20 +218,20 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		49A5F66215ED7E2D00D3F73F /* FirstViewController.xib */ = {
+		49A5F66215ED7E2D00D3F73F /* HomeViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				49A5F66315ED7E2D00D3F73F /* en */,
 			);
-			name = FirstViewController.xib;
+			name = HomeViewController.xib;
 			sourceTree = "<group>";
 		};
-		49A5F66515ED7E2D00D3F73F /* SecondViewController.xib */ = {
+		49A5F66515ED7E2D00D3F73F /* FilterViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				49A5F66615ED7E2D00D3F73F /* en */,
 			);
-			name = SecondViewController.xib;
+			name = FilterViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
