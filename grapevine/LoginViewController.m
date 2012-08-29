@@ -14,7 +14,7 @@
 
 @implementation LoginViewController
 
-@synthesize loginId;
+@synthesize username;
 @synthesize password;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -66,31 +66,32 @@
                                        reuseIdentifier:@"Cell"];
         cell.accessoryType = UITableViewCellAccessoryNone;
         
-        UITextField *playerTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, 185, 30)];
-        playerTextField.adjustsFontSizeToFitWidth = NO;
-        playerTextField.textColor = [UIColor blackColor];
+        UITextField* loginTextField;
         if ([indexPath row] == 0) {
-            playerTextField.placeholder = @"Username";
-            playerTextField.keyboardType = UIKeyboardTypeEmailAddress;
-            playerTextField.returnKeyType = UIReturnKeyNext;
+            self.username = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, 185, 30)];
+            loginTextField = self.username;
+            loginTextField.placeholder = @"Username";
+            loginTextField.returnKeyType = UIReturnKeyNext;
         }
         else {
-            playerTextField.placeholder = @"Password";
-            playerTextField.keyboardType = UIKeyboardTypeDefault;
-            playerTextField.returnKeyType = UIReturnKeyDone;
-            playerTextField.secureTextEntry = YES;
+            self.password = [[UITextField alloc] initWithFrame:CGRectMake(20, 10, 185, 30)];
+            loginTextField = self.password;
+            loginTextField.placeholder = @"Password";
+            loginTextField.returnKeyType = UIReturnKeyDone;
+            loginTextField.secureTextEntry = YES;
         }
-        playerTextField.backgroundColor = [UIColor clearColor];
-        playerTextField.autocorrectionType = UITextAutocorrectionTypeNo; // no auto correction support
-        playerTextField.autocapitalizationType = UITextAutocapitalizationTypeNone; // no auto capitalization support
-        playerTextField.textAlignment = UITextAlignmentLeft;
-        playerTextField.tag = 0;
-        //playerTextField.delegate = self;
+        loginTextField.keyboardType = UIKeyboardTypeDefault;
+        loginTextField.adjustsFontSizeToFitWidth = YES;
+        loginTextField.backgroundColor = [UIColor clearColor];
+        loginTextField.autocorrectionType = UITextAutocorrectionTypeNo;
+        loginTextField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        loginTextField.textAlignment = UITextAlignmentLeft;
+        loginTextField.tag = 0;
+        loginTextField.delegate = self;
         
-        playerTextField.clearButtonMode = UITextFieldViewModeNever; // no clear 'x' button to the right
-        [playerTextField setEnabled: YES];
+        [loginTextField setEnabled: YES];
         
-        [cell addSubview:playerTextField];
+        [cell addSubview:loginTextField];
     }
     return cell;    
 }
@@ -101,7 +102,29 @@
 }
 
 - (IBAction)grapevineLogin:(id)sender {
+    [self.username resignFirstResponder];
+    [self.password resignFirstResponder];
+    if ([self.username.text isEqualToString:@"igillis"] && [self.password.text isEqualToString:@"test123x"]) {
+        NSLog(@"successful password");
+        [self dismissModalViewControllerAnimated:YES];
+    } else {
+        //TODO(bscohen): handle bad login
+    }
+}
 
+- (IBAction)hideKeyboard:(id)sender {
+    [self.username resignFirstResponder];
+    [self.password resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.password) {
+        [textField resignFirstResponder];
+        [self grapevineLogin:self];
+    } else if (textField == self.username) {
+        [self.password becomeFirstResponder];
+    }
+    return YES;
 }
     
 @end

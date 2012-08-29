@@ -16,7 +16,9 @@
 
 - (IBAction)grapevineLogin:(id)sender;
 
-@property (strong, nonatomic) UITextField* loginId;
+- (IBAction)hideKeyboard:(id)sender;
+
+@property (strong, nonatomic) UITextField* username;
 
 @property (strong, nonatomic) UITextField* password;
 
