@@ -41,4 +41,8 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (IBAction)facebookLogin:(id)sender {
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 @end

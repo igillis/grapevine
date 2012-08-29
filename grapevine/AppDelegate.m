@@ -14,20 +14,33 @@
 
 #import "ContactsViewController.h"
 
+#import "LoginViewController.h"
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *homeViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
+    UIViewController *homeViewController = [[HomeViewController alloc]
+        initWithNibName:@"HomeViewController"bundle:nil];
     UIViewController *filterViewController = [[FilterViewController alloc] initWithNibName:@"FilterViewController" bundle:nil];
     UIViewController *contactsViewController = [[ContactsViewController alloc]
         initWithNibName:@"ContactsViewController" bundle:nil];
+    
+    LoginViewController* loginViewController = [[LoginViewController alloc] init];
+    
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = @[homeViewController, filterViewController, contactsViewController];
+    self.tabBarController.viewControllers =
+        @[homeViewController, filterViewController, contactsViewController];
+    
+    
+    
     self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    
+    [self.tabBarController presentViewController:loginViewController animated:YES completion:NULL];
+    
     return YES;
 }
 

@@ -14,4 +14,6 @@
 
 @property (strong, nonatomic) UITabBarController *tabBarController;
 
+- (IBAction)facebookLogin:(id)sender;
+
 @end
