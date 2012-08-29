@@ -9,5 +9,15 @@
 #import <UIKit/UIKit.h>
 
 @interface LoginViewController : UIViewController
+<UITextFieldDelegate, UITableViewDataSource, UITableViewDelegate>
+- (IBAction)facebookLogin:(id)sender;
+
+- (IBAction)twitterLogin:(id)sender;
+
+- (IBAction)grapevineLogin:(id)sender;
+
+@property (strong, nonatomic) UITextField* loginId;
+
+@property (strong, nonatomic) UITextField* password;
 
 @end
