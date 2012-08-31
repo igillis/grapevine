@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeViewController : UIViewController
-<UITableViewDelegate, UITableViewDataSource>
+<UITableViewDelegate, UITableViewDataSource> {
+    UINib *cellLoader;
+}
 
 @property (nonatomic, strong) NSDictionary* posts;
 

@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+#import "AudioPostCell.h"
 
 @interface HomeViewController ()
 
@@ -22,6 +23,7 @@
     if (self) {
         // placeholder until we design a home tab bar item
         self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:99];
+        cellLoader = [UINib nibWithNibName:@"AudioPostCell" bundle:[NSBundle mainBundle]];
     }
     return self;
 }
@@ -37,7 +39,6 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -49,17 +50,20 @@
     return [[posts allKeys] count];
 }
 
+static NSString* CellNib = @"AudioPostCell";
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
-    NSString* name = [[posts allKeys] objectAtIndex:[indexPath row]];
-    
-    [[cell textLabel] setText:name];
-    [[cell detailTextLabel] setText: [posts objectForKey:name]];
+    AudioPostCell *cell = (AudioPostCell *)[tableView dequeueReusableCellWithIdentifier:CellNib];
+    if (!cell) {
+        NSArray *topLevelItems = [cellLoader instantiateWithOwner:self options:nil];
+        cell = [topLevelItems objectAtIndex:0];
+    }
+    cell.name.text = [[posts allKeys] objectAtIndex:indexPath.row];
+    cell.topics.text = [posts objectForKey:[[posts allKeys] objectAtIndex:indexPath.row]];
     return cell;
 }
 
-- (UITableViewCellAccessoryType)tableView:(UITableView *)tv accessoryTypeForRowWithIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewCellAccessoryDisclosureIndicator;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 77.0;
 }
-
 @end

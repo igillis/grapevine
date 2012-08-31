@@ -24,6 +24,9 @@
 		49A5F67C15EDC24B00D3F73F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F67A15EDC24B00D3F73F /* LoginViewController.xib */; };
 		49A5F67E15EDCD0600D3F73F /* fb-login-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F67D15EDCD0600D3F73F /* fb-login-normal.png */; };
 		49A5F68515F04C1000D3F73F /* Posts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68415F04C1000D3F73F /* Posts.plist */; };
+		49A5F68815F05F1C00D3F73F /* AudioPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F68715F05F1C00D3F73F /* AudioPostCell.m */; };
+		49A5F68A15F05F6B00D3F73F /* AudioPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68915F05F6B00D3F73F /* AudioPostCell.xib */; };
+		49A5F68C15F060BE00D3F73F /* IanGillis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68B15F060BE00D3F73F /* IanGillis.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,10 @@
 		49A5F67A15EDC24B00D3F73F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		49A5F67D15EDCD0600D3F73F /* fb-login-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fb-login-normal.png"; sourceTree = "<group>"; };
 		49A5F68415F04C1000D3F73F /* Posts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Posts.plist; sourceTree = "<group>"; };
+		49A5F68615F05F1C00D3F73F /* AudioPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPostCell.h; sourceTree = "<group>"; };
+		49A5F68715F05F1C00D3F73F /* AudioPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPostCell.m; sourceTree = "<group>"; };
+		49A5F68915F05F6B00D3F73F /* AudioPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioPostCell.xib; sourceTree = "<group>"; };
+		49A5F68B15F060BE00D3F73F /* IanGillis.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IanGillis.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +120,9 @@
 				49A5F67815EDC24B00D3F73F /* LoginViewController.h */,
 				49A5F67915EDC24B00D3F73F /* LoginViewController.m */,
 				49A5F67A15EDC24B00D3F73F /* LoginViewController.xib */,
+				49A5F68615F05F1C00D3F73F /* AudioPostCell.h */,
+				49A5F68715F05F1C00D3F73F /* AudioPostCell.m */,
+				49A5F68915F05F6B00D3F73F /* AudioPostCell.xib */,
 			);
 			path = grapevine;
 			sourceTree = "<group>";
@@ -120,6 +130,7 @@
 		49A5F64915ED7E2D00D3F73F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49A5F68B15F060BE00D3F73F /* IanGillis.jpg */,
 				49A5F67D15EDCD0600D3F73F /* fb-login-normal.png */,
 				49A5F64A15ED7E2D00D3F73F /* grapevine-Info.plist */,
 				49A5F64B15ED7E2D00D3F73F /* InfoPlist.strings */,
@@ -190,6 +201,8 @@
 				49A5F67C15EDC24B00D3F73F /* LoginViewController.xib in Resources */,
 				49A5F67E15EDCD0600D3F73F /* fb-login-normal.png in Resources */,
 				49A5F68515F04C1000D3F73F /* Posts.plist in Resources */,
+				49A5F68A15F05F6B00D3F73F /* AudioPostCell.xib in Resources */,
+				49A5F68C15F060BE00D3F73F /* IanGillis.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +219,7 @@
 				49A5F65D15ED7E2D00D3F73F /* TrendingViewController.m in Sources */,
 				49A5F67015EDAE6200D3F73F /* ContactsViewController.m in Sources */,
 				49A5F67B15EDC24B00D3F73F /* LoginViewController.m in Sources */,
+				49A5F68815F05F1C00D3F73F /* AudioPostCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
