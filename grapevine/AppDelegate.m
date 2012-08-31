@@ -24,7 +24,7 @@
     // Override point for customization after application launch.
     UIViewController *homeViewController = [[HomeViewController alloc]
         initWithNibName:@"HomeViewController"bundle:nil];
-    UIViewController *filterViewController = [[TrendingViewController alloc] initWithNibName:@"FilterViewController" bundle:nil];
+    UIViewController *trendingViewController = [[TrendingViewController alloc] initWithNibName:@"TrendingViewController" bundle:nil];
     UIViewController *contactsViewController = [[ContactsViewController alloc]
         initWithNibName:@"ContactsViewController" bundle:nil];
     
@@ -32,7 +32,7 @@
     
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers =
-        @[homeViewController, filterViewController, contactsViewController];
+        @[homeViewController, trendingViewController, contactsViewController];
     
     
     
