@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Jack Daniels</key>
+	<string>jack_daniels</string>
+	<key>Johnnie Walker</key>
+	<string>johnnie_walker</string>
+	<key>Captain Morgan</key>
+	<string>captain_morgan</string>
+	<key>John Jameson</key>
+	<string>john_jameson</string>
+	<key>Jim Beam</key>
+	<string>jim_beam</string>
+	<key>Jose Curevo</key>
+	<string>jose_cuervo</string>
+	<key>Stella</key>
+	<string>stella</string>
+</dict>
+</plist>

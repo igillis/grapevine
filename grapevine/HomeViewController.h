@@ -10,9 +10,10 @@
 
 @interface HomeViewController : UIViewController
 <UITableViewDelegate, UITableViewDataSource> {
-    UINib *cellLoader;
+    UINib* cellLoader;
 }
 
 @property (nonatomic, strong) NSDictionary* posts;
+@property (nonatomic, strong) NSDictionary* images;
 
 @end

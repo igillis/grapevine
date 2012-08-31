@@ -16,6 +16,7 @@
 @implementation HomeViewController
 
 @synthesize posts;
+@synthesize images;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -31,9 +32,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	NSString* file = [[NSBundle mainBundle] pathForResource:@"Posts"
+	NSString* postsFile = [[NSBundle mainBundle] pathForResource:@"FakePosts"
                                                      ofType:@"plist"];
-    self.posts = [[NSDictionary alloc] initWithContentsOfFile:file];
+    NSString* imagesFile = [[NSBundle mainBundle] pathForResource:@"FakeImages" ofType:@"plist"];
+    self.posts = [[NSDictionary alloc] initWithContentsOfFile:postsFile];
+    self.images = [[NSDictionary alloc] initWithContentsOfFile:imagesFile];
 }
 
 - (void)viewDidUnload
@@ -58,8 +61,12 @@ static NSString* CellNib = @"AudioPostCell";
         NSArray *topLevelItems = [cellLoader instantiateWithOwner:self options:nil];
         cell = [topLevelItems objectAtIndex:0];
     }
-    cell.name.text = [[posts allKeys] objectAtIndex:indexPath.row];
-    cell.topics.text = [posts objectForKey:[[posts allKeys] objectAtIndex:indexPath.row]];
+    NSString* name = [[posts allKeys] objectAtIndex:indexPath.row];
+    cell.name.text = name;
+    cell.topics.text = [posts objectForKey:name];
+    
+    NSString* path = [[NSBundle mainBundle] pathForResource:[images objectForKey:name] ofType:@"jpg"];
+    cell.profilePic.image = [[UIImage alloc] initWithContentsOfFile:path];
     return cell;
 }
 
