@@ -6,13 +6,13 @@
 //  Copyright (c) 2012 Ian Gillis. All rights reserved.
 //
 
-#import "FilterViewController.h"
+#import "TrendingViewController.h"
 
-@interface FilterViewController ()
+@interface TrendingViewController ()
 
 @end
 
-@implementation FilterViewController
+@implementation TrendingViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

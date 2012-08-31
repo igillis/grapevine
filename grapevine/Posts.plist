@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Stella</key>
+	<string>#chalice</string>
+	<key>Jack Daniels</key>
+	<string>#kentucky #jackAndCoke #tryHoney</string>
+	<key>John Jameson</key>
+	<string>#ireland #ruddyFace</string>
+	<key>Captain Morgan</key>
+	<string>#yoHoHoAndABottleOfMe</string>
+	<key>Johnnie Walker</key>
+	<string>#class, #colorMyLabel</string>
+	<key>Jose Cuervo</key>
+	<string>#mexico #blueAgave</string>
+	<key>Jim Beam</key>
+	<string>#whisky #smokey #haveMeWIthCoke</string>
+</dict>
+</plist>

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FilterViewController : UIViewController
+@interface TrendingViewController : UIViewController
 
 @end

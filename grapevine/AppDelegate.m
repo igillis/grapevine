@@ -10,7 +10,7 @@
 
 #import "HomeViewController.h"
 
-#import "FilterViewController.h"
+#import "TrendingViewController.h"
 
 #import "ContactsViewController.h"
 
@@ -24,7 +24,7 @@
     // Override point for customization after application launch.
     UIViewController *homeViewController = [[HomeViewController alloc]
         initWithNibName:@"HomeViewController"bundle:nil];
-    UIViewController *filterViewController = [[FilterViewController alloc] initWithNibName:@"FilterViewController" bundle:nil];
+    UIViewController *filterViewController = [[TrendingViewController alloc] initWithNibName:@"FilterViewController" bundle:nil];
     UIViewController *contactsViewController = [[ContactsViewController alloc]
         initWithNibName:@"ContactsViewController" bundle:nil];
     

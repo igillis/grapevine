@@ -14,15 +14,16 @@
 		49A5F64F15ED7E2D00D3F73F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F64E15ED7E2D00D3F73F /* main.m */; };
 		49A5F65315ED7E2D00D3F73F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F65215ED7E2D00D3F73F /* AppDelegate.m */; };
 		49A5F65615ED7E2D00D3F73F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F65515ED7E2D00D3F73F /* HomeViewController.m */; };
-		49A5F65D15ED7E2D00D3F73F /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F65C15ED7E2D00D3F73F /* FilterViewController.m */; };
+		49A5F65D15ED7E2D00D3F73F /* TrendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F65C15ED7E2D00D3F73F /* TrendingViewController.m */; };
 		49A5F66415ED7E2D00D3F73F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66215ED7E2D00D3F73F /* HomeViewController.xib */; };
-		49A5F66715ED7E2D00D3F73F /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66515ED7E2D00D3F73F /* FilterViewController.xib */; };
+		49A5F66715ED7E2D00D3F73F /* TrendingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66515ED7E2D00D3F73F /* TrendingViewController.xib */; };
 		49A5F67015EDAE6200D3F73F /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F66E15EDAE6200D3F73F /* ContactsViewController.m */; };
 		49A5F67115EDAE6200D3F73F /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66F15EDAE6200D3F73F /* ContactsViewController.xib */; };
 		49A5F67315EDB45400D3F73F /* FakeContacts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F67215EDB45400D3F73F /* FakeContacts.plist */; };
 		49A5F67B15EDC24B00D3F73F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F67915EDC24B00D3F73F /* LoginViewController.m */; };
 		49A5F67C15EDC24B00D3F73F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F67A15EDC24B00D3F73F /* LoginViewController.xib */; };
 		49A5F67E15EDCD0600D3F73F /* fb-login-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F67D15EDCD0600D3F73F /* fb-login-normal.png */; };
+		49A5F68515F04C1000D3F73F /* Posts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68415F04C1000D3F73F /* Posts.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,10 +39,10 @@
 		49A5F65215ED7E2D00D3F73F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		49A5F65415ED7E2D00D3F73F /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		49A5F65515ED7E2D00D3F73F /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		49A5F65B15ED7E2D00D3F73F /* FilterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
-		49A5F65C15ED7E2D00D3F73F /* FilterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
+		49A5F65B15ED7E2D00D3F73F /* TrendingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrendingViewController.h; sourceTree = "<group>"; };
+		49A5F65C15ED7E2D00D3F73F /* TrendingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrendingViewController.m; sourceTree = "<group>"; };
 		49A5F66315ED7E2D00D3F73F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController.xib; sourceTree = "<group>"; };
-		49A5F66615ED7E2D00D3F73F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FilterViewController.xib; sourceTree = "<group>"; };
+		49A5F66615ED7E2D00D3F73F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TrendingViewController.xib; sourceTree = "<group>"; };
 		49A5F66D15EDAE6200D3F73F /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
 		49A5F66E15EDAE6200D3F73F /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
 		49A5F66F15EDAE6200D3F73F /* ContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
@@ -50,6 +51,7 @@
 		49A5F67915EDC24B00D3F73F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		49A5F67A15EDC24B00D3F73F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		49A5F67D15EDCD0600D3F73F /* fb-login-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fb-login-normal.png"; sourceTree = "<group>"; };
+		49A5F68415F04C1000D3F73F /* Posts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Posts.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +103,9 @@
 				49A5F65415ED7E2D00D3F73F /* HomeViewController.h */,
 				49A5F65515ED7E2D00D3F73F /* HomeViewController.m */,
 				49A5F66215ED7E2D00D3F73F /* HomeViewController.xib */,
-				49A5F65B15ED7E2D00D3F73F /* FilterViewController.h */,
-				49A5F65C15ED7E2D00D3F73F /* FilterViewController.m */,
-				49A5F66515ED7E2D00D3F73F /* FilterViewController.xib */,
+				49A5F65B15ED7E2D00D3F73F /* TrendingViewController.h */,
+				49A5F65C15ED7E2D00D3F73F /* TrendingViewController.m */,
+				49A5F66515ED7E2D00D3F73F /* TrendingViewController.xib */,
 				49A5F64915ED7E2D00D3F73F /* Supporting Files */,
 				49A5F66D15EDAE6200D3F73F /* ContactsViewController.h */,
 				49A5F66E15EDAE6200D3F73F /* ContactsViewController.m */,
@@ -124,6 +126,7 @@
 				49A5F64E15ED7E2D00D3F73F /* main.m */,
 				49A5F65015ED7E2D00D3F73F /* grapevine-Prefix.pch */,
 				49A5F67215EDB45400D3F73F /* FakeContacts.plist */,
+				49A5F68415F04C1000D3F73F /* Posts.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -181,11 +184,12 @@
 			files = (
 				49A5F64D15ED7E2D00D3F73F /* InfoPlist.strings in Resources */,
 				49A5F66415ED7E2D00D3F73F /* HomeViewController.xib in Resources */,
-				49A5F66715ED7E2D00D3F73F /* FilterViewController.xib in Resources */,
+				49A5F66715ED7E2D00D3F73F /* TrendingViewController.xib in Resources */,
 				49A5F67115EDAE6200D3F73F /* ContactsViewController.xib in Resources */,
 				49A5F67315EDB45400D3F73F /* FakeContacts.plist in Resources */,
 				49A5F67C15EDC24B00D3F73F /* LoginViewController.xib in Resources */,
 				49A5F67E15EDCD0600D3F73F /* fb-login-normal.png in Resources */,
+				49A5F68515F04C1000D3F73F /* Posts.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +203,7 @@
 				49A5F64F15ED7E2D00D3F73F /* main.m in Sources */,
 				49A5F65315ED7E2D00D3F73F /* AppDelegate.m in Sources */,
 				49A5F65615ED7E2D00D3F73F /* HomeViewController.m in Sources */,
-				49A5F65D15ED7E2D00D3F73F /* FilterViewController.m in Sources */,
+				49A5F65D15ED7E2D00D3F73F /* TrendingViewController.m in Sources */,
 				49A5F67015EDAE6200D3F73F /* ContactsViewController.m in Sources */,
 				49A5F67B15EDC24B00D3F73F /* LoginViewController.m in Sources */,
 			);
@@ -224,12 +228,12 @@
 			name = HomeViewController.xib;
 			sourceTree = "<group>";
 		};
-		49A5F66515ED7E2D00D3F73F /* FilterViewController.xib */ = {
+		49A5F66515ED7E2D00D3F73F /* TrendingViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				49A5F66615ED7E2D00D3F73F /* en */,
 			);
-			name = FilterViewController.xib;
+			name = TrendingViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
