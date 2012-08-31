@@ -16,6 +16,7 @@
 
 @synthesize username;
 @synthesize password;
+@synthesize grapevine;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,7 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [grapevine setFont:[UIFont fontWithName:@"TalkingtotheMoon" size:34.0]];
 }
 
 - (void)viewDidUnload
