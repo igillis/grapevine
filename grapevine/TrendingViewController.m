@@ -56,6 +56,17 @@
     else {
         cellName = [topicSuggestions_ objectAtIndex:[indexPath row]];
     }
+    
+    NSString *imagefile;
+    NSInteger randomNumber = arc4random() % 2;
+    if (randomNumber == 0 || [indexPath row] == 0) {
+        imagefile = [[NSBundle mainBundle] pathForResource:@"trendingUp" ofType:@"png"];
+    }
+    else {
+        imagefile = [[NSBundle mainBundle] pathForResource:@"trendingDown" ofType:@"png"];
+    }
+    UIImage *cellImage = [[UIImage alloc] initWithContentsOfFile:imagefile];
+    [[cell imageView] setImage:cellImage];
 
     [[cell textLabel] setText:cellName];
     return cell;
