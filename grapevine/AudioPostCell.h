@@ -12,7 +12,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView* profilePic;
 @property (strong, nonatomic) IBOutlet UILabel* name;
-@property (strong, nonatomic) IBOutlet UITextView* topics;
+@property (strong, nonatomic) IBOutlet UITextView* description;
 
 - (IBAction)playAudio:(id)sender;
 

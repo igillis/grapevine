@@ -53,17 +53,15 @@
     return [[posts allKeys] count];
 }
 
-static NSString* CellNib = @"AudioPostCell";
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AudioPostCell *cell = (AudioPostCell *)[tableView dequeueReusableCellWithIdentifier:CellNib];
+    AudioPostCell *cell = (AudioPostCell *)[tableView dequeueReusableCellWithIdentifier:@"AudioPostCell"];
     if (!cell) {
         NSArray *topLevelItems = [cellLoader instantiateWithOwner:self options:nil];
         cell = [topLevelItems objectAtIndex:0];
     }
     NSString* name = [[posts allKeys] objectAtIndex:indexPath.row];
     cell.name.text = name;
-    cell.topics.text = [posts objectForKey:name];
+    cell.description.text = [posts objectForKey:name];
     
     NSString* path = [[NSBundle mainBundle] pathForResource:[images objectForKey:name] ofType:@"jpg"];
     cell.profilePic.image = [[UIImage alloc] initWithContentsOfFile:path];

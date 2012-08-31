@@ -12,7 +12,7 @@
 
 @synthesize profilePic;
 @synthesize name;
-@synthesize topics;
+@synthesize description;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -32,5 +32,13 @@
 
 - (IBAction)playAudio:(id)sender {
     //TODO(bscohen): play an audio file
+    NSLog(@"playAudio called");
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    CGRect frame = textView.frame;
+    frame.size.height = textView.contentSize.height;
+    textView.frame = frame;
 }
 @end
