@@ -23,6 +23,7 @@
 		49A5F67B15EDC24B00D3F73F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F67915EDC24B00D3F73F /* LoginViewController.m */; };
 		49A5F67C15EDC24B00D3F73F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F67A15EDC24B00D3F73F /* LoginViewController.xib */; };
 		49A5F67E15EDCD0600D3F73F /* fb-login-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F67D15EDCD0600D3F73F /* fb-login-normal.png */; };
+<<<<<<< HEAD
 		49A5F68515F04C1000D3F73F /* FakePosts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68415F04C1000D3F73F /* FakePosts.plist */; };
 		49A5F68815F05F1C00D3F73F /* AudioPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F68715F05F1C00D3F73F /* AudioPostCell.m */; };
 		49A5F68A15F05F6B00D3F73F /* AudioPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68915F05F6B00D3F73F /* AudioPostCell.xib */; };
@@ -35,6 +36,10 @@
 		49A5F69A15F078A600D3F73F /* captain_morgan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F69915F078A500D3F73F /* captain_morgan.jpg */; };
 		49A5F69E15F079AF00D3F73F /* johnnie_walker.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F69D15F079AF00D3F73F /* johnnie_walker.jpg */; };
 		49A5F6A015F079C300D3F73F /* john_jameson.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F69F15F079C300D3F73F /* john_jameson.jpg */; };
+=======
+		C99886B215F053F800588827 /* FakeSuggestedTopics.plist in Resources */ = {isa = PBXBuildFile; fileRef = C99886B115F053F800588827 /* FakeSuggestedTopics.plist */; };
+		C99886B515F06DC200588827 /* FakeSuggestedUsers.plist in Resources */ = {isa = PBXBuildFile; fileRef = C99886B415F06DC200588827 /* FakeSuggestedUsers.plist */; };
+>>>>>>> Added Trending Users and Trending Topics lists under the Filter tab
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +67,7 @@
 		49A5F67915EDC24B00D3F73F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		49A5F67A15EDC24B00D3F73F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		49A5F67D15EDCD0600D3F73F /* fb-login-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fb-login-normal.png"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		49A5F68415F04C1000D3F73F /* FakePosts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FakePosts.plist; sourceTree = "<group>"; };
 		49A5F68615F05F1C00D3F73F /* AudioPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPostCell.h; sourceTree = "<group>"; };
 		49A5F68715F05F1C00D3F73F /* AudioPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPostCell.m; sourceTree = "<group>"; };
@@ -75,6 +81,10 @@
 		49A5F69915F078A500D3F73F /* captain_morgan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = captain_morgan.jpg; sourceTree = "<group>"; };
 		49A5F69D15F079AF00D3F73F /* johnnie_walker.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = johnnie_walker.jpg; sourceTree = "<group>"; };
 		49A5F69F15F079C300D3F73F /* john_jameson.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = john_jameson.jpg; sourceTree = "<group>"; };
+=======
+		C99886B115F053F800588827 /* FakeSuggestedTopics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FakeSuggestedTopics.plist; sourceTree = "<group>"; };
+		C99886B415F06DC200588827 /* FakeSuggestedUsers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FakeSuggestedUsers.plist; sourceTree = "<group>"; };
+>>>>>>> Added Trending Users and Trending Topics lists under the Filter tab
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,8 +170,13 @@
 				49A5F64E15ED7E2D00D3F73F /* main.m */,
 				49A5F65015ED7E2D00D3F73F /* grapevine-Prefix.pch */,
 				49A5F67215EDB45400D3F73F /* FakeContacts.plist */,
+<<<<<<< HEAD
 				49A5F68415F04C1000D3F73F /* FakePosts.plist */,
 				49A5F68D15F0753600D3F73F /* FakeImages.plist */,
+=======
+				C99886B115F053F800588827 /* FakeSuggestedTopics.plist */,
+				C99886B415F06DC200588827 /* FakeSuggestedUsers.plist */,
+>>>>>>> Added Trending Users and Trending Topics lists under the Filter tab
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -224,6 +239,7 @@
 				49A5F67315EDB45400D3F73F /* FakeContacts.plist in Resources */,
 				49A5F67C15EDC24B00D3F73F /* LoginViewController.xib in Resources */,
 				49A5F67E15EDCD0600D3F73F /* fb-login-normal.png in Resources */,
+<<<<<<< HEAD
 				49A5F68515F04C1000D3F73F /* FakePosts.plist in Resources */,
 				49A5F68A15F05F6B00D3F73F /* AudioPostCell.xib in Resources */,
 				49A5F68C15F060BE00D3F73F /* IanGillis.jpg in Resources */,
@@ -235,6 +251,10 @@
 				49A5F69A15F078A600D3F73F /* captain_morgan.jpg in Resources */,
 				49A5F69E15F079AF00D3F73F /* johnnie_walker.jpg in Resources */,
 				49A5F6A015F079C300D3F73F /* john_jameson.jpg in Resources */,
+=======
+				C99886B215F053F800588827 /* FakeSuggestedTopics.plist in Resources */,
+				C99886B515F06DC200588827 /* FakeSuggestedUsers.plist in Resources */,
+>>>>>>> Added Trending Users and Trending Topics lists under the Filter tab
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +395,7 @@
 				49A5F66C15ED7E2D00D3F73F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
