@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TrendingViewController : UIViewController
+@interface TrendingViewController : UIViewController <UITableViewDataSource,
+    UITableViewDelegate>
+
+@property (nonatomic, strong) NSArray* topicSuggestions;
+@property (nonatomic, strong) NSArray* userSuggestions;
 
 @end

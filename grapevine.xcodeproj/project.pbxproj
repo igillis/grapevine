@@ -165,6 +165,8 @@
 				49A5F67215EDB45400D3F73F /* FakeContacts.plist */,
 				49A5F68415F04C1000D3F73F /* FakePosts.plist */,
 				49A5F68D15F0753600D3F73F /* FakeImages.plist */,
+				C99886B115F053F800588827 /* FakeSuggestedTopics.plist */,
+				C99886B415F06DC200588827 /* FakeSuggestedUsers.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -379,6 +381,7 @@
 				49A5F66C15ED7E2D00D3F73F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
