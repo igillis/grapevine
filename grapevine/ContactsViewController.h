@@ -11,6 +11,6 @@
 @interface ContactsViewController : UIViewController
     <UITableViewDataSource, UITableViewDelegate>
 
-@property (nonatomic, strong) NSArray* contacts;
-
+@property (nonatomic, strong) NSDictionary* contactsDict;
+@property (nonatomic, strong) NSArray* contactsKeys;
 @end
