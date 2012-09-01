@@ -16,13 +16,14 @@
 
 @synthesize contactsDict = contactsDict_;
 @synthesize contactsKeys = contactsKeys_;
-
+@synthesize cells = cells_;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:97];
+        cells_ = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -45,7 +46,6 @@
     NSString* file = [[NSBundle mainBundle] pathForResource:@"FakeContacts"
                                                      ofType:@"plist"];
     NSArray* contacts = [[NSArray alloc] initWithContentsOfFile:file];
-    NSLog(@"contacts is: %@", contacts);
     contacts = [contacts sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
     
     NSMutableArray* contactsKeys = [[NSMutableArray alloc] init];
@@ -66,6 +66,14 @@
     }
     contactsDict_ = [[NSDictionary alloc] initWithObjects:contactsValues forKeys:contactsKeys];
     contactsKeys_ = contactsKeys;
+    
+    for (int i = 0; i < [contactsValues count]; i++) {
+        [cells_ addObject:[[NSMutableArray alloc] init]];
+        for (int j = 0; j < [[contactsValues objectAtIndex:i] count]; j++) {
+            [[cells_ objectAtIndex:i] addObject:[[NSMutableDictionary alloc] initWithObjects:[[NSArray alloc] initWithObjects:[NSNumber numberWithBool:NO],nil]
+                                       forKeys:[[NSArray alloc] initWithObjects:@"checked",nil]]];
+        }
+    }
 }
 
 - (void)viewDidUnload
@@ -83,11 +91,64 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView
                     cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
-    NSString* name = [[contactsDict_ objectForKey:[contactsKeys_ objectAtIndex:[indexPath section]]] objectAtIndex:[indexPath row]];
+    static NSString *kCustomCellID = @"MyCellID";
+    UITableViewCell *cell = [tableView    dequeueReusableCellWithIdentifier:kCustomCellID];
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCustomCellID];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+    }
     
+    NSString* name = [[contactsDict_ objectForKey:[contactsKeys_ objectAtIndex:[indexPath section]]] objectAtIndex:[indexPath row]];
     [[cell textLabel] setText:name];
+    [[[cells_ objectAtIndex:indexPath.section] objectAtIndex: indexPath.row] setObject:cell forKey:@"cell"];
+    
+    BOOL isChecked = [self cellIsChecked:indexPath];
+    UIImage *image = isChecked ? [UIImage   imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGRect frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
+    button.frame = frame;
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    
+    [button addTarget:self action:@selector(checkButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
+    button.backgroundColor = [UIColor clearColor];
+    cell.accessoryView = button;
     
     return cell;
+}
+
+- (void)checkButtonTapped:(id)sender event:(id)event
+{
+    NSSet *touches = [event allTouches];
+    UITouch *touch = [touches anyObject];
+    CGPoint currentTouchPosition = [touch locationInView:self.tableView];
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
+    if (indexPath != nil)
+    {
+        [self tableView: self.tableView accessoryButtonTappedForRowWithIndexPath: indexPath];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    BOOL isChecked = [self cellIsChecked:indexPath];
+    isChecked = !isChecked;
+    UITableViewCell *cell = [[[cells_ objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"cell"];
+    UIButton *button = (UIButton *)cell.accessoryView;
+    
+    UIImage *newImage = isChecked ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
+    [button setBackgroundImage:newImage forState:UIControlStateNormal];
+    [[[cells_ objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] setObject:[NSNumber numberWithBool:!isChecked] forKey:@"checked"];
+}
+
+- (BOOL)cellIsChecked:(NSIndexPath*) indexPath {
+    return [[[[cells_ objectAtIndex:indexPath.section] objectAtIndex:indexPath.row ] objectForKey:@"checked" ] boolValue];
+}
+
+- (void)tableView:(UITableView *)tableView  didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self tableView:tableView  accessoryButtonTappedForRowWithIndexPath: indexPath];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 @end

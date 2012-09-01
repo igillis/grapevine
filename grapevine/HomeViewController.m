@@ -65,8 +65,9 @@
     }
     NSString* name = [[posts allKeys] objectAtIndex:indexPath.row];
     CGSize labelsize = [self getLabelSize:cell.description withText:[posts objectForKey:name]];
+    //Don't use labelsize.width in case the description is shorter than the cell
     cell.description.frame=CGRectMake(DESCRIPTION_X, DESCRIPTION_Y,
-                                      300 - DESCRIPTION_X,
+                                      295 - DESCRIPTION_X,
                                       labelsize.height);
     cell.name.text = name;
     
@@ -85,12 +86,13 @@
     return MAX(82.0, labelsize.height + DESCRIPTION_Y + 10.0);
 }
 
+//"private" method to determine how big label will be if filled with text
 - (CGSize) getLabelSize:(UILabel*) label withText:(NSString*) text {
     [label setNumberOfLines:0];
     label.text = text;
     [label setFont:[UIFont fontWithName:@"Helvetica" size:DESCRIPTION_FONT_SIZE]];
     return [label.text sizeWithFont:label.font
-                     constrainedToSize: CGSizeMake(300.0 - DESCRIPTION_X,300.0)
+                     constrainedToSize: CGSizeMake(295 - DESCRIPTION_X,300.0)
                          lineBreakMode:UILineBreakModeWordWrap];
 }
 @end
