@@ -60,8 +60,11 @@
         cell = [topLevelItems objectAtIndex:0];
     }
     NSString* name = [[posts allKeys] objectAtIndex:indexPath.row];
+    
     cell.name.text = name;
     cell.description.text = [posts objectForKey:name];
+    cell.description.lineBreakMode = UILineBreakModeWordWrap;
+    [cell.description sizeToFit];
     
     NSString* path = [[NSBundle mainBundle] pathForResource:[images objectForKey:name] ofType:@"jpg"];
     cell.profilePic.image = [[UIImage alloc] initWithContentsOfFile:path];
@@ -69,6 +72,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 77.0;
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
 }
 @end
