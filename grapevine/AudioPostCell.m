@@ -34,11 +34,4 @@
     //TODO(bscohen): play an audio file
     NSLog(@"playAudio called");
 }
-
-- (void)textViewDidChange:(UITextView *)textView
-{
-    CGRect frame = textView.frame;
-    frame.size.height = textView.contentSize.height;
-    textView.frame = frame;
-}
 @end
