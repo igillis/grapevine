@@ -73,10 +73,6 @@
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<string key="IBUIText">Label</string>
-								<object class="NSColor" key="IBUITextColor">
-									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MSAwLjk3MjM5NDIyMjUgMC45ODQ2MTY3MDQAA</bytes>
-								</object>
 								<object class="NSColor" key="IBUIHighlightedColor" id="439795172">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MQA</bytes>
@@ -109,10 +105,7 @@
 								<string key="IBUIText">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu asdfas df asdf asdf asdf asdf asdf s</string>
 								<object class="NSColor" key="IBUITextColor">
 									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MSAxIDEAA</bytes>
-									<object class="NSColorSpace" key="NSCustomColorSpace">
-										<int key="NSID">1</int>
-									</object>
+									<bytes key="NSRGB">MCAwIDAAA</bytes>
 								</object>
 								<reference key="IBUIHighlightedColor" ref="439795172"/>
 								<int key="IBUIBaselineAdjustment">0</int>
@@ -148,8 +141,8 @@
 				<reference key="NSNextKeyView" ref="765351634"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">3</int>
-					<bytes key="NSWhite">MAA</bytes>
+					<int key="NSColorSpace">2</int>
+					<bytes key="NSRGB">MC45NzY0NzA2NDkyIDEgMC45OTIxNTY5MjI4AA</bytes>
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<reference key="IBUIContentView" ref="765351634"/>

@@ -11,6 +11,7 @@
 
 #define DESCRIPTION_X 83.0
 #define DESCRIPTION_Y 34.0
+#define DESCRIPTION_FONT_SIZE 12.0
 
 @interface HomeViewController ()
 
@@ -65,7 +66,7 @@
     NSString* name = [[posts allKeys] objectAtIndex:indexPath.row];
     CGSize labelsize = [self getLabelSize:cell.description withText:[posts objectForKey:name]];
     cell.description.frame=CGRectMake(DESCRIPTION_X, DESCRIPTION_Y,
-                                      315 - DESCRIPTION_X,
+                                      300 - DESCRIPTION_X,
                                       labelsize.height);
     cell.name.text = name;
     
@@ -87,9 +88,9 @@
 - (CGSize) getLabelSize:(UILabel*) label withText:(NSString*) text {
     [label setNumberOfLines:0];
     label.text = text;
-    [label setFont:[UIFont fontWithName:@"Helvetica" size:14.0]];
+    [label setFont:[UIFont fontWithName:@"Helvetica" size:DESCRIPTION_FONT_SIZE]];
     return [label.text sizeWithFont:label.font
-                     constrainedToSize: CGSizeMake(315.0 - DESCRIPTION_X,300.0)
+                     constrainedToSize: CGSizeMake(300.0 - DESCRIPTION_X,300.0)
                          lineBreakMode:UILineBreakModeWordWrap];
 }
 @end
