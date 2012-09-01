@@ -22,4 +22,6 @@
 
 @property (strong, nonatomic) UITextField* password;
 
+@property (strong, nonatomic) IBOutlet UILabel* grapevine;
+
 @end

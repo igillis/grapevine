@@ -9,6 +9,9 @@
 #import "HomeViewController.h"
 #import "AudioPostCell.h"
 
+#define DESCRIPTION_X 83.0
+#define DESCRIPTION_Y 34.0
+
 @interface HomeViewController ()
 
 @end
@@ -53,24 +56,40 @@
     return [[posts allKeys] count];
 }
 
-static NSString* CellNib = @"AudioPostCell";
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AudioPostCell *cell = (AudioPostCell *)[tableView dequeueReusableCellWithIdentifier:CellNib];
+    AudioPostCell *cell = (AudioPostCell *)[tableView dequeueReusableCellWithIdentifier:@"AudioPostCell"];
     if (!cell) {
         NSArray *topLevelItems = [cellLoader instantiateWithOwner:self options:nil];
         cell = [topLevelItems objectAtIndex:0];
     }
     NSString* name = [[posts allKeys] objectAtIndex:indexPath.row];
+    CGSize labelsize = [self getLabelSize:cell.description withText:[posts objectForKey:name]];
+    cell.description.frame=CGRectMake(DESCRIPTION_X, DESCRIPTION_Y,
+                                      315 - DESCRIPTION_X,
+                                      labelsize.height);
     cell.name.text = name;
-    cell.topics.text = [posts objectForKey:name];
     
-    NSString* path = [[NSBundle mainBundle] pathForResource:[images objectForKey:name] ofType:@"jpg"];
-    cell.profilePic.image = [[UIImage alloc] initWithContentsOfFile:path];
+    NSString* imagePath =
+        [[NSBundle mainBundle] pathForResource:[images objectForKey:name] ofType:@"jpg"];
+    cell.profilePic.image = [[UIImage alloc] initWithContentsOfFile:imagePath];
+    
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 77.0;
+    CGSize labelsize;
+    UILabel * label = [[UILabel alloc] init];
+    labelsize = [self getLabelSize:label
+                  withText:[posts objectForKey:[[posts allKeys] objectAtIndex:indexPath.row]]];
+    return MAX(82.0, labelsize.height + DESCRIPTION_Y + 10.0);
+}
+
+- (CGSize) getLabelSize:(UILabel*) label withText:(NSString*) text {
+    [label setNumberOfLines:0];
+    label.text = text;
+    [label setFont:[UIFont fontWithName:@"Helvetica" size:14.0]];
+    return [label.text sizeWithFont:label.font
+                     constrainedToSize: CGSizeMake(315.0 - DESCRIPTION_X,300.0)
+                         lineBreakMode:UILineBreakModeWordWrap];
 }
 @end
