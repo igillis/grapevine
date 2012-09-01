@@ -132,14 +132,13 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    BOOL isChecked = [self cellIsChecked:indexPath];
-    isChecked = !isChecked;
+    BOOL isChecked = ![self cellIsChecked:indexPath];
     UITableViewCell *cell = [[[cells_ objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"cell"];
     UIButton *button = (UIButton *)cell.accessoryView;
     
     UIImage *newImage = isChecked ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
     [button setBackgroundImage:newImage forState:UIControlStateNormal];
-    [[[cells_ objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] setObject:[NSNumber numberWithBool:!isChecked] forKey:@"checked"];
+    [[[cells_ objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] setObject:[NSNumber numberWithBool:isChecked] forKey:@"checked"];
 }
 
 - (BOOL)cellIsChecked:(NSIndexPath*) indexPath {
