@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface HomeViewController : UIViewController
-<UITableViewDelegate, UITableViewDataSource> {
+<UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate> {
     UINib* cellLoader;
 }
 
 @property (nonatomic, strong) NSDictionary* posts;
 @property (nonatomic, strong) NSDictionary* images;
+@property (nonatomic, strong) NSURL* soundUrl;
+@property (nonatomic, strong) AVAudioPlayer* player;
 
 @end

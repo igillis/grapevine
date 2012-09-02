@@ -8,6 +8,8 @@
 
 #import "HomeViewController.h"
 #import "AudioPostCell.h"
+#import <AVFoundation/AVFoundation.h>
+
 
 #define DESCRIPTION_X 83.0
 #define DESCRIPTION_Y 34.0
@@ -21,6 +23,8 @@
 
 @synthesize posts;
 @synthesize images;
+@synthesize soundUrl;
+@synthesize player;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,8 +43,20 @@
 	NSString* postsFile = [[NSBundle mainBundle] pathForResource:@"FakePosts"
                                                      ofType:@"plist"];
     NSString* imagesFile = [[NSBundle mainBundle] pathForResource:@"FakeImages" ofType:@"plist"];
+    NSString* soundFile = [[NSBundle mainBundle] pathForResource:@"FakeSound" ofType:@"mp3"];
+    
+    self.soundUrl = [[NSURL alloc] initFileURLWithPath:soundFile];
+    
     self.posts = [[NSDictionary alloc] initWithContentsOfFile:postsFile];
     self.images = [[NSDictionary alloc] initWithContentsOfFile:imagesFile];
+    
+    AVAudioPlayer* newPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL: self.soundUrl error: nil];
+    
+    self.player = newPlayer;
+    [player prepareToPlay];
+    [player setVolume: 1.0];
+    [player setDelegate:self];
+    [player play];
 }
 
 - (void)viewDidUnload
