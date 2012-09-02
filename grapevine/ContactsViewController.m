@@ -64,6 +64,11 @@
         }
         [currentValues addObject:contact];
     }
+    if (currentKey != nil) {
+        [contactsKeys addObject:currentKey];
+        [contactsValues addObject:currentValues];
+    }
+    
     contactsDict_ = [[NSDictionary alloc] initWithObjects:contactsValues forKeys:contactsKeys];
     contactsKeys_ = contactsKeys;
     
