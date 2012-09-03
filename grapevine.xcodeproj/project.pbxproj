@@ -42,7 +42,7 @@
 		49A5F6B115F1A3B200D3F73F /* trendingUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F6AF15F1A3B200D3F73F /* trendingUp.png */; };
 		49F572EB15F2670C008C5D8B /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F572EA15F2670C008C5D8B /* checked.png */; };
 		49F572EE15F26722008C5D8B /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F572ED15F26722008C5D8B /* unchecked.png */; };
-		C970262715F316DE004B1C50 /* FakeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = C970262615F316DE004B1C50 /* FakeSound.mp3 */; };
+		49F5730515F52382008C5D8B /* FakeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 49F5730415F52382008C5D8B /* FakeSound.mp3 */; };
 		C970262A15F31C8E004B1C50 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C970262915F31C8E004B1C50 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,7 +91,7 @@
 		49A5F6AF15F1A3B200D3F73F /* trendingUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trendingUp.png; sourceTree = "<group>"; };
 		49F572EA15F2670C008C5D8B /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		49F572ED15F26722008C5D8B /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
-		C970262615F316DE004B1C50 /* FakeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = FakeSound.mp3; path = ../../../Desktop/FakeSound.mp3; sourceTree = "<group>"; };
+		49F5730415F52382008C5D8B /* FakeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = FakeSound.mp3; sourceTree = "<group>"; };
 		C970262915F31C8E004B1C50 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -166,7 +166,7 @@
 		49A5F64915ED7E2D00D3F73F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C970262615F316DE004B1C50 /* FakeSound.mp3 */,
+				49F5730415F52382008C5D8B /* FakeSound.mp3 */,
 				49F572ED15F26722008C5D8B /* unchecked.png */,
 				49F572EA15F2670C008C5D8B /* checked.png */,
 				49A5F6A215F1585800D3F73F /* TalkingToTheMoon.ttf */,
@@ -270,7 +270,7 @@
 				49A5F6B115F1A3B200D3F73F /* trendingUp.png in Resources */,
 				49F572EB15F2670C008C5D8B /* checked.png in Resources */,
 				49F572EE15F26722008C5D8B /* unchecked.png in Resources */,
-				C970262715F316DE004B1C50 /* FakeSound.mp3 in Resources */,
+				49F5730515F52382008C5D8B /* FakeSound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
