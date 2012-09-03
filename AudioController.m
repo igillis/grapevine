@@ -28,9 +28,7 @@ static AVAudioPlayer* _audioPlayer = nil;
     else {
         _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL: soundUrl error: nil];
     
-        [_audioPlayer prepareToPlay];
         [_audioPlayer setVolume: 1.0];
-        [_audioPlayer setDelegate:self];
         [_audioPlayer play];
     }
 }
