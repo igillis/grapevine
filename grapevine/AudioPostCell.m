@@ -7,6 +7,7 @@
 //
 
 #import "AudioPostCell.h"
+#import "AudioController.h"
 
 @implementation AudioPostCell
 
@@ -30,8 +31,8 @@
     // Configure the view for the selected state
 }
 
-- (IBAction)playAudio:(id)sender {
-    //TODO(bscohen): play an audio file
-    NSLog(@"playAudio called");
+-(void) toggleAudio: (NSString*) file {
+    NSLog(@"toggle audio called");
+    [[AudioController sharedInstance] toggleAudio:file];
 }
 @end

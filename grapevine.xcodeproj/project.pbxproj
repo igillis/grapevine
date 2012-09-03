@@ -43,6 +43,7 @@
 		49F572EB15F2670C008C5D8B /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F572EA15F2670C008C5D8B /* checked.png */; };
 		49F572EE15F26722008C5D8B /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F572ED15F26722008C5D8B /* unchecked.png */; };
 		49F5730515F52382008C5D8B /* FakeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 49F5730415F52382008C5D8B /* FakeSound.mp3 */; };
+		49F5730C15F526E1008C5D8B /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F5730B15F526E1008C5D8B /* AudioController.m */; };
 		C970262A15F31C8E004B1C50 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C970262915F31C8E004B1C50 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,8 @@
 		49F572EA15F2670C008C5D8B /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		49F572ED15F26722008C5D8B /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
 		49F5730415F52382008C5D8B /* FakeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = FakeSound.mp3; sourceTree = "<group>"; };
+		49F5730A15F526E1008C5D8B /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioController.h; path = ../AudioController.h; sourceTree = "<group>"; };
+		49F5730B15F526E1008C5D8B /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioController.m; path = ../AudioController.m; sourceTree = "<group>"; };
 		C970262915F31C8E004B1C50 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -141,6 +144,8 @@
 		49A5F64815ED7E2D00D3F73F /* grapevine */ = {
 			isa = PBXGroup;
 			children = (
+				49F5730A15F526E1008C5D8B /* AudioController.h */,
+				49F5730B15F526E1008C5D8B /* AudioController.m */,
 				49A5F65115ED7E2D00D3F73F /* AppDelegate.h */,
 				49A5F65215ED7E2D00D3F73F /* AppDelegate.m */,
 				49A5F65415ED7E2D00D3F73F /* HomeViewController.h */,
@@ -288,6 +293,7 @@
 				49A5F67015EDAE6200D3F73F /* ContactsViewController.m in Sources */,
 				49A5F67B15EDC24B00D3F73F /* LoginViewController.m in Sources */,
 				49A5F68815F05F1C00D3F73F /* AudioPostCell.m in Sources */,
+				49F5730C15F526E1008C5D8B /* AudioController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
