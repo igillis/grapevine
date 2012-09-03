@@ -21,6 +21,8 @@
 
 @synthesize posts;
 @synthesize images;
+@synthesize recordButton;
+@synthesize grapevine;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,6 +44,12 @@
     
     self.posts = [[NSDictionary alloc] initWithContentsOfFile:postsFile];
     self.images = [[NSDictionary alloc] initWithContentsOfFile:imagesFile];
+    
+    [grapevine setFont:[UIFont fontWithName:@"TalkingtotheMoon" size:24.0]];
+    
+    self.recordButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.recordButton.layer.borderWidth = 0.5;
+    self.recordButton.layer.cornerRadius = 3.0;
 }
 
 - (void)viewDidUnload
@@ -103,5 +111,10 @@
     AudioPostCell* cell = (AudioPostCell*)[tableView cellForRowAtIndexPath:indexPath];
     [cell toggleAudio:soundFile];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+- (void)recordButtonPressed:(id)sender {
+    //TODO: decide what to do when record button is pressed
+    NSLog(@"record button pressed");
 }
 @end

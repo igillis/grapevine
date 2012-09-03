@@ -95,7 +95,6 @@
 								<string key="NSFrame">{{83, 34}, {178, 39}}</string>
 								<reference key="NSSuperview" ref="765351634"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -140,10 +139,7 @@
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="765351634"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
-				<object class="NSColor" key="IBUIBackgroundColor">
-					<int key="NSColorSpace">2</int>
-					<bytes key="NSRGB">MC45NzY0NzA2NDkyIDEgMC45OTIxNTY5MjI4AA</bytes>
-				</object>
+				<reference key="IBUIBackgroundColor" ref="439795172"/>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<reference key="IBUIContentView" ref="765351634"/>
 				<string key="IBUIReuseIdentifier">AudioPostCell</string>
@@ -245,17 +241,6 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">AudioPostCell</string>
 					<string key="superclassName">UITableViewCell</string>
-					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">playAudio:</string>
-						<string key="NS.object.0">id</string>
-					</object>
-					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">playAudio:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">playAudio:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="description">UILabel</string>
 						<string key="name">UILabel</string>

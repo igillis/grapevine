@@ -7,14 +7,12 @@
 //
 
 #import "AppDelegate.h"
-
 #import "HomeViewController.h"
-
 #import "TrendingViewController.h"
-
 #import "ContactsViewController.h"
-
 #import "LoginViewController.h"
+
+#import <QuartzCore/QuartzCore.h>
 
 @implementation AppDelegate
 
@@ -37,6 +35,10 @@
     
     
     self.window.rootViewController = self.tabBarController;
+    self.window.layer.cornerRadius = 3.0;
+    self.window.layer.masksToBounds = YES;
+    self.window.rootViewController.view.layer.cornerRadius = 3.0;
+    self.window.rootViewController.view.layer.masksToBounds = YES;
     [self.window makeKeyAndVisible];
     
     [self.tabBarController presentViewController:loginViewController animated:YES completion:NULL];

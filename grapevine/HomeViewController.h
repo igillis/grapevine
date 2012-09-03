@@ -10,13 +10,16 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface HomeViewController : UIViewController
-<UITableViewDelegate, UITableViewDataSource, AVAudioPlayerDelegate> {
+<UITableViewDelegate, UITableViewDataSource> {
     UINib* cellLoader;
 }
-
 @property (nonatomic, strong) NSDictionary* posts;
 @property (nonatomic, strong) NSDictionary* images;
 @property (nonatomic, strong) NSURL* soundUrl;
 @property (nonatomic, strong) AVAudioPlayer* player;
+@property (nonatomic, strong) IBOutlet UIButton* recordButton;
+@property (nonatomic, strong) IBOutlet UILabel* grapevine;
+
+-(IBAction)recordButtonPressed:(id)sender;
 
 @end
