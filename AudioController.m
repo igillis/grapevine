@@ -39,12 +39,26 @@ static AVAudioPlayer* _audioPlayer = nil;
     }
 }
 
--(void) toggleAudio: (NSString*) file {
+//file represents the file to play if none currently playing
+//return value represents whether or not the file is now playing
+-(BOOL) toggleAudio: (NSString*) file {
     if (_audioPlayer && [_audioPlayer isPlaying]) {
         [_audioPlayer pause];
+        return NO;
     } else {
         [self playAudio:file];
+        return YES;
     }
+}
+
+//newTime represents the time to start playback at
+// in seconds (as we only have 30 secs of audio)
+-(BOOL) setTime: (int) newTime {
+    if (_audioPlayer && [_audioPlayer isPlaying]) {
+        [_audioPlayer setCurrentTime:newTime];
+        return YES;
+    }
+    return NO;
 }
 
 -(AudioController*) init {

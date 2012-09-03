@@ -34,5 +34,6 @@
 -(void) toggleAudio: (NSString*) file {
     NSLog(@"toggle audio called");
     [[AudioController sharedInstance] toggleAudio:file];
+    [[AudioController sharedInstance] setTime:10];
 }
 @end
