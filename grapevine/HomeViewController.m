@@ -47,7 +47,7 @@ static AudioPostCell* currentlyPlaying = nil;
     self.posts = [[NSDictionary alloc] initWithContentsOfFile:postsFile];
     self.images = [[NSDictionary alloc] initWithContentsOfFile:imagesFile];
     
-    [grapevine setFont:[UIFont fontWithName:@"TalkingtotheMoon" size:24.0]];
+    [grapevine setFont:[UIFont fontWithName:@"TalkingtotheMoon" size:26.0]];
     
     self.recordButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.recordButton.layer.borderWidth = 0.5;
@@ -100,6 +100,9 @@ static AudioPostCell* currentlyPlaying = nil;
         
         NSString* imagePath =
             [[NSBundle mainBundle] pathForResource:[images objectForKey:name] ofType:@"jpg"];
+        if ([name isEqualToString:@"Jose Cuervo"]) {
+            NSLog(imagePath);
+        }
         cell.profilePic.image = [[UIImage alloc] initWithContentsOfFile:imagePath];
         return cell;
     } else {
