@@ -19,6 +19,8 @@
 
 @implementation HomeViewController
 
+static AudioPostCell* currentlyPlaying = nil;
+
 @synthesize posts;
 @synthesize images;
 @synthesize recordButton;
@@ -108,9 +110,14 @@
 - (void)tableView:(UITableView *)tableView  didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* soundFile = [[NSBundle mainBundle] pathForResource:@"FakeSound" ofType:@"mp3"];
+    
+    if (currentlyPlaying) {
+        [currentlyPlaying toggleAudio:soundFile];
+    }
     AudioPostCell* cell = (AudioPostCell*)[tableView cellForRowAtIndexPath:indexPath];
     [cell toggleAudio:soundFile];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    currentlyPlaying = cell;
 }
 
 - (void)recordButtonPressed:(id)sender {

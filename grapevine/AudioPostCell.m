@@ -35,6 +35,5 @@
 -(void) toggleAudio: (NSString*) file {
     [nowPlayingImage setHidden: ![nowPlayingImage isHidden]];
     [[AudioController sharedInstance] toggleAudio:file];
-    [[AudioController sharedInstance] setTime:10];
 }
 @end
