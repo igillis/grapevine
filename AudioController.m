@@ -20,6 +20,7 @@ static AVAudioPlayer* _audioPlayer = nil;
     return _sharedInstance;
 }
 
+//Should make this threaded so that it can continue in the background without holding up the UI from updating
 -(void) playAudio:(NSString *)file {
     NSURL* soundUrl = [[NSURL alloc] initFileURLWithPath:file];
     if (_audioPlayer && [_audioPlayer.url isEqual:soundUrl]) {

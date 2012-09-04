@@ -36,4 +36,7 @@
     [nowPlayingImage setHidden: ![nowPlayingImage isHidden]];
     [[AudioController sharedInstance] toggleAudio:file];
 }
+-(void) pauseAudio {
+    [[AudioController sharedInstance] pauseAudio];
+}
 @end

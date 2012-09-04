@@ -110,18 +110,30 @@ static AudioPostCell* currentlyPlaying = nil;
 - (void)tableView:(UITableView *)tableView  didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString* soundFile = [[NSBundle mainBundle] pathForResource:@"FakeSound" ofType:@"mp3"];
-    
-    if (currentlyPlaying) {
-        [currentlyPlaying toggleAudio:soundFile];
+    if(currentlyPlaying) {
+        [self toggleHidden:currentlyPlaying withSoundFile:soundFile];
     }
+
     AudioPostCell* cell = (AudioPostCell*)[tableView cellForRowAtIndexPath:indexPath];
-    [cell toggleAudio:soundFile];
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self toggleHidden:cell withSoundFile:soundFile];
     currentlyPlaying = cell;
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+- (void)toggleHidden: (AudioPostCell*) cell withSoundFile: (NSString*) soundFile {
+    [cell toggleAudio:soundFile];
+    CATransition *animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.3;
+    [cell.layer addAnimation:animation forKey:nil];
+    cell.hidden = !cell.hidden;
 }
 
 - (void)recordButtonPressed:(id)sender {
     //TODO: decide what to do when record button is pressed
+    if (currentlyPlaying) {
+        [currentlyPlaying pauseAudio];
+    }
     NSLog(@"record button pressed");
 }
 @end

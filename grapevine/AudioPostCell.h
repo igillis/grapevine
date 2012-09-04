@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *nowPlayingImage;
 
 -(void) toggleAudio: (NSString*) file;
+-(void) pauseAudio;
 
 @end
