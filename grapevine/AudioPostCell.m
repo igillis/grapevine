@@ -14,6 +14,7 @@
 @synthesize profilePic;
 @synthesize name;
 @synthesize description;
+@synthesize nowPlayingImage;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -32,7 +33,7 @@
 }
 
 -(void) toggleAudio: (NSString*) file {
-    NSLog(@"toggle audio called");
+    [nowPlayingImage setHidden: ![nowPlayingImage isHidden]];
     [[AudioController sharedInstance] toggleAudio:file];
     [[AudioController sharedInstance] setTime:10];
 }
