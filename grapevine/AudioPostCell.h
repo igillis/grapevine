@@ -20,5 +20,7 @@
 -(void) toggleViews;
 -(void) toggleAudio: (NSString*) file;
 -(void) pauseAudio;
+-(void) stopAudio;
+-(void) playAudio: (NSString*) file;
 
 @end

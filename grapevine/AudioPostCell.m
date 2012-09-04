@@ -41,6 +41,21 @@
 -(void) pauseAudio {
     [[AudioController sharedInstance] pauseAudio];
 }
+-(void) stopAudio {
+    [[AudioController sharedInstance] stopAudio];
+}
+-(void) playAudio:(NSString *) file {
+    [[AudioController sharedInstance] playAudio:file];
+}
+-(BOOL) isEqual:(id)object {
+    if (![object isKindOfClass:[AudioPostCell class]]) {
+        return NO;
+    } else {
+        AudioPostCell* otherCell = (AudioPostCell*) object;
+        return [self.description.text isEqualToString:otherCell.description.text]
+            && [self.name.text isEqualToString:otherCell.name.text];
+    }
+}
 
 -(void) toggleViews {
     

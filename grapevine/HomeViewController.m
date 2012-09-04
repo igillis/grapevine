@@ -78,40 +78,44 @@ static AudioPostCell* currentlyPlaying = nil;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
-        NSLog(@"section was 2");
-        AudioPostCell *cell = (AudioPostCell *)[tableView dequeueReusableCellWithIdentifier:@"AudioPostCell"];
+        AudioPostCell *cell = (AudioPostCell *)[tableView dequeueReusableCellWithIdentifier:[[NSString alloc] initWithFormat:@"AudioPostCell%i", indexPath.row]];
         if (!cell) {
             NSArray *topLevelItems = [cellLoader instantiateWithOwner:self options:nil];
             cell = [topLevelItems objectAtIndex:0];
         }
         NSString* name = [[posts allKeys] objectAtIndex:indexPath.row];
-        CGSize labelsize = [self getLabelSize:cell.description withText:[posts objectForKey:name]];
+        CGSize labelsize = [self setCellLabel:cell.description withText:[posts objectForKey:name]];
         //Don't use labelsize.width in case the description is shorter than the cell
         cell.description.frame=CGRectMake(DESCRIPTION_X, DESCRIPTION_Y,
                                           295 - DESCRIPTION_X,
                                           labelsize.height);
         cell.name.text = name;
         
+        //handles the case where a cell started playing and then the user scrolled away
+        //and then scrolled back
+        if ([cell isEqual:currentlyPlaying]) {
+            cell = nil;
+            return currentlyPlaying;
+        }
+        
         NSString* imagePath =
             [[NSBundle mainBundle] pathForResource:[images objectForKey:name] ofType:@"jpg"];
         cell.profilePic.image = [[UIImage alloc] initWithContentsOfFile:imagePath];
-        
         return cell;
     } else {
-        NSLog(@"section was 1");
         UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
-            cell.backgroundColor = [UIColor clearColor];
-        }
-        CGRect frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y-5, cell.frame.size.width, cell.frame.size.height);
-        UISearchBar* searchBar = [[UISearchBar alloc] initWithFrame:frame];
-        [cell addSubview:searchBar];
-        searchBar.tintColor = [UIColor whiteColor];
-        searchBar.showsBookmarkButton = NO;
-        for (UIView* view in [searchBar subviews]) {
-            if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
-                [view removeFromSuperview];
+            UIView* bgView = [[UIView alloc] initWithFrame:[cell bounds]];
+            bgView.backgroundColor = [UIColor clearColor];
+            cell.backgroundView = bgView;
+            UISearchBar* searchBar = [[UISearchBar alloc] initWithFrame:[cell bounds]];
+            [cell addSubview:searchBar];
+            searchBar.showsBookmarkButton = NO;
+            for (UIView* view in [searchBar subviews]) {
+                if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
+                    [view removeFromSuperview];
+                }
             }
         }
         return cell;
@@ -124,13 +128,13 @@ static AudioPostCell* currentlyPlaying = nil;
     }
     CGSize labelsize;
     UILabel * label = [[UILabel alloc] init];
-    labelsize = [self getLabelSize:label
+    labelsize = [self setCellLabel:label
                   withText:[posts objectForKey:[[posts allKeys] objectAtIndex:indexPath.row]]];
     return MAX(82.0, labelsize.height + DESCRIPTION_Y + 10.0);
 }
 
 //"private" method to determine how big label will be if filled with text
-- (CGSize) getLabelSize:(UILabel*) label withText:(NSString*) text {
+- (CGSize) setCellLabel:(UILabel*) label withText:(NSString*) text {
     [label setNumberOfLines:0];
     label.text = text;
     [label setFont:[UIFont fontWithName:@"Helvetica" size:DESCRIPTION_FONT_SIZE]];
@@ -143,17 +147,18 @@ static AudioPostCell* currentlyPlaying = nil;
 {
     NSString* soundFile = [[NSBundle mainBundle] pathForResource:@"FakeSound" ofType:@"mp3"];
     if(currentlyPlaying) {
-        [self toggleHidden:currentlyPlaying withSoundFile:soundFile];
+        [currentlyPlaying stopAudio];
+        [self toggleHidden:currentlyPlaying];
     }
 
     AudioPostCell* cell = (AudioPostCell*)[tableView cellForRowAtIndexPath:indexPath];
-    [self toggleHidden:cell withSoundFile:soundFile];
+    [cell playAudio:soundFile];
+    [self toggleHidden:cell];
     currentlyPlaying = cell;
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
-- (void)toggleHidden: (AudioPostCell*) cell withSoundFile: (NSString*) soundFile {
-    [cell toggleAudio:soundFile];
+- (void)toggleHidden: (AudioPostCell*) cell {
     CATransition *animation = [CATransition animation];
     animation.type = kCATransitionFade;
     animation.duration = 0.3;

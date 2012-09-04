@@ -15,6 +15,7 @@
 + (AudioController*) sharedInstance;
 - (void) playAudio: (NSString*) file;
 - (void) pauseAudio;
+- (void) stopAudio;
 - (BOOL) toggleAudio: (NSString*) file;
 - (BOOL) setTime: (int) newTime;
 

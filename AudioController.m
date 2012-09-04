@@ -28,7 +28,6 @@ static AVAudioPlayer* _audioPlayer = nil;
     }
     else {
         _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL: soundUrl error: nil];
-    
         [_audioPlayer setVolume: 1.0];
         [_audioPlayer play];
     }
@@ -60,6 +59,13 @@ static AVAudioPlayer* _audioPlayer = nil;
         return YES;
     }
     return NO;
+}
+
+-(void) stopAudio {
+    if (_audioPlayer) {
+        [_audioPlayer stop];
+        _audioPlayer = nil;
+    }
 }
 
 -(AudioController*) init {
