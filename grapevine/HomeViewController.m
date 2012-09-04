@@ -78,7 +78,7 @@ static AudioPostCell* currentlyPlaying = nil;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1) {
-        AudioPostCell *cell = (AudioPostCell *)[tableView dequeueReusableCellWithIdentifier:[[NSString alloc] initWithFormat:@"AudioPostCell%i", indexPath.row]];
+        AudioPostCell *cell = (AudioPostCell *)[tableView dequeueReusableCellWithIdentifier:@"AudioPostCell%i"];
         if (!cell) {
             NSArray *topLevelItems = [cellLoader instantiateWithOwner:self options:nil];
             cell = [topLevelItems objectAtIndex:0];
