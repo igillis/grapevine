@@ -45,7 +45,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{7, 5}, {68, 68}}</string>
 								<reference key="NSSuperview" ref="765351634"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="76053227"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
@@ -60,8 +59,7 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{83, 5}, {127, 21}}</string>
 								<reference key="NSSuperview" ref="765351634"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="207410512"/>
+								<reference key="NSNextKeyView" ref="561208303"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor" id="791962818">
 									<int key="NSColorSpace">3</int>
@@ -94,8 +92,6 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{83, 34}, {178, 39}}</string>
 								<reference key="NSSuperview" ref="765351634"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -121,12 +117,11 @@
 									<int key="NSfFlags">16</int>
 								</object>
 							</object>
-							<object class="IBUIImageView" id="207410512">
+							<object class="IBUIImageView" id="561208303">
 								<reference key="NSNextResponder" ref="765351634"/>
 								<int key="NSvFlags">-2147483356</int>
 								<string key="NSFrame">{{261, 5}, {15, 15}}</string>
 								<reference key="NSSuperview" ref="765351634"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="691597007"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<reference key="IBUIBackgroundColor" ref="791962818"/>
@@ -140,8 +135,6 @@
 						</array>
 						<string key="NSFrameSize">{301, 76}</string>
 						<reference key="NSSuperview" ref="1035462776"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="498452390"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<reference key="IBUIBackgroundColor" ref="791962818"/>
 						<bool key="IBUIOpaque">NO</bool>
@@ -153,7 +146,6 @@
 				</array>
 				<string key="NSFrameSize">{301, 77}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="765351634"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<reference key="IBUIBackgroundColor" ref="439795172"/>
@@ -193,7 +185,7 @@
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">nowPlayingImage</string>
 						<reference key="source" ref="1035462776"/>
-						<reference key="destination" ref="207410512"/>
+						<reference key="destination" ref="561208303"/>
 					</object>
 					<int key="connectionID">33</int>
 				</object>
@@ -224,18 +216,13 @@
 							<reference ref="498452390"/>
 							<reference ref="76053227"/>
 							<reference ref="691597007"/>
-							<reference ref="207410512"/>
+							<reference ref="561208303"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">5</int>
-						<reference key="object" ref="498452390"/>
-						<reference key="parent" ref="1035462776"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">7</int>
-						<reference key="object" ref="76053227"/>
+						<int key="objectID">30</int>
+						<reference key="object" ref="561208303"/>
 						<reference key="parent" ref="1035462776"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -244,8 +231,13 @@
 						<reference key="parent" ref="1035462776"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">30</int>
-						<reference key="object" ref="207410512"/>
+						<int key="objectID">7</int>
+						<reference key="object" ref="76053227"/>
+						<reference key="parent" ref="1035462776"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">5</int>
+						<reference key="object" ref="498452390"/>
 						<reference key="parent" ref="1035462776"/>
 					</object>
 				</array>
@@ -266,44 +258,9 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">33</int>
+			<int key="maxID">48</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">AudioPostCell</string>
-					<string key="superclassName">UITableViewCell</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="description">UILabel</string>
-						<string key="name">UILabel</string>
-						<string key="nowPlayingImage">UIImageView</string>
-						<string key="profilePic">UIImageView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="description">
-							<string key="name">description</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="name">
-							<string key="name">name</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="nowPlayingImage">
-							<string key="name">nowPlayingImage</string>
-							<string key="candidateClassName">UIImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="profilePic">
-							<string key="name">profilePic</string>
-							<string key="candidateClassName">UIImageView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/AudioPostCell.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginDeclaredDependencyDefaults">

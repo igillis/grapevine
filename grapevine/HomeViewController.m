@@ -65,31 +65,63 @@ static AudioPostCell* currentlyPlaying = nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[posts allKeys] count];
+    if (section == 0) {
+        return 1;
+    } else {
+        return [[posts allKeys] count];
+    }
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AudioPostCell *cell = (AudioPostCell *)[tableView dequeueReusableCellWithIdentifier:@"AudioPostCell"];
-    if (!cell) {
-        NSArray *topLevelItems = [cellLoader instantiateWithOwner:self options:nil];
-        cell = [topLevelItems objectAtIndex:0];
+    if (indexPath.section == 1) {
+        NSLog(@"section was 2");
+        AudioPostCell *cell = (AudioPostCell *)[tableView dequeueReusableCellWithIdentifier:@"AudioPostCell"];
+        if (!cell) {
+            NSArray *topLevelItems = [cellLoader instantiateWithOwner:self options:nil];
+            cell = [topLevelItems objectAtIndex:0];
+        }
+        NSString* name = [[posts allKeys] objectAtIndex:indexPath.row];
+        CGSize labelsize = [self getLabelSize:cell.description withText:[posts objectForKey:name]];
+        //Don't use labelsize.width in case the description is shorter than the cell
+        cell.description.frame=CGRectMake(DESCRIPTION_X, DESCRIPTION_Y,
+                                          295 - DESCRIPTION_X,
+                                          labelsize.height);
+        cell.name.text = name;
+        
+        NSString* imagePath =
+            [[NSBundle mainBundle] pathForResource:[images objectForKey:name] ofType:@"jpg"];
+        cell.profilePic.image = [[UIImage alloc] initWithContentsOfFile:imagePath];
+        
+        return cell;
+    } else {
+        NSLog(@"section was 1");
+        UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
+        if (!cell) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
+            cell.backgroundColor = [UIColor clearColor];
+        }
+        CGRect frame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y-5, cell.frame.size.width, cell.frame.size.height);
+        UISearchBar* searchBar = [[UISearchBar alloc] initWithFrame:frame];
+        [cell addSubview:searchBar];
+        searchBar.tintColor = [UIColor whiteColor];
+        searchBar.showsBookmarkButton = NO;
+        for (UIView* view in [searchBar subviews]) {
+            if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
+                [view removeFromSuperview];
+            }
+        }
+        return cell;
     }
-    NSString* name = [[posts allKeys] objectAtIndex:indexPath.row];
-    CGSize labelsize = [self getLabelSize:cell.description withText:[posts objectForKey:name]];
-    //Don't use labelsize.width in case the description is shorter than the cell
-    cell.description.frame=CGRectMake(DESCRIPTION_X, DESCRIPTION_Y,
-                                      295 - DESCRIPTION_X,
-                                      labelsize.height);
-    cell.name.text = name;
-    
-    NSString* imagePath =
-        [[NSBundle mainBundle] pathForResource:[images objectForKey:name] ofType:@"jpg"];
-    cell.profilePic.image = [[UIImage alloc] initWithContentsOfFile:imagePath];
-    
-    return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 30.0;
+    }
     CGSize labelsize;
     UILabel * label = [[UILabel alloc] init];
     labelsize = [self getLabelSize:label

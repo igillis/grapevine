@@ -11,10 +11,12 @@
 
 @implementation AudioPostCell
 
+@synthesize mainView;
 @synthesize profilePic;
 @synthesize name;
 @synthesize description;
 @synthesize nowPlayingImage;
+@synthesize altView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -38,5 +40,9 @@
 }
 -(void) pauseAudio {
     [[AudioController sharedInstance] pauseAudio];
+}
+
+-(void) toggleViews {
+    
 }
 @end
