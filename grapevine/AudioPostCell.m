@@ -22,7 +22,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+
     }
     return self;
 }
@@ -58,6 +58,7 @@
 }
 
 -(void) toggleViews {
+    NSLog(@"mainView hidden = %i, altview hidden = %i", mainView.hidden, altView.hidden);
     CATransition *animation = [CATransition animation];
     animation.type = kCATransitionFade;
     animation.duration = 0.3;
