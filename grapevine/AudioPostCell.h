@@ -14,13 +14,15 @@
 @property (strong, nonatomic) IBOutlet UIImageView* profilePic;
 @property (strong, nonatomic) IBOutlet UILabel* name;
 @property (strong, nonatomic) IBOutlet UILabel* description;
-@property (weak, nonatomic) IBOutlet UIImageView *nowPlayingImage;
 @property (weak, nonatomic) IBOutlet UIView *altView;
 @property (strong, nonatomic) NSString* audioPath;
 @property (weak, nonatomic) IBOutlet UISlider *timeSlider;
+@property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
+@property (weak, nonatomic) IBOutlet UILabel *altName;
 
 - (IBAction)playPauseButtonTouched:(id)sender;
 - (IBAction)timeSliderChanged:(id)sender;
+- (IBAction)shareButtonTouched:(id)sender;
 -(void) toggleViews;
 -(void) toggleAudio: (NSString*) file;
 -(void) pauseAudio;

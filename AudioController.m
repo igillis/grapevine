@@ -10,18 +10,21 @@
 #import <AVFoundation/AVFoundation.h>
 
 @implementation AudioController
+@synthesize recording;
+
 static AudioController* _sharedInstance = nil;
 static AVAudioPlayer* _audioPlayer = nil;
+static AVAudioRecorder* _audioRecorder = nil;
 
 +(AudioController*) sharedInstance {
     if (_sharedInstance == nil) {
-        return [[self alloc] init];
+        _sharedInstance = [[self alloc] init];
     }
     return _sharedInstance;
 }
 
 //Should make this threaded so that it can continue in the background without holding up the UI from updating
--(void) playAudio:(NSString *)file {
+-(void) playAudio:(NSString *)file:(NSString *)file {
     NSURL* soundUrl = [[NSURL alloc] initFileURLWithPath:file];
     if (_audioPlayer && [_audioPlayer.url isEqual:soundUrl]) {
         [_audioPlayer play];
@@ -75,9 +78,55 @@ static AVAudioPlayer* _audioPlayer = nil;
     return NO;
 }
 
--(AudioController*) init {
-    self = [super init];
-    return self;
+-(BOOL) isRecording {
+    return _audioRecorder.isRecording;
 }
 
+-(void) beginRecording {
+    [_audioRecorder record];
+    NSLog(@"now recording, right?? %i", _audioRecorder.isRecording);
+}
+
+-(void) stopRecording {
+    [_audioRecorder stop];
+}
+
+-(AudioController*) init {
+    self = [super init];
+    if (self) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDir =[paths objectAtIndex:0];
+        NSString *soundFilePath =[documentsDir stringByAppendingPathComponent:@"mysound.caf"];
+        self.recording = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+        
+        NSDictionary *recordSettings = [NSDictionary
+                                        dictionaryWithObjectsAndKeys:
+                                        [NSNumber numberWithInt:AVAudioQualityMedium],
+                                        AVEncoderAudioQualityKey,
+                                        [NSNumber numberWithInt:16],
+                                        AVEncoderBitRateKey,
+                                        [NSNumber numberWithInt: 2],
+                                        AVNumberOfChannelsKey,
+                                        [NSNumber numberWithFloat:44100.0],
+                                        AVSampleRateKey,
+                                        nil];
+        
+        NSError *error = nil;
+        
+        _audioRecorder = [[AVAudioRecorder alloc]
+                         initWithURL:self.recording
+                         settings:recordSettings
+                         error:&error];
+        
+        if (error)
+        {
+            NSLog(@"error: %@", [error localizedDescription]);
+            
+        } else {
+            NSLog(@"%@", _audioRecorder.url);
+            [_audioRecorder prepareToRecord];
+        }
+    }
+    return self;
+}
 @end

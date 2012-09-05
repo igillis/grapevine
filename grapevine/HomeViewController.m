@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "AudioPostCell.h"
+#import "AudioController.h"
 
 #define DESCRIPTION_X 83.0
 #define DESCRIPTION_Y 34.0
@@ -90,6 +91,7 @@ static AudioPostCell* currentlyPlaying = nil;
                                           295 - DESCRIPTION_X,
                                           labelsize.height);
         cell.name.text = name;
+        cell.altName.text = name;
         cell.timeSlider.continuous = NO;
         cell.audioPath = [[NSBundle mainBundle] pathForResource:@"FakeSound" ofType:@"mp3"];
         CGRect newFrame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width-5.0, cell.frame.size.height);
@@ -164,9 +166,18 @@ static AudioPostCell* currentlyPlaying = nil;
 
 - (void)recordButtonPressed:(id)sender {
     //TODO: decide what to do when record button is pressed
+    AudioController* audioController = [AudioController sharedInstance];
     if (currentlyPlaying) {
         [currentlyPlaying pauseAudio];
     }
-    NSLog(@"record button pressed");
+    if ([audioController isRecording]) {
+        NSString* imagePath = [[NSBundle mainBundle] pathForResource:@"RecordButton1" ofType:@"png"];
+        [recordButton setImage:[[UIImage alloc] initWithContentsOfFile:imagePath] forState:UIControlStateNormal];
+        [audioController stopRecording];
+    } else {
+        NSString* imagePath = [[NSBundle mainBundle] pathForResource:@"RecordButton1Pressed" ofType:@"png"];
+        [recordButton setImage:[[UIImage alloc] initWithContentsOfFile:imagePath] forState:UIControlStateNormal];
+        [audioController beginRecording];
+    }
 }
 @end

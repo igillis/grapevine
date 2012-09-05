@@ -11,31 +11,16 @@
 
 @implementation AudioPostCell
 @synthesize timeSlider;
+@synthesize playPauseButton;
+@synthesize altName;
 
 @synthesize mainView;
 @synthesize profilePic;
 @synthesize name;
 @synthesize description;
-@synthesize nowPlayingImage;
 @synthesize altView;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-    }
-    return self;
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 -(void) toggleAudio: (NSString*) file {
-    [nowPlayingImage setHidden: ![nowPlayingImage isHidden]];
     [[AudioController sharedInstance] toggleAudio:file];
 }
 -(void) pauseAudio {
@@ -73,7 +58,13 @@
 }
 
 - (IBAction)timeSliderChanged:(id)sender {
-    NSLog(@"TIMESLIDERCHANGED CALLED");
+    UISlider* slider = (UISlider*) sender;
+    float newTime = slider.value;
+    [[AudioController sharedInstance] setTime:newTime];
+}
+
+- (IBAction)shareButtonTouched:(id)sender {
+    NSLog(@"shareButtonTouched called");
 }
 
 -(void) toggleViews {

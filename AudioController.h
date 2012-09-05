@@ -12,12 +12,22 @@
 @interface AudioController : NSObject
 <AVAudioPlayerDelegate>
 
+@property (nonatomic, strong) NSURL* recording;
+
 + (AudioController*) sharedInstance;
-- (void) playAudio: (NSString*) file;
-- (void) pauseAudio;
-- (void) stopAudio;
-- (BOOL) toggleAudio: (NSString*) file;
-- (BOOL) setTime: (int) newTime;
-- (BOOL) isPlaying;
+
+//Playback methods
+-(void) playAudio: (NSString*) file;
+-(void) pauseAudio;
+-(void) stopAudio;
+-(BOOL) toggleAudio: (NSString*) file;
+-(BOOL) setTime: (int) newTime;
+-(BOOL) isPlaying;
+
+//Recording methods
+-(void) beginRecording;
+-(void) stopRecording;
+-(int) currentTimeSpentRecording;
+-(BOOL) isRecording;
 
 @end
