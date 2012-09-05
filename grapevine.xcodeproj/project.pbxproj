@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		492AAC6715F6CF1F001A94AD /* RecordButton1.png in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6615F6CF1F001A94AD /* RecordButton1.png */; };
-		492AAC6A15F6CF3D001A94AD /* musical_note_small.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6915F6CF3D001A94AD /* musical_note_small.jpeg */; };
 		49A5F64315ED7E2D00D3F73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64215ED7E2D00D3F73F /* UIKit.framework */; };
 		49A5F64515ED7E2D00D3F73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64415ED7E2D00D3F73F /* Foundation.framework */; };
 		49A5F64715ED7E2D00D3F73F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64615ED7E2D00D3F73F /* CoreGraphics.framework */; };
@@ -48,11 +46,12 @@
 		49F5730C15F526E1008C5D8B /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F5730B15F526E1008C5D8B /* AudioController.m */; };
 		49F5730E15F54714008C5D8B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F5730D15F54714008C5D8B /* QuartzCore.framework */; };
 		C970262A15F31C8E004B1C50 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C970262915F31C8E004B1C50 /* AVFoundation.framework */; };
+		C9B2991515F6CFD300BABF4A /* RecordButton1.png in Resources */ = {isa = PBXBuildFile; fileRef = C9B2991415F6CFD300BABF4A /* RecordButton1.png */; };
+		C9B2991815F6CFDF00BABF4A /* musical_note_small.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C9B2991615F6CFDF00BABF4A /* musical_note_small.jpeg */; };
+		C9B2991915F6CFDF00BABF4A /* Silver-Play-Button_small.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = C9B2991715F6CFDF00BABF4A /* Silver-Play-Button_small.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		492AAC6615F6CF1F001A94AD /* RecordButton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordButton1.png; sourceTree = "<group>"; };
-		492AAC6915F6CF3D001A94AD /* musical_note_small.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = musical_note_small.jpeg; sourceTree = "<group>"; };
 		49A5F63E15ED7E2D00D3F73F /* grapevine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grapevine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A5F64215ED7E2D00D3F73F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49A5F64415ED7E2D00D3F73F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -102,6 +101,9 @@
 		49F5730B15F526E1008C5D8B /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioController.m; path = ../AudioController.m; sourceTree = "<group>"; };
 		49F5730D15F54714008C5D8B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C970262915F31C8E004B1C50 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C9B2991415F6CFD300BABF4A /* RecordButton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordButton1.png; sourceTree = "<group>"; };
+		C9B2991615F6CFDF00BABF4A /* musical_note_small.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = musical_note_small.jpeg; sourceTree = "<group>"; };
+		C9B2991715F6CFDF00BABF4A /* Silver-Play-Button_small.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Silver-Play-Button_small.jpeg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,8 +181,9 @@
 		49A5F64915ED7E2D00D3F73F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				492AAC6615F6CF1F001A94AD /* RecordButton1.png */,
-				492AAC6915F6CF3D001A94AD /* musical_note_small.jpeg */,
+				C9B2991615F6CFDF00BABF4A /* musical_note_small.jpeg */,
+				C9B2991715F6CFDF00BABF4A /* Silver-Play-Button_small.jpeg */,
+				C9B2991415F6CFD300BABF4A /* RecordButton1.png */,
 				49F5730415F52382008C5D8B /* FakeSound.mp3 */,
 				49F572ED15F26722008C5D8B /* unchecked.png */,
 				49F572EA15F2670C008C5D8B /* checked.png */,
@@ -286,8 +289,9 @@
 				49F572EB15F2670C008C5D8B /* checked.png in Resources */,
 				49F572EE15F26722008C5D8B /* unchecked.png in Resources */,
 				49F5730515F52382008C5D8B /* FakeSound.mp3 in Resources */,
-				492AAC6715F6CF1F001A94AD /* RecordButton1.png in Resources */,
-				492AAC6A15F6CF3D001A94AD /* musical_note_small.jpeg in Resources */,
+				C9B2991515F6CFD300BABF4A /* RecordButton1.png in Resources */,
+				C9B2991815F6CFDF00BABF4A /* musical_note_small.jpeg in Resources */,
+				C9B2991915F6CFDF00BABF4A /* Silver-Play-Button_small.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
