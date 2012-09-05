@@ -16,7 +16,11 @@
 @property (strong, nonatomic) IBOutlet UILabel* description;
 @property (weak, nonatomic) IBOutlet UIImageView *nowPlayingImage;
 @property (weak, nonatomic) IBOutlet UIView *altView;
+@property (strong, nonatomic) NSString* audioPath;
+@property (weak, nonatomic) IBOutlet UISlider *timeSlider;
 
+- (IBAction)playPauseButtonTouched:(id)sender;
+- (IBAction)timeSliderChanged:(id)sender;
 -(void) toggleViews;
 -(void) toggleAudio: (NSString*) file;
 -(void) pauseAudio;

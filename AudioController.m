@@ -68,6 +68,13 @@ static AVAudioPlayer* _audioPlayer = nil;
     }
 }
 
+-(BOOL) isPlaying {
+    if (_audioPlayer) {
+        return [_audioPlayer isPlaying];
+    }
+    return NO;
+}
+
 -(AudioController*) init {
     self = [super init];
     return self;

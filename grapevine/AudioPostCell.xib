@@ -47,13 +47,13 @@
 								<reference key="NSNextResponder" ref="765351634"/>
 								<int key="NSvFlags">-2147483356</int>
 								<array class="NSMutableArray" key="NSSubviews">
-									<object class="IBUIButton" id="1061427594">
+									<object class="IBUIButton" id="749439017">
 										<reference key="NSNextResponder" ref="960946962"/>
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{59, 8}, {36, 36}}</string>
 										<reference key="NSSuperview" ref="960946962"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="464501698"/>
+										<reference key="NSNextKeyView" ref="5707916"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -74,7 +74,7 @@
 										</object>
 										<object class="NSCustomResource" key="IBUINormalImage">
 											<string key="NSClassName">NSImage</string>
-											<string key="NSResourceName">Silver-Play-Button_small.jpeg</string>
+											<string key="NSResourceName">play.png</string>
 										</object>
 										<object class="IBUIFontDescription" key="IBUIFontDescription">
 											<int key="type">2</int>
@@ -86,12 +86,13 @@
 											<int key="NSfFlags">16</int>
 										</object>
 									</object>
-									<object class="IBUISlider" id="464501698">
+									<object class="IBUISlider" id="5707916">
 										<reference key="NSNextResponder" ref="960946962"/>
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{18, 46}, {118, 23}}</string>
 										<reference key="NSSuperview" ref="960946962"/>
 										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView" ref="140787094"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -99,11 +100,26 @@
 										<int key="IBUIContentVerticalAlignment">0</int>
 										<float key="IBUIMaxValue">30</float>
 									</object>
+									<object class="IBUIImageView" id="140787094">
+										<reference key="NSNextResponder" ref="960946962"/>
+										<int key="NSvFlags">292</int>
+										<string key="NSFrame">{{226, 27}, {27, 21}}</string>
+										<reference key="NSSuperview" ref="960946962"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
+										<string key="NSReuseIdentifierKey">_NS:9</string>
+										<bool key="IBUIUserInteractionEnabled">NO</bool>
+										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+										<object class="NSCustomResource" key="IBUIImage">
+											<string key="NSClassName">NSImage</string>
+											<string key="NSResourceName">share.jpeg</string>
+										</object>
+									</object>
 								</array>
 								<string key="NSFrameSize">{301, 76}</string>
 								<reference key="NSSuperview" ref="765351634"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="1061427594"/>
+								<reference key="NSNextKeyView" ref="749439017"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">3</int>
@@ -301,6 +317,32 @@
 					</object>
 					<int key="connectionID">56</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">timeSlider</string>
+						<reference key="source" ref="1035462776"/>
+						<reference key="destination" ref="5707916"/>
+					</object>
+					<int key="connectionID">63</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">playPauseButtonTouched:</string>
+						<reference key="source" ref="749439017"/>
+						<reference key="destination" ref="1035462776"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">62</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">timeSliderChanged:</string>
+						<reference key="source" ref="5707916"/>
+						<reference key="destination" ref="1035462776"/>
+						<int key="IBEventType">13</int>
+					</object>
+					<int key="connectionID">61</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -334,8 +376,9 @@
 						<int key="objectID">50</int>
 						<reference key="object" ref="960946962"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="464501698"/>
-							<reference ref="1061427594"/>
+							<reference ref="5707916"/>
+							<reference ref="749439017"/>
+							<reference ref="140787094"/>
 						</array>
 						<reference key="parent" ref="1035462776"/>
 					</object>
@@ -372,12 +415,17 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">58</int>
-						<reference key="object" ref="1061427594"/>
+						<reference key="object" ref="749439017"/>
 						<reference key="parent" ref="960946962"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">59</int>
-						<reference key="object" ref="464501698"/>
+						<reference key="object" ref="5707916"/>
+						<reference key="parent" ref="960946962"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">64</int>
+						<reference key="object" ref="140787094"/>
 						<reference key="parent" ref="960946962"/>
 					</object>
 				</array>
@@ -395,19 +443,34 @@
 				<string key="52.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="58.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="59.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="64.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">59</int>
+			<int key="maxID">64</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">AudioPostCell</string>
 					<string key="superclassName">UITableViewCell</string>
+					<dictionary class="NSMutableDictionary" key="actions">
+						<string key="playPauseButtonTouched:">id</string>
+						<string key="timeSliderChanged:">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="actionInfosByName">
+						<object class="IBActionInfo" key="playPauseButtonTouched:">
+							<string key="name">playPauseButtonTouched:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+						<object class="IBActionInfo" key="timeSliderChanged:">
+							<string key="name">timeSliderChanged:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="altView">UIView</string>
 						<string key="description">UILabel</string>
@@ -415,6 +478,7 @@
 						<string key="name">UILabel</string>
 						<string key="nowPlayingImage">UIImageView</string>
 						<string key="profilePic">UIImageView</string>
+						<string key="timeSlider">UISlider</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<object class="IBToOneOutletInfo" key="altView">
@@ -441,6 +505,10 @@
 							<string key="name">profilePic</string>
 							<string key="candidateClassName">UIImageView</string>
 						</object>
+						<object class="IBToOneOutletInfo" key="timeSlider">
+							<string key="name">timeSlider</string>
+							<string key="candidateClassName">UISlider</string>
+						</object>
 					</dictionary>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
@@ -459,8 +527,9 @@
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
 		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
 			<string key="IanGillis.jpg">{147, 195}</string>
-			<string key="Silver-Play-Button_small.jpeg">{40, 40}</string>
 			<string key="musical_note_small.jpeg">{24, 33}</string>
+			<string key="play.png">{150, 150}</string>
+			<string key="share.jpeg">{35, 28}</string>
 		</dictionary>
 		<string key="IBCocoaTouchPluginVersion">1498</string>
 	</data>

@@ -90,6 +90,13 @@ static AudioPostCell* currentlyPlaying = nil;
                                           295 - DESCRIPTION_X,
                                           labelsize.height);
         cell.name.text = name;
+        cell.timeSlider.continuous = NO;
+        cell.audioPath = [[NSBundle mainBundle] pathForResource:@"FakeSound" ofType:@"mp3"];
+        CGRect newFrame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width-5.0, cell.frame.size.height);
+        cell.altView.frame = newFrame;
+        cell.mainView.frame = newFrame;
+        cell.altView.layer.cornerRadius = 10.0;
+        cell.mainView.layer.cornerRadius = 10.0;
         
         //handles the case where a cell started playing and then the user scrolled away
         //and then scrolled back
@@ -145,14 +152,11 @@ static AudioPostCell* currentlyPlaying = nil;
 
 - (void)tableView:(UITableView *)tableView  didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString* soundFile = [[NSBundle mainBundle] pathForResource:@"FakeSound" ofType:@"mp3"];
     if(currentlyPlaying) {
-        [currentlyPlaying stopAudio];
         [currentlyPlaying toggleViews];
     }
 
     AudioPostCell* cell = (AudioPostCell*)[tableView cellForRowAtIndexPath:indexPath];
-    [cell playAudio:soundFile];
     [cell toggleViews];
     currentlyPlaying = cell;
     [tableView deselectRowAtIndexPath:indexPath animated:NO];

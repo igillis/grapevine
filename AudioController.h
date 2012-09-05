@@ -18,5 +18,6 @@
 - (void) stopAudio;
 - (BOOL) toggleAudio: (NSString*) file;
 - (BOOL) setTime: (int) newTime;
+- (BOOL) isPlaying;
 
 @end

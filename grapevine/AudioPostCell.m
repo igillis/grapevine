@@ -10,6 +10,7 @@
 #import "AudioController.h"
 
 @implementation AudioPostCell
+@synthesize timeSlider;
 
 @synthesize mainView;
 @synthesize profilePic;
@@ -22,7 +23,6 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-
     }
     return self;
 }
@@ -57,17 +57,37 @@
     }
 }
 
+- (IBAction)playPauseButtonTouched:(id)sender {
+    UIButton* button = (UIButton*) sender;
+    if ([[AudioController sharedInstance] isPlaying]) {
+        UIImage* playImage =
+            [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"play" ofType:@"png"]];
+        [button setImage:playImage forState:UIControlStateNormal];
+        [self pauseAudio];
+    } else {
+        UIImage* pauseImage =
+            [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"pause" ofType:@"png"]];
+        [button setImage:pauseImage forState:UIControlStateNormal];
+        [self playAudio:self.audioPath];
+    }
+}
+
+- (IBAction)timeSliderChanged:(id)sender {
+    NSLog(@"TIMESLIDERCHANGED CALLED");
+}
+
 -(void) toggleViews {
-    NSLog(@"mainView hidden = %i, altview hidden = %i", mainView.hidden, altView.hidden);
     CATransition *animation = [CATransition animation];
     animation.type = kCATransitionFade;
     animation.duration = 0.3;
-    if (!mainView.hidden) {
-        [mainView.layer addAnimation:animation forKey:nil];
-    } else {
-        [altView.layer addAnimation:animation forKey:nil];
-    }
+    [mainView.layer addAnimation:animation forKey:nil];
+    [altView.layer addAnimation:animation forKey:nil];
     mainView.hidden = !mainView.hidden;
     altView.hidden = !altView.hidden;
+    if (mainView.hidden) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+    } else {
+        self.selectionStyle = UITableViewCellSelectionStyleBlue;
+    }
 }
 @end

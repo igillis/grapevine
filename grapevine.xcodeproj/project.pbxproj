@@ -10,6 +10,9 @@
 		492AAC6715F6CF1F001A94AD /* RecordButton1.png in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6615F6CF1F001A94AD /* RecordButton1.png */; };
 		492AAC6A15F6CF3D001A94AD /* musical_note_small.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6915F6CF3D001A94AD /* musical_note_small.jpeg */; };
 		492AAC6C15F6D8C6001A94AD /* Silver-Play-Button_small.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6B15F6D8C6001A94AD /* Silver-Play-Button_small.jpeg */; };
+		492AAC6F15F6E36B001A94AD /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6D15F6E36B001A94AD /* pause.png */; };
+		492AAC7015F6E36B001A94AD /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6E15F6E36B001A94AD /* play.png */; };
+		492AAC7215F6F045001A94AD /* share.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC7115F6F045001A94AD /* share.jpeg */; };
 		49A5F64315ED7E2D00D3F73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64215ED7E2D00D3F73F /* UIKit.framework */; };
 		49A5F64515ED7E2D00D3F73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64415ED7E2D00D3F73F /* Foundation.framework */; };
 		49A5F64715ED7E2D00D3F73F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64615ED7E2D00D3F73F /* CoreGraphics.framework */; };
@@ -55,6 +58,9 @@
 		492AAC6615F6CF1F001A94AD /* RecordButton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordButton1.png; sourceTree = "<group>"; };
 		492AAC6915F6CF3D001A94AD /* musical_note_small.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = musical_note_small.jpeg; sourceTree = "<group>"; };
 		492AAC6B15F6D8C6001A94AD /* Silver-Play-Button_small.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Silver-Play-Button_small.jpeg"; sourceTree = "<group>"; };
+		492AAC6D15F6E36B001A94AD /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		492AAC6E15F6E36B001A94AD /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		492AAC7115F6F045001A94AD /* share.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = share.jpeg; sourceTree = "<group>"; };
 		49A5F63E15ED7E2D00D3F73F /* grapevine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grapevine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A5F64215ED7E2D00D3F73F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49A5F64415ED7E2D00D3F73F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -181,6 +187,9 @@
 		49A5F64915ED7E2D00D3F73F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				492AAC7115F6F045001A94AD /* share.jpeg */,
+				492AAC6D15F6E36B001A94AD /* pause.png */,
+				492AAC6E15F6E36B001A94AD /* play.png */,
 				492AAC6615F6CF1F001A94AD /* RecordButton1.png */,
 				492AAC6915F6CF3D001A94AD /* musical_note_small.jpeg */,
 				49F5730415F52382008C5D8B /* FakeSound.mp3 */,
@@ -292,6 +301,9 @@
 				492AAC6715F6CF1F001A94AD /* RecordButton1.png in Resources */,
 				492AAC6A15F6CF3D001A94AD /* musical_note_small.jpeg in Resources */,
 				492AAC6C15F6D8C6001A94AD /* Silver-Play-Button_small.jpeg in Resources */,
+				492AAC6F15F6E36B001A94AD /* pause.png in Resources */,
+				492AAC7015F6E36B001A94AD /* play.png in Resources */,
+				492AAC7215F6F045001A94AD /* share.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
