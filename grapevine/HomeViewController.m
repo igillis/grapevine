@@ -100,9 +100,6 @@ static AudioPostCell* currentlyPlaying = nil;
         
         NSString* imagePath =
             [[NSBundle mainBundle] pathForResource:[images objectForKey:name] ofType:@"jpg"];
-        if ([name isEqualToString:@"Jose Cuervo"]) {
-            NSLog(imagePath);
-        }
         cell.profilePic.image = [[UIImage alloc] initWithContentsOfFile:imagePath];
         return cell;
     } else {
@@ -151,22 +148,14 @@ static AudioPostCell* currentlyPlaying = nil;
     NSString* soundFile = [[NSBundle mainBundle] pathForResource:@"FakeSound" ofType:@"mp3"];
     if(currentlyPlaying) {
         [currentlyPlaying stopAudio];
-        [self toggleHidden:currentlyPlaying];
+        [currentlyPlaying toggleViews];
     }
 
     AudioPostCell* cell = (AudioPostCell*)[tableView cellForRowAtIndexPath:indexPath];
     [cell playAudio:soundFile];
-    [self toggleHidden:cell];
+    [cell toggleViews];
     currentlyPlaying = cell;
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-}
-
-- (void)toggleHidden: (AudioPostCell*) cell {
-    CATransition *animation = [CATransition animation];
-    animation.type = kCATransitionFade;
-    animation.duration = 0.3;
-    [cell.layer addAnimation:animation forKey:nil];
-    cell.hidden = !cell.hidden;
 }
 
 - (void)recordButtonPressed:(id)sender {

@@ -58,6 +58,15 @@
 }
 
 -(void) toggleViews {
-    
+    CATransition *animation = [CATransition animation];
+    animation.type = kCATransitionFade;
+    animation.duration = 0.3;
+    if (!mainView.hidden) {
+        [mainView.layer addAnimation:animation forKey:nil];
+    } else {
+        [altView.layer addAnimation:animation forKey:nil];
+    }
+    mainView.hidden = !mainView.hidden;
+    altView.hidden = !altView.hidden;
 }
 @end
