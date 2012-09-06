@@ -106,6 +106,7 @@ static AudioPostCell* currentlyPlaying = nil;
         UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             UIView* bgView = [[UIView alloc] initWithFrame:[cell bounds]];
             bgView.backgroundColor = [UIColor clearColor];
             cell.backgroundView = bgView;
@@ -145,17 +146,18 @@ static AudioPostCell* currentlyPlaying = nil;
 
 - (void)tableView:(UITableView *)tableView  didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString* soundFile = [[NSBundle mainBundle] pathForResource:@"FakeSound" ofType:@"mp3"];
-    if(currentlyPlaying) {
-        [currentlyPlaying stopAudio];
-        [currentlyPlaying toggleViews];
+    if([indexPath section] == 1) {
+        NSString* soundFile = [[NSBundle mainBundle] pathForResource:@"FakeSound" ofType:@"mp3"];
+        if(currentlyPlaying) {
+            [currentlyPlaying stopAudio];
+            [currentlyPlaying toggleViews];
+        }
+        AudioPostCell* cell = (AudioPostCell*)[tableView cellForRowAtIndexPath:indexPath];
+        [cell playAudio:soundFile];
+        [cell toggleViews];
+        currentlyPlaying = cell;
+        [tableView deselectRowAtIndexPath:indexPath animated:NO];
     }
-
-    AudioPostCell* cell = (AudioPostCell*)[tableView cellForRowAtIndexPath:indexPath];
-    [cell playAudio:soundFile];
-    [cell toggleViews];
-    currentlyPlaying = cell;
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 - (void)recordButtonPressed:(id)sender {

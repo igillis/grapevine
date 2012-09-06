@@ -48,6 +48,7 @@
 		49F5730C15F526E1008C5D8B /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F5730B15F526E1008C5D8B /* AudioController.m */; };
 		49F5730E15F54714008C5D8B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F5730D15F54714008C5D8B /* QuartzCore.framework */; };
 		C970262A15F31C8E004B1C50 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C970262915F31C8E004B1C50 /* AVFoundation.framework */; };
+		C993472D15F82A7E00993164 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = C993472C15F82A7D00993164 /* Contact.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,6 +103,8 @@
 		49F5730B15F526E1008C5D8B /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioController.m; path = ../AudioController.m; sourceTree = "<group>"; };
 		49F5730D15F54714008C5D8B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C970262915F31C8E004B1C50 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C993472B15F82A7D00993164 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
+		C993472C15F82A7D00993164 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +173,8 @@
 				49A5F67915EDC24B00D3F73F /* LoginViewController.m */,
 				49A5F67A15EDC24B00D3F73F /* LoginViewController.xib */,
 				49A5F68615F05F1C00D3F73F /* AudioPostCell.h */,
+				C993472B15F82A7D00993164 /* Contact.h */,
+				C993472C15F82A7D00993164 /* Contact.m */,
 				49A5F68715F05F1C00D3F73F /* AudioPostCell.m */,
 				49A5F68915F05F6B00D3F73F /* AudioPostCell.xib */,
 			);
@@ -306,6 +311,7 @@
 				49A5F67B15EDC24B00D3F73F /* LoginViewController.m in Sources */,
 				49A5F68815F05F1C00D3F73F /* AudioPostCell.m in Sources */,
 				49F5730C15F526E1008C5D8B /* AudioController.m in Sources */,
+				C993472D15F82A7E00993164 /* Contact.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

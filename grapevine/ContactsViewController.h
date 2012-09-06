@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ContactsViewController : UITableViewController
-    <UITableViewDataSource, UITableViewDelegate>
+    <UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
 
+@property (nonatomic, strong) NSMutableArray* contacts;
+@property (nonatomic, strong) NSMutableArray* filteredContacts;
 @property (nonatomic, strong) NSDictionary* contactsDict;
 @property (nonatomic, strong) NSArray* contactsKeys;
-@property (nonatomic, strong) NSMutableArray* cells;
 @end
