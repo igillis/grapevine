@@ -31,7 +31,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return [filteredContacts_ count];
+        return 1;
     }
     else {
         return [contactsDict_ count];
@@ -40,7 +40,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        return 1;
+        return [filteredContacts_ count];
     } else {
         return [[contactsDict_ objectForKey:[contactsKeys_ objectAtIndex:section]] count];
     }
@@ -63,6 +63,8 @@
     rawNames = [rawNames sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
 
     contacts_ = [[NSMutableArray alloc] initWithCapacity:[rawNames count]];
+    filteredContacts_ = [[NSMutableArray alloc] initWithCapacity:[rawNames count]];
+
     for(NSString *rawName in rawNames) {
         [contacts_ addObject:[[Contact alloc] initWithName:rawName]];
     }
@@ -108,18 +110,7 @@
     return [[contactsDict_ objectForKey:[contactsKeys_ objectAtIndex:[indexPath section]]] objectAtIndex:[indexPath row]];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-                    cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *kCustomCellID = @"ContactsCellID";
-    UITableViewCell *cell = [tableView    dequeueReusableCellWithIdentifier:kCustomCellID];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCustomCellID];
-        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    }
-    
-    Contact* contact = [self contactAtIndexPath:indexPath];
+-(void) fillCell:(UITableViewCell*) cell withContact:(Contact *) contact {
     [[cell textLabel] setText:[contact name]];
     
     UIImage *image = [contact following] ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
@@ -131,8 +122,34 @@
     [button addTarget:self action:@selector(checkButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
     button.backgroundColor = [UIColor clearColor];
     cell.accessoryView = button;
-    
-    return cell;
+}
+
+-(Contact *) filteredContactAtIndexPath:(NSIndexPath *) indexPath {
+    return [filteredContacts_ objectAtIndex:[indexPath row]];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+                    cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+{
+        static NSString *kCustomCellID = @"ContactsCellID";
+        UITableViewCell *cell = [tableView    dequeueReusableCellWithIdentifier:kCustomCellID];
+        if (cell == nil)
+        {
+            cell = [[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCustomCellID];
+            cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        }
+
+    Contact* contact;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        contact = [self filteredContactAtIndexPath:indexPath];
+    } else {
+        contact = [self contactAtIndexPath:indexPath];
+    }
+        [self fillCell:cell withContact:contact];
+
+        return cell;
+    }
 }
 
 - (void)checkButtonTapped:(id)sender event:(id)event
@@ -149,7 +166,12 @@
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    Contact* contact = [self contactAtIndexPath:indexPath];
+    Contact* contact;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        contact = [self filteredContactAtIndexPath:indexPath];
+    } else {
+        contact = [self contactAtIndexPath:indexPath];
+    }
     [contact setFollowing:![contact following]];
 
     [tableView reloadData];
@@ -157,11 +179,17 @@
 
 - (void)tableView:(UITableView *)tableView  didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(tableView == self.searchDisplayController.searchResultsTableView) {
-        
-    } else {
-        [self tableView:tableView  accessoryButtonTappedForRowWithIndexPath: indexPath];
-        [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+    [self tableView:tableView  accessoryButtonTappedForRowWithIndexPath: indexPath];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+-(void) filterForSearchString:(NSString*) searchString {
+    [filteredContacts_ removeAllObjects];
+    for(Contact* contact in contacts_) {
+        if([[contact name] rangeOfString: searchString].location == NSNotFound) {
+            continue;
+        }
+        [filteredContacts_ addObject:contact];
     }
 }
 
@@ -171,6 +199,8 @@
 }
 
 -(BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    
+    [self filterForSearchString:searchString];
     
     return YES;
 }
