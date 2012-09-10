@@ -186,7 +186,7 @@
 -(void) filterForSearchString:(NSString*) searchString {
     [filteredContacts_ removeAllObjects];
     for(Contact* contact in contacts_) {
-        if([[contact name] rangeOfString: searchString].location == NSNotFound) {
+        if([[contact name] rangeOfString:searchString options:NSCaseInsensitiveSearch].location == NSNotFound) {
             continue;
         }
         [filteredContacts_ addObject:contact];
