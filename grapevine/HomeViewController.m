@@ -115,6 +115,7 @@ static AudioPostCell* currentlyPlaying = nil;
         UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             UIView* bgView = [[UIView alloc] initWithFrame:[cell bounds]];
             bgView.backgroundColor = [UIColor clearColor];
             cell.backgroundView = bgView;

@@ -7,6 +7,7 @@
 //
 
 #import "ContactsViewController.h"
+#import "Contact.h"
 
 @interface ContactsViewController ()
 
@@ -16,28 +17,41 @@
 
 @synthesize contactsDict = contactsDict_;
 @synthesize contactsKeys = contactsKeys_;
-@synthesize cells = cells_;
+@synthesize contacts = contacts_;
+@synthesize filteredContacts = filteredContacts_;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:97];
-        cells_ = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [contactsDict_ count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return 1;
+    }
+    else {
+        return [contactsDict_ count];
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[contactsDict_ objectForKey:[contactsKeys_ objectAtIndex:section]] count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [filteredContacts_ count];
+    } else {
+        return [[contactsDict_ objectForKey:[contactsKeys_ objectAtIndex:section]] count];
+    }
 }
 
 - (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [contactsKeys_ objectAtIndex:section];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return @"Matching Contacts";
+    } else {
+        return [contactsKeys_ objectAtIndex:section];
+    }
 }
 
 - (void)viewDidLoad
@@ -45,15 +59,22 @@
     [super viewDidLoad];
     NSString* file = [[NSBundle mainBundle] pathForResource:@"FakeContacts"
                                                      ofType:@"plist"];
-    NSArray* contacts = [[NSArray alloc] initWithContentsOfFile:file];
-    contacts = [contacts sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    NSArray* rawNames = [[NSArray alloc] initWithContentsOfFile:file];
+    rawNames = [rawNames sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+
+    contacts_ = [[NSMutableArray alloc] initWithCapacity:[rawNames count]];
+    filteredContacts_ = [[NSMutableArray alloc] initWithCapacity:[rawNames count]];
+
+    for(NSString *rawName in rawNames) {
+        [contacts_ addObject:[[Contact alloc] initWithName:rawName]];
+    }
     
     NSMutableArray* contactsKeys = [[NSMutableArray alloc] init];
     NSMutableArray* contactsValues = [[NSMutableArray alloc] init];
     NSString* currentKey = nil;
     NSMutableArray* currentValues = nil;
-    for (NSString* contact in contacts) {
-        NSString* contactKey = [[contact substringToIndex:1] uppercaseString];
+    for (Contact* contact in contacts_) {
+        NSString* contactKey = [[[contact name] substringToIndex:1] uppercaseString];
         if (![contactKey isEqualToString:currentKey]) {
             if (currentKey != nil) {
                 [contactsKeys addObject:currentKey];
@@ -71,14 +92,6 @@
     
     contactsDict_ = [[NSDictionary alloc] initWithObjects:contactsValues forKeys:contactsKeys];
     contactsKeys_ = contactsKeys;
-    
-    for (int i = 0; i < [contactsValues count]; i++) {
-        [cells_ addObject:[[NSMutableArray alloc] init]];
-        for (int j = 0; j < [[contactsValues objectAtIndex:i] count]; j++) {
-            [[cells_ objectAtIndex:i] addObject:[[NSMutableDictionary alloc] initWithObjects:[[NSArray alloc] initWithObjects:[NSNumber numberWithBool:NO],nil]
-                                       forKeys:[[NSArray alloc] initWithObjects:@"checked",nil]]];
-        }
-    }
 }
 
 - (void)viewDidUnload
@@ -93,66 +106,117 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-                    cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *kCustomCellID = @"MyCellID";
-    UITableViewCell *cell = [tableView    dequeueReusableCellWithIdentifier:kCustomCellID];
-    if (cell == nil)
-    {
-        cell = [[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCustomCellID];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    }
+- (Contact *) contactAtIndexPath:(NSIndexPath *) indexPath {
+    return [[contactsDict_ objectForKey:[contactsKeys_ objectAtIndex:[indexPath section]]] objectAtIndex:[indexPath row]];
+}
+
+-(void) tableView:(UITableView *) tableView fillCell:(UITableViewCell*) cell
+        withContact:(Contact *) contact {
+    [[cell textLabel] setText:[contact name]];
     
-    NSString* name = [[contactsDict_ objectForKey:[contactsKeys_ objectAtIndex:[indexPath section]]] objectAtIndex:[indexPath row]];
-    [[cell textLabel] setText:name];
-    [[[cells_ objectAtIndex:indexPath.section] objectAtIndex: indexPath.row] setObject:cell forKey:@"cell"];
-    
-    BOOL isChecked = [self cellIsChecked:indexPath];
-    UIImage *image = isChecked ? [UIImage   imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
+    UIImage *image = [contact following] ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     CGRect frame = CGRectMake(0.0, 0.0, image.size.width, image.size.height);
     button.frame = frame;
     [button setBackgroundImage:image forState:UIControlStateNormal];
     
-    [button addTarget:self action:@selector(checkButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        [button addTarget:self action:@selector(filteredCheckButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
+    } else {
+        [button addTarget:self action:@selector(unfilteredCheckButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
+    }
     button.backgroundColor = [UIColor clearColor];
     cell.accessoryView = button;
-    
-    return cell;
 }
 
-- (void)checkButtonTapped:(id)sender event:(id)event
+-(Contact *) filteredContactAtIndexPath:(NSIndexPath *) indexPath {
+    return [filteredContacts_ objectAtIndex:[indexPath row]];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView
+                    cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSSet *touches = [event allTouches];
-    UITouch *touch = [touches anyObject];
-    CGPoint currentTouchPosition = [touch locationInView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
-    if (indexPath != nil)
-    {
-        [self tableView: self.tableView accessoryButtonTappedForRowWithIndexPath: indexPath];
+{
+        static NSString *kCustomCellID = @"ContactsCellID";
+        UITableViewCell *cell = [tableView    dequeueReusableCellWithIdentifier:kCustomCellID];
+        if (cell == nil)
+        {
+            cell = [[UITableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:kCustomCellID];
+            cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        }
+
+    Contact* contact;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        contact = [self filteredContactAtIndexPath:indexPath];
+    } else {
+        contact = [self contactAtIndexPath:indexPath];
+    }
+    [self tableView:tableView fillCell:cell withContact:contact];
+
+        return cell;
     }
 }
 
-- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *) tableView checkButtonTapped:(id)sender event:(id)event
 {
-    BOOL isChecked = ![self cellIsChecked:indexPath];
-    UITableViewCell *cell = [[[cells_ objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] objectForKey:@"cell"];
-    UIButton *button = (UIButton *)cell.accessoryView;
-    
-    UIImage *newImage = isChecked ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
-    [button setBackgroundImage:newImage forState:UIControlStateNormal];
-    [[[cells_ objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] setObject:[NSNumber numberWithBool:isChecked] forKey:@"checked"];
+    NSSet *touches = [event allTouches];
+    UITouch *touch = [touches anyObject];
+    CGPoint currentTouchPosition = [touch locationInView:tableView];
+    NSIndexPath *indexPath = [tableView indexPathForRowAtPoint: currentTouchPosition];
+    if (indexPath != nil)
+    {
+        [self tableView: tableView accessoryButtonTappedForRowWithIndexPath: indexPath];
+    }
 }
 
-- (BOOL)cellIsChecked:(NSIndexPath*) indexPath {
-    return [[[[cells_ objectAtIndex:indexPath.section] objectAtIndex:indexPath.row ] objectForKey:@"checked" ] boolValue];
+-(void) filteredCheckButtonTapped:(id) sender event:(id) event {
+    [self tableView:self.searchDisplayController.searchResultsTableView checkButtonTapped:sender event:event];
+}
+
+-(void) unfilteredCheckButtonTapped:(id) sender event:(id) event {
+    [self tableView:self.tableView checkButtonTapped:sender event:event];
+}
+
+
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
+    Contact* contact;
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        contact = [self filteredContactAtIndexPath:indexPath];
+    } else {
+        contact = [self contactAtIndexPath:indexPath];
+    }
+    [contact setFollowing:![contact following]];
+
+    [self.tableView reloadData];
+    [tableView reloadData];
 }
 
 - (void)tableView:(UITableView *)tableView  didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self tableView:tableView  accessoryButtonTappedForRowWithIndexPath: indexPath];
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
+
+-(void) filterForSearchString:(NSString*) searchString {
+    [filteredContacts_ removeAllObjects];
+    for(Contact* contact in contacts_) {
+        if([[contact name] rangeOfString:searchString options:NSCaseInsensitiveSearch].location == NSNotFound) {
+            continue;
+        }
+        [filteredContacts_ addObject:contact];
+    }
+}
+
+-(BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    
+    return YES;
+}
+
+-(BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    
+    [self filterForSearchString:searchString];
+    
+    return YES;
 }
 @end
