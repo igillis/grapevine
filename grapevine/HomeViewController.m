@@ -176,7 +176,7 @@ static AudioPostCell* currentlyPlaying = nil;
         [recordButton setImage:[[UIImage alloc] initWithContentsOfFile:imagePath] forState:UIControlStateNormal];
         [audioController stopRecording];
     } else {
-        NSString* imagePath = [[NSBundle mainBundle] pathForResource:@"RecordButton1Pressed" ofType:@"png"];
+        NSString* imagePath = [[NSBundle mainBundle] pathForResource:@"RecordButtonPressed" ofType:@"png"];
         [recordButton setImage:[[UIImage alloc] initWithContentsOfFile:imagePath] forState:UIControlStateNormal];
         [audioController beginRecording];
     }

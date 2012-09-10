@@ -24,7 +24,7 @@ static AVAudioRecorder* _audioRecorder = nil;
 }
 
 //Should make this threaded so that it can continue in the background without holding up the UI from updating
--(void) playAudio:(NSString *)file:(NSString *)file {
+-(void) playAudio:(NSString *)file {
     NSURL* soundUrl = [[NSURL alloc] initFileURLWithPath:file];
     if (_audioPlayer && [_audioPlayer.url isEqual:soundUrl]) {
         [_audioPlayer play];

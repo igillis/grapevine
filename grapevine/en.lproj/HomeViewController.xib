@@ -117,7 +117,7 @@
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">2</int>
-							<bytes key="NSRGB">MC41NTI5NDEyMDMxIDAuNDQ3MDU4ODU2NSAwLjU4ODIzNTMxODcAA</bytes>
+							<bytes key="NSRGB">MC41OTYwNzg0MzE0IDAuNDkwMTk2MDc4NCAwLjYyNzQ1MDk4MDQAA</bytes>
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 					</object>
