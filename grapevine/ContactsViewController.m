@@ -110,7 +110,8 @@
     return [[contactsDict_ objectForKey:[contactsKeys_ objectAtIndex:[indexPath section]]] objectAtIndex:[indexPath row]];
 }
 
--(void) fillCell:(UITableViewCell*) cell withContact:(Contact *) contact {
+-(void) tableView:(UITableView *) tableView fillCell:(UITableViewCell*) cell
+        withContact:(Contact *) contact {
     [[cell textLabel] setText:[contact name]];
     
     UIImage *image = [contact following] ? [UIImage imageNamed:@"checked.png"] : [UIImage imageNamed:@"unchecked.png"];
@@ -119,7 +120,11 @@
     button.frame = frame;
     [button setBackgroundImage:image forState:UIControlStateNormal];
     
-    [button addTarget:self action:@selector(checkButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        [button addTarget:self action:@selector(filteredCheckButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
+    } else {
+        [button addTarget:self action:@selector(unfilteredCheckButtonTapped:event:)  forControlEvents:UIControlEventTouchUpInside];
+    }
     button.backgroundColor = [UIColor clearColor];
     cell.accessoryView = button;
 }
@@ -146,23 +151,32 @@
     } else {
         contact = [self contactAtIndexPath:indexPath];
     }
-        [self fillCell:cell withContact:contact];
+    [self tableView:tableView fillCell:cell withContact:contact];
 
         return cell;
     }
 }
 
-- (void)checkButtonTapped:(id)sender event:(id)event
+- (void)tableView:(UITableView *) tableView checkButtonTapped:(id)sender event:(id)event
 {
     NSSet *touches = [event allTouches];
     UITouch *touch = [touches anyObject];
-    CGPoint currentTouchPosition = [touch locationInView:self.tableView];
-    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint: currentTouchPosition];
+    CGPoint currentTouchPosition = [touch locationInView:tableView];
+    NSIndexPath *indexPath = [tableView indexPathForRowAtPoint: currentTouchPosition];
     if (indexPath != nil)
     {
-        [self tableView: self.tableView accessoryButtonTappedForRowWithIndexPath: indexPath];
+        [self tableView: tableView accessoryButtonTappedForRowWithIndexPath: indexPath];
     }
 }
+
+-(void) filteredCheckButtonTapped:(id) sender event:(id) event {
+    [self tableView:self.searchDisplayController.searchResultsTableView checkButtonTapped:sender event:event];
+}
+
+-(void) unfilteredCheckButtonTapped:(id) sender event:(id) event {
+    [self tableView:self.tableView checkButtonTapped:sender event:event];
+}
+
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
@@ -174,6 +188,7 @@
     }
     [contact setFollowing:![contact following]];
 
+    [self.tableView reloadData];
     [tableView reloadData];
 }
 
