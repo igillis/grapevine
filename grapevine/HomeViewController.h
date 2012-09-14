@@ -8,17 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "HomeTableViewController.h"
 
 @interface HomeViewController : UIViewController
-<UITableViewDelegate, UITableViewDataSource> {
-    UINib* cellLoader;
-}
-@property (nonatomic, strong) NSDictionary* posts;
-@property (nonatomic, strong) NSDictionary* images;
+
 @property (nonatomic, strong) NSURL* soundUrl;
 @property (nonatomic, strong) AVAudioPlayer* player;
 @property (nonatomic, strong) IBOutlet UIButton* recordButton;
 @property (nonatomic, strong) IBOutlet UILabel* grapevine;
+@property (nonatomic, retain) IBOutlet HomeTableViewController* tableViewController;
 
 -(IBAction)recordButtonPressed:(id)sender;
 

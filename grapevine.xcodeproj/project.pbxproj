@@ -13,6 +13,7 @@
 		492AAC6F15F6E36B001A94AD /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6D15F6E36B001A94AD /* pause.png */; };
 		492AAC7015F6E36B001A94AD /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6E15F6E36B001A94AD /* play.png */; };
 		492AAC7215F6F045001A94AD /* share.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC7115F6F045001A94AD /* share.jpeg */; };
+		494A3EC41603BA0300E8B0F4 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494A3EC31603BA0300E8B0F4 /* HomeTableViewController.m */; };
 		49540CCC15FB765A00AF4D08 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 49540CCB15FB765A00AF4D08 /* button.png */; };
 		49540CCF15FB774A00AF4D08 /* RecordButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 49540CCE15FB774A00AF4D08 /* RecordButtonPressed.png */; };
 		49716FA515F8021C00A32FB5 /* RecordButton1Pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 49716FA415F8021C00A32FB5 /* RecordButton1Pressed.png */; };
@@ -65,6 +66,8 @@
 		492AAC6D15F6E36B001A94AD /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		492AAC6E15F6E36B001A94AD /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		492AAC7115F6F045001A94AD /* share.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = share.jpeg; sourceTree = "<group>"; };
+		494A3EC21603BA0300E8B0F4 /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
+		494A3EC31603BA0300E8B0F4 /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		49540CCB15FB765A00AF4D08 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		49540CCE15FB774A00AF4D08 /* RecordButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordButtonPressed.png; sourceTree = "<group>"; };
 		49716FA415F8021C00A32FB5 /* RecordButton1Pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordButton1Pressed.png; sourceTree = "<group>"; };
@@ -177,6 +180,8 @@
 				49A5F65515ED7E2D00D3F73F /* HomeViewController.m */,
 				49A5F66215ED7E2D00D3F73F /* HomeViewController.xib */,
 				49A5F65B15ED7E2D00D3F73F /* TrendingViewController.h */,
+				494A3EC21603BA0300E8B0F4 /* HomeTableViewController.h */,
+				494A3EC31603BA0300E8B0F4 /* HomeTableViewController.m */,
 				49A5F65C15ED7E2D00D3F73F /* TrendingViewController.m */,
 				49A5F66515ED7E2D00D3F73F /* TrendingViewController.xib */,
 				49A5F64915ED7E2D00D3F73F /* Supporting Files */,
@@ -186,9 +191,9 @@
 				49A5F67815EDC24B00D3F73F /* LoginViewController.h */,
 				49A5F67915EDC24B00D3F73F /* LoginViewController.m */,
 				49A5F67A15EDC24B00D3F73F /* LoginViewController.xib */,
-				49A5F68615F05F1C00D3F73F /* AudioPostCell.h */,
 				C993472B15F82A7D00993164 /* Contact.h */,
 				C993472C15F82A7D00993164 /* Contact.m */,
+				49A5F68615F05F1C00D3F73F /* AudioPostCell.h */,
 				49A5F68715F05F1C00D3F73F /* AudioPostCell.m */,
 				49A5F68915F05F6B00D3F73F /* AudioPostCell.xib */,
 			);
@@ -340,6 +345,7 @@
 				49A5F68815F05F1C00D3F73F /* AudioPostCell.m in Sources */,
 				49F5730C15F526E1008C5D8B /* AudioController.m in Sources */,
 				C993472D15F82A7E00993164 /* Contact.m in Sources */,
+				494A3EC41603BA0300E8B0F4 /* HomeTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
