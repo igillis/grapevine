@@ -149,14 +149,16 @@ static AudioPostCell* currentlyPlaying = nil;
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(currentlyPlaying) {
-        [currentlyPlaying toggleViews];
+{    
+    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell class] == [AudioPostCell class]) {
+        if(currentlyPlaying) {
+            [currentlyPlaying toggleViews];
+        }
+        AudioPostCell* audioPostCell = (AudioPostCell*) cell;
+        [audioPostCell toggleViews];
+        currentlyPlaying = audioPostCell;
     }
-    
-    AudioPostCell* cell = (AudioPostCell*)[tableView cellForRowAtIndexPath:indexPath];
-    [cell toggleViews];
-    currentlyPlaying = cell;
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
