@@ -57,6 +57,12 @@
 		49F5730E15F54714008C5D8B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F5730D15F54714008C5D8B /* QuartzCore.framework */; };
 		C970262A15F31C8E004B1C50 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C970262915F31C8E004B1C50 /* AVFoundation.framework */; };
 		C993472D15F82A7E00993164 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = C993472C15F82A7D00993164 /* Contact.m */; };
+		C997CE6315FE3C060082B342 /* harley_montano.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C997CE6215FE3C060082B342 /* harley_montano.jpg */; };
+		C997CE6A15FE3E3B0082B342 /* ashtyn_hemendinger.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C997CE6515FE3E3B0082B342 /* ashtyn_hemendinger.jpg */; };
+		C997CE6B15FE3E3B0082B342 /* charles_rawlins.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C997CE6615FE3E3B0082B342 /* charles_rawlins.jpg */; };
+		C997CE6C15FE3E3B0082B342 /* emerson_stoldt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C997CE6715FE3E3B0082B342 /* emerson_stoldt.jpg */; };
+		C997CE6D15FE3E3B0082B342 /* junki_nakayama.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C997CE6815FE3E3B0082B342 /* junki_nakayama.jpg */; };
+		C997CE6E15FE3E3B0082B342 /* mohit_moondra.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C997CE6915FE3E3B0082B342 /* mohit_moondra.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +128,12 @@
 		C970262915F31C8E004B1C50 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C993472B15F82A7D00993164 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contact.h; sourceTree = "<group>"; };
 		C993472C15F82A7D00993164 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contact.m; sourceTree = "<group>"; };
+		C997CE6215FE3C060082B342 /* harley_montano.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = harley_montano.jpg; sourceTree = "<group>"; };
+		C997CE6515FE3E3B0082B342 /* ashtyn_hemendinger.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ashtyn_hemendinger.jpg; sourceTree = "<group>"; };
+		C997CE6615FE3E3B0082B342 /* charles_rawlins.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = charles_rawlins.jpg; sourceTree = "<group>"; };
+		C997CE6715FE3E3B0082B342 /* emerson_stoldt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = emerson_stoldt.jpg; sourceTree = "<group>"; };
+		C997CE6815FE3E3B0082B342 /* junki_nakayama.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = junki_nakayama.jpg; sourceTree = "<group>"; };
+		C997CE6915FE3E3B0082B342 /* mohit_moondra.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mohit_moondra.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +216,12 @@
 			isa = PBXGroup;
 			children = (
 				49540CCB15FB765A00AF4D08 /* button.png */,
+				C997CE6515FE3E3B0082B342 /* ashtyn_hemendinger.jpg */,
+				C997CE6615FE3E3B0082B342 /* charles_rawlins.jpg */,
+				C997CE6715FE3E3B0082B342 /* emerson_stoldt.jpg */,
+				C997CE6815FE3E3B0082B342 /* junki_nakayama.jpg */,
+				C997CE6915FE3E3B0082B342 /* mohit_moondra.jpg */,
+				C997CE6215FE3C060082B342 /* harley_montano.jpg */,
 				492AAC7115F6F045001A94AD /* share.jpeg */,
 				49540CCE15FB774A00AF4D08 /* RecordButtonPressed.png */,
 				492AAC6D15F6E36B001A94AD /* pause.png */,
@@ -326,6 +344,12 @@
 				49716FA515F8021C00A32FB5 /* RecordButton1Pressed.png in Resources */,
 				49540CCC15FB765A00AF4D08 /* button.png in Resources */,
 				49540CCF15FB774A00AF4D08 /* RecordButtonPressed.png in Resources */,
+				C997CE6315FE3C060082B342 /* harley_montano.jpg in Resources */,
+				C997CE6A15FE3E3B0082B342 /* ashtyn_hemendinger.jpg in Resources */,
+				C997CE6B15FE3E3B0082B342 /* charles_rawlins.jpg in Resources */,
+				C997CE6C15FE3E3B0082B342 /* emerson_stoldt.jpg in Resources */,
+				C997CE6D15FE3E3B0082B342 /* junki_nakayama.jpg in Resources */,
+				C997CE6E15FE3E3B0082B342 /* mohit_moondra.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,7 +458,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "grapevine/grapevine-Prefix.pch";
 				INFOPLIST_FILE = "grapevine/grapevine-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -445,7 +471,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "grapevine/grapevine-Prefix.pch";
 				INFOPLIST_FILE = "grapevine/grapevine-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

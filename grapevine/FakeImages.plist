@@ -2,18 +2,18 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>Jose Cuervo</key>
-	<string>jose_cuervo</string>
-	<key>Jack Daniels</key>
-	<string>jack_daniels</string>
-	<key>Johnnie Walker</key>
-	<string>johnnie_walker</string>
-	<key>Captain Morgan</key>
-	<string>captain_morgan</string>
-	<key>John Jameson</key>
-	<string>john_jameson</string>
-	<key>Jim Beam</key>
-	<string>jim_beam</string>
+	<key>Harley Montano</key>
+	<string>harley_montano</string>
+	<key>Junki Nakayama</key>
+	<string>junki_nakayama</string>
+	<key>Emerson Stoldt</key>
+	<string>emerson_stoldt</string>
+	<key>Ashtyn Hemendinger</key>
+	<string>ashtyn_hemendinger</string>
+	<key>Charles &apos;Che&apos; Rawlins</key>
+	<string>charles_rawlins</string>
+	<key>Mohit Moondra</key>
+	<string>mohit_moondra</string>
 	<key>Stella</key>
 	<string>stella</string>
 </dict>
