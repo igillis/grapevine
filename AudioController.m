@@ -10,7 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 @implementation AudioController
-@synthesize recording;
+@synthesize recordingPath;
 
 static AudioController* _sharedInstance = nil;
 static AVAudioPlayer* _audioPlayer = nil;
@@ -84,7 +84,6 @@ static AVAudioRecorder* _audioRecorder = nil;
 
 -(void) beginRecording {
     [_audioRecorder record];
-    NSLog(@"now recording, right?? %i", _audioRecorder.isRecording);
 }
 
 -(void) stopRecording {
@@ -96,8 +95,8 @@ static AVAudioRecorder* _audioRecorder = nil;
     if (self) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDir =[paths objectAtIndex:0];
-        NSString *soundFilePath =[documentsDir stringByAppendingPathComponent:@"mysound.caf"];
-        self.recording = [[NSURL alloc] initFileURLWithPath: soundFilePath];
+        recordingPath =[documentsDir stringByAppendingPathComponent:@"mysound.caf"];
+        NSURL* recordingURL = [[NSURL alloc] initFileURLWithPath: recordingPath];
         
         NSDictionary *recordSettings = [NSDictionary
                                         dictionaryWithObjectsAndKeys:
@@ -114,7 +113,7 @@ static AVAudioRecorder* _audioRecorder = nil;
         NSError *error = nil;
         
         _audioRecorder = [[AVAudioRecorder alloc]
-                         initWithURL:self.recording
+                         initWithURL:recordingURL
                          settings:recordSettings
                          error:&error];
         

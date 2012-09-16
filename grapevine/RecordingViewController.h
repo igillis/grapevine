@@ -19,12 +19,15 @@
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UIView *lowerHalf;
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
 
 @property (nonatomic, strong) NSString* currentRecordingLocation;
+@property (nonatomic, strong) NSString* descriptionLabelPlaceholderText;
 @property BOOL isRecording;
 
 - (IBAction)closeRecordingView:(id)sender;
 - (IBAction)sharePost:(id)sender;
 - (IBAction)recordStopButtonPressed:(id)sender;
+- (IBAction)playButtonPressed:(id)sender;
 
 @end

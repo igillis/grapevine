@@ -7,6 +7,7 @@
 //
 
 #import "RecordingViewController.h"
+#import "AudioController.h"
 
 @interface RecordingViewController ()
 
@@ -21,12 +22,15 @@
 @synthesize recordButton;
 @synthesize lowerHalf;
 @synthesize progressLabel;
+@synthesize playButton;
 @synthesize currentRecordingLocation;
 @synthesize isRecording;
+@synthesize descriptionLabelPlaceholderText;
 
 static CGRect viewOriginalFrame;
 static NSTimer* recordingTimer = nil;
 static float currentTime = 0.0f;
+static NSString* recording = nil;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,8 +52,11 @@ static float currentTime = 0.0f;
     lowerBackgroundButton.enabled = NO;
     shareButton.enabled = NO;
     shareButton.alpha = 0.8f;
+    playButton.enabled = NO;
+    playButton.alpha = 0.8f;
     
-    descriptionField.text = @"Write a description here.";
+    descriptionLabelPlaceholderText = @"Write a description here.";
+    descriptionField.text = descriptionLabelPlaceholderText;
     descriptionField.textColor = [UIColor lightGrayColor];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -71,6 +78,7 @@ static float currentTime = 0.0f;
     self.upperBackgroundButton = nil;
     self.lowerBackgroundButton = nil;
     [self setProgressLabel:nil];
+    [self setPlayButton:nil];
     [super viewDidUnload];
 }
 
@@ -119,15 +127,14 @@ static float currentTime = 0.0f;
 }
 
 - (void) recordingComplete {
+    //Update recording state
+    [[AudioController sharedInstance] stopRecording];
+    recording = [AudioController sharedInstance].recordingPath;
     isRecording = NO;
     currentTime = 0.0;
     
     //update record button state
     [recordButton setTitle:@"Rec" forState:UIControlStateNormal];
-    
-    //update progress indicators
-    [progressLabel setText:[NSString stringWithFormat:@"%.1f",currentTime]];
-    [progressBar setProgress:currentTime];
     
     //update share button state
     shareButton.enabled = YES;
@@ -136,6 +143,10 @@ static float currentTime = 0.0f;
     //stop the timer and release it
     [recordingTimer invalidate];
     recordingTimer = nil;
+    
+    //update play button state
+    playButton.enabled = YES;
+    playButton.alpha = 1.0;
 }
 
 - (void) handleTimerFire: (NSTimer*) timer {
@@ -150,6 +161,7 @@ static float currentTime = 0.0f;
 - (IBAction)recordStopButtonPressed:(id)sender {
     UIButton* button = (UIButton*) sender;
     if (!isRecording) {
+        [[AudioController sharedInstance] beginRecording];
         isRecording = YES;
         [button setTitle:@"Stop" forState:UIControlStateNormal];
         recordingTimer = [NSTimer scheduledTimerWithTimeInterval: 0.1f target:self selector:@selector(handleTimerFire:) userInfo:nil repeats:YES];
@@ -159,10 +171,19 @@ static float currentTime = 0.0f;
     
 }
 
+- (IBAction)playButtonPressed:(id)sender {
+    NSLog(@"playButtonPressed");
+    if (recording != nil) {
+        [[AudioController sharedInstance] playAudio:recording];
+    }
+}
+
 - (BOOL) textViewShouldBeginEditing:(UITextView *)textView
 {
-    descriptionField.text = @"";
-    descriptionField.textColor = [UIColor blackColor];
+    if ([textView.text isEqualToString:descriptionLabelPlaceholderText]) {
+        descriptionField.text = @"";
+        descriptionField.textColor = [UIColor blackColor];
+    }
     return YES;
 }
 
@@ -170,7 +191,7 @@ static float currentTime = 0.0f;
 {
     if(descriptionField.text.length == 0){
         descriptionField.textColor = [UIColor lightGrayColor];
-        descriptionField.text = @"Write a description here.";
+        descriptionField.text = descriptionLabelPlaceholderText;
         [descriptionField resignFirstResponder];
     }
 }

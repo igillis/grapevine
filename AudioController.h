@@ -12,7 +12,7 @@
 @interface AudioController : NSObject
 <AVAudioPlayerDelegate>
 
-@property (nonatomic, strong) NSURL* recording;
+@property (nonatomic, strong) NSString* recordingPath;
 
 + (AudioController*) sharedInstance;
 
@@ -27,7 +27,6 @@
 //Recording methods
 -(void) beginRecording;
 -(void) stopRecording;
--(int) currentTimeSpentRecording;
 -(BOOL) isRecording;
 
 @end
