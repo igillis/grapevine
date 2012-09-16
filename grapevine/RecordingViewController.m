@@ -49,6 +49,9 @@ static float currentTime = 0.0f;
     shareButton.enabled = NO;
     shareButton.alpha = 0.8f;
     
+    descriptionField.text = @"Write a description here.";
+    descriptionField.textColor = [UIColor lightGrayColor];
+    
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -91,6 +94,7 @@ static float currentTime = 0.0f;
     [UIView setAnimationDuration:0.25];
     lowerHalf.frame = viewOriginalFrame;
     [UIView commitAnimations];
+    [self textViewDidChange:descriptionField];
 }
 
 -(void)dismissKeyboard {
@@ -107,21 +111,31 @@ static float currentTime = 0.0f;
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    if ([touch.view isDescendantOfView:recordButton]) {
+    if ((touch.view == lowerHalf)) {
         // we touched our control surface
-        return NO; // ignore the touch
+        return YES; // ignore the touch
     }
-    return YES; // handle the touch
+    return NO; // handle the touch
 }
 
 - (void) recordingComplete {
     isRecording = NO;
+    currentTime = 0.0;
+    
+    //update record button state
     [recordButton setTitle:@"Rec" forState:UIControlStateNormal];
+    
+    //update progress indicators
+    [progressLabel setText:[NSString stringWithFormat:@"%.1f",currentTime]];
+    [progressBar setProgress:currentTime];
+    
+    //update share button state
     shareButton.enabled = YES;
     shareButton.alpha = 1.0;
+    
+    //stop the timer and release it
     [recordingTimer invalidate];
     recordingTimer = nil;
-    NSLog(@"recording complete! %f", currentTime);
 }
 
 - (void) handleTimerFire: (NSTimer*) timer {
@@ -143,5 +157,21 @@ static float currentTime = 0.0f;
         [self recordingComplete];
     }
     
+}
+
+- (BOOL) textViewShouldBeginEditing:(UITextView *)textView
+{
+    descriptionField.text = @"";
+    descriptionField.textColor = [UIColor blackColor];
+    return YES;
+}
+
+-(void) textViewDidChange:(UITextView *)textView
+{
+    if(descriptionField.text.length == 0){
+        descriptionField.textColor = [UIColor lightGrayColor];
+        descriptionField.text = @"Write a description here.";
+        [descriptionField resignFirstResponder];
+    }
 }
 @end
