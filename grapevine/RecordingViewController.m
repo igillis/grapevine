@@ -172,7 +172,6 @@ static NSString* recording = nil;
 }
 
 - (IBAction)playButtonPressed:(id)sender {
-    NSLog(@"playButtonPressed");
     if (recording != nil) {
         [[AudioController sharedInstance] playAudio:recording];
     }
