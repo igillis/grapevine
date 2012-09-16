@@ -17,6 +17,8 @@
 		49540CCC15FB765A00AF4D08 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 49540CCB15FB765A00AF4D08 /* button.png */; };
 		49540CCF15FB774A00AF4D08 /* RecordButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 49540CCE15FB774A00AF4D08 /* RecordButtonPressed.png */; };
 		49716FA515F8021C00A32FB5 /* RecordButton1Pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 49716FA415F8021C00A32FB5 /* RecordButton1Pressed.png */; };
+		498C43411604D18F005936B4 /* RecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C433F1604D18F005936B4 /* RecordingViewController.m */; };
+		498C43421604D18F005936B4 /* RecordingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 498C43401604D18F005936B4 /* RecordingViewController.xib */; };
 		49A5F64315ED7E2D00D3F73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64215ED7E2D00D3F73F /* UIKit.framework */; };
 		49A5F64515ED7E2D00D3F73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64415ED7E2D00D3F73F /* Foundation.framework */; };
 		49A5F64715ED7E2D00D3F73F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64615ED7E2D00D3F73F /* CoreGraphics.framework */; };
@@ -71,6 +73,9 @@
 		49540CCB15FB765A00AF4D08 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		49540CCE15FB774A00AF4D08 /* RecordButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordButtonPressed.png; sourceTree = "<group>"; };
 		49716FA415F8021C00A32FB5 /* RecordButton1Pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordButton1Pressed.png; sourceTree = "<group>"; };
+		498C433E1604D18F005936B4 /* RecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordingViewController.h; sourceTree = "<group>"; };
+		498C433F1604D18F005936B4 /* RecordingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordingViewController.m; sourceTree = "<group>"; };
+		498C43401604D18F005936B4 /* RecordingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordingViewController.xib; sourceTree = "<group>"; };
 		49A5F63E15ED7E2D00D3F73F /* grapevine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grapevine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A5F64215ED7E2D00D3F73F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49A5F64415ED7E2D00D3F73F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -196,6 +201,9 @@
 				49A5F68615F05F1C00D3F73F /* AudioPostCell.h */,
 				49A5F68715F05F1C00D3F73F /* AudioPostCell.m */,
 				49A5F68915F05F6B00D3F73F /* AudioPostCell.xib */,
+				498C433E1604D18F005936B4 /* RecordingViewController.h */,
+				498C433F1604D18F005936B4 /* RecordingViewController.m */,
+				498C43401604D18F005936B4 /* RecordingViewController.xib */,
 			);
 			path = grapevine;
 			sourceTree = "<group>";
@@ -326,6 +334,7 @@
 				49716FA515F8021C00A32FB5 /* RecordButton1Pressed.png in Resources */,
 				49540CCC15FB765A00AF4D08 /* button.png in Resources */,
 				49540CCF15FB774A00AF4D08 /* RecordButtonPressed.png in Resources */,
+				498C43421604D18F005936B4 /* RecordingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +355,7 @@
 				49F5730C15F526E1008C5D8B /* AudioController.m in Sources */,
 				C993472D15F82A7E00993164 /* Contact.m in Sources */,
 				494A3EC41603BA0300E8B0F4 /* HomeTableViewController.m in Sources */,
+				498C43411604D18F005936B4 /* RecordingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

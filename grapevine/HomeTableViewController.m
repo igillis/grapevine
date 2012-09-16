@@ -20,8 +20,7 @@
 @implementation HomeTableViewController
 @synthesize posts;
 @synthesize images;
-
-static AudioPostCell* currentlyPlaying = nil;
+@synthesize currentlyPlaying;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {

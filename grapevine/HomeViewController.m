@@ -7,9 +7,8 @@
 //
 
 #import "HomeViewController.h"
-#import "AudioPostCell.h"
-#import "AudioController.h"
 #import "HomeTableViewController.h"
+#import "RecordingViewController.h"
 
 #define DESCRIPTION_X 83.0
 #define DESCRIPTION_Y 34.0
@@ -20,8 +19,6 @@
 @end
 
 @implementation HomeViewController
-
-static AudioPostCell* currentlyPlaying = nil;
 
 @synthesize recordButton;
 @synthesize grapevine;
@@ -59,18 +56,10 @@ static AudioPostCell* currentlyPlaying = nil;
 
 - (void)recordButtonPressed:(id)sender {
     //TODO: decide what to do when record button is pressed
-    AudioController* audioController = [AudioController sharedInstance];
-    if (currentlyPlaying) {
-        [currentlyPlaying pauseAudio];
+    if (tableViewController.currentlyPlaying) {
+        [tableViewController.currentlyPlaying pauseAudio];
     }
-    if ([audioController isRecording]) {
-        NSString* imagePath = [[NSBundle mainBundle] pathForResource:@"RecordButton1" ofType:@"png"];
-        [recordButton setImage:[[UIImage alloc] initWithContentsOfFile:imagePath] forState:UIControlStateNormal];
-        [audioController stopRecording];
-    } else {
-        NSString* imagePath = [[NSBundle mainBundle] pathForResource:@"RecordButtonPressed" ofType:@"png"];
-        [recordButton setImage:[[UIImage alloc] initWithContentsOfFile:imagePath] forState:UIControlStateNormal];
-        [audioController beginRecording];
-    }
+    RecordingViewController* recordingViewController = [[RecordingViewController alloc] init];
+    [self presentViewController:recordingViewController animated:YES completion:NULL];
 }
 @end

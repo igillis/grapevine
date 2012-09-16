@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "AudioPostCell.h"
 
 @interface HomeTableViewController : UITableViewController
 <UITableViewDelegate, UITableViewDataSource> {
@@ -15,4 +16,5 @@
 }
 @property (nonatomic, strong) NSDictionary* posts;
 @property (nonatomic, strong) NSDictionary* images;
+@property (nonatomic, strong) AudioPostCell* currentlyPlaying;
 @end
