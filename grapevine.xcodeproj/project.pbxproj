@@ -14,6 +14,7 @@
 		492AAC7015F6E36B001A94AD /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6E15F6E36B001A94AD /* play.png */; };
 		492AAC7215F6F045001A94AD /* share.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC7115F6F045001A94AD /* share.jpeg */; };
 		493C1392160908A8004C51B6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493C1391160908A8004C51B6 /* FacebookSDK.framework */; };
+		493C1395160909BE004C51B6 /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 493C1394160909BE004C51B6 /* SessionManager.m */; };
 		494A3EC41603BA0300E8B0F4 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494A3EC31603BA0300E8B0F4 /* HomeTableViewController.m */; };
 		49540CCC15FB765A00AF4D08 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 49540CCB15FB765A00AF4D08 /* button.png */; };
 		49540CCF15FB774A00AF4D08 /* RecordButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 49540CCE15FB774A00AF4D08 /* RecordButtonPressed.png */; };
@@ -73,6 +74,8 @@
 		493C138F1608F992004C51B6 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
 		493C13901608F992004C51B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		493C1391160908A8004C51B6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		493C1393160909BE004C51B6 /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
+		493C1394160909BE004C51B6 /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
 		494A3EC21603BA0300E8B0F4 /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
 		494A3EC31603BA0300E8B0F4 /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
 		49540CCB15FB765A00AF4D08 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
@@ -223,6 +226,8 @@
 				498C433E1604D18F005936B4 /* RecordingViewController.h */,
 				498C433F1604D18F005936B4 /* RecordingViewController.m */,
 				498C43401604D18F005936B4 /* RecordingViewController.xib */,
+				493C1393160909BE004C51B6 /* SessionManager.h */,
+				493C1394160909BE004C51B6 /* SessionManager.m */,
 			);
 			path = grapevine;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				C993472D15F82A7E00993164 /* Contact.m in Sources */,
 				494A3EC41603BA0300E8B0F4 /* HomeTableViewController.m in Sources */,
 				498C43411604D18F005936B4 /* RecordingViewController.m in Sources */,
+				493C1395160909BE004C51B6 /* SessionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,6 +7,7 @@
 //
 
 #import "LoginViewController.h"
+#import "SessionManager.h"
 
 @interface LoginViewController ()
 
@@ -47,11 +48,14 @@
 }
 
 - (IBAction)facebookLogin:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     // The user has initiated a login, so call the openSession method
     // and show the login UX if necessary.
-    [appDelegate openSessionWithAllowLoginUI:YES];
-    [self dismissModalViewControllerAnimated:YES];
+    [[SessionManager sharedInstance] openFacebookSessionWithPermissions:nil];
+    if ([SessionManager sharedInstance].isOpen) {
+        [self dismissModalViewControllerAnimated:YES];
+    } else {
+        NSLog(@"facebook login failed");
+    }
 }
 
 - (IBAction)twitterLogin:(id)sender {
@@ -108,14 +112,8 @@
 }
 
 - (IBAction)grapevineLogin:(id)sender {
-    [self.username resignFirstResponder];
-    [self.password resignFirstResponder];
-    if ([self.username.text isEqualToString:@"igillis"] && [self.password.text isEqualToString:@"test123x"]) {
-        NSLog(@"successful password");
-        [self dismissModalViewControllerAnimated:YES];
-    } else {
-        //TODO(bscohen): handle bad login
-    }
+    [self hideKeyboard:nil];
+    [[SessionManager sharedInstance] openGrapevineSessionWithLoginId:username.text andPassword:password.text];
 }
 
 - (IBAction)hideKeyboard:(id)sender {

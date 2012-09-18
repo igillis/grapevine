@@ -11,13 +11,13 @@
 #import "TrendingViewController.h"
 #import "ContactsViewController.h"
 #import "LoginViewController.h"
+#import "SessionManager.h"
 
 #import <QuartzCore/QuartzCore.h>
 
 @implementation AppDelegate
 
-NSString *const FBSessionStateChangedNotification =
-@"grapevine:FBSessionStateChangedNotification";
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -68,72 +68,15 @@ NSString *const FBSessionStateChangedNotification =
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // this means the user switched back to this app without completing
-    // a login in Safari/Facebook App
-    if (FBSession.activeSession.state == FBSessionStateCreatedOpening) {
-        [FBSession.activeSession close]; // so we close our session and start over
+    // this means the user switched back to this app without completing login
+    if ([SessionManager sharedInstance].sessionState == SessionStatePending) {
+        [[SessionManager sharedInstance] closeSession];
     }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [FBSession.activeSession close];
-}
-
-/*
- * Callback for session changes.
- */
-- (void)sessionStateChanged:(FBSession *)session
-                      state:(FBSessionState) state
-                      error:(NSError *)error
-{
-    switch (state) {
-        case FBSessionStateOpen:
-            if (!error) {
-                // We have a valid session
-                NSLog(@"User session found");
-            }
-            break;
-        case FBSessionStateClosed:
-        case FBSessionStateClosedLoginFailed:
-            [FBSession.activeSession closeAndClearTokenInformation];
-            break;
-        default:
-            break;
-    }
-    
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:FBSessionStateChangedNotification
-     object:session];
-    
-    if (error) {
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"Error"
-                                  message:error.localizedDescription
-                                  delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil];
-        [alertView show];
-    }
-}
-
-/*
- * Opens a Facebook session and optionally shows the login UX.
- */
-- (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
-    NSArray *permissions = [[NSArray alloc] initWithObjects:
-                            @"user_likes",
-                            @"read_stream",
-                            nil];
-    return [FBSession openActiveSessionWithPermissions:permissions
-                                          allowLoginUI:allowLoginUI
-                                     completionHandler:^(FBSession *session,
-                                                         FBSessionState state,
-                                                         NSError *error) {
-                                         [self sessionStateChanged:session
-                                                             state:state
-                                                             error:error];
-                                     }];
+    [[SessionManager sharedInstance] closeSession];
 }
 
 /*
