@@ -19,6 +19,8 @@
 
 - (IBAction)hideKeyboard:(id)sender;
 
+- (void)closeLoginView;
+
 @property (strong, nonatomic) UITextField* username;
 
 @property (strong, nonatomic) UITextField* password;

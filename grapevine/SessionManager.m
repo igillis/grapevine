@@ -19,7 +19,6 @@
 
 @synthesize sessionType;
 @synthesize sessionState;
-@synthesize isOpen;
 @synthesize accessToken;
 @synthesize expirationDate;
 @synthesize sessionPermissions;
@@ -40,7 +39,7 @@ SessionManager* sharedInstance = nil;
  * Opens a Facebook session and optionally shows the login UX.
  */
 - (BOOL)openFacebookSessionWithPermissions:(NSArray *)permissions {
-    return [FBSession openActiveSessionWithPermissions:permissions
+    [FBSession openActiveSessionWithPermissions:permissions
                                           allowLoginUI:YES
                                      completionHandler:^(FBSession *session,
                                                          FBSessionState state,
@@ -49,9 +48,11 @@ SessionManager* sharedInstance = nil;
                                                              state:state
                                                              error:error];
                                      }];
+    return self.isOpen;
 }
 
 - (BOOL)isOpen {
+    NSLog(@"%i", self.sessionState);
     return self.sessionState == SessionStateOpen;
 }
 
@@ -66,6 +67,7 @@ SessionManager* sharedInstance = nil;
                 NSLog(@"User session found");
                 self.sessionState = SessionStateOpen;
                 self.sessionType = FacebookSession;
+                [[NSNotificationCenter defaultCenter] postNotificationName:FBSessionDidBecomeOpenActiveSessionNotification object:self];
             }
             break;
         case FBSessionStateClosed:

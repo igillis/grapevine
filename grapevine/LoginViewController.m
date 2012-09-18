@@ -8,6 +8,7 @@
 
 #import "LoginViewController.h"
 #import "SessionManager.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface LoginViewController ()
 
@@ -50,12 +51,18 @@
 - (IBAction)facebookLogin:(id)sender {
     // The user has initiated a login, so call the openSession method
     // and show the login UX if necessary.
-    [[SessionManager sharedInstance] openFacebookSessionWithPermissions:nil];
-    if ([SessionManager sharedInstance].isOpen) {
+    if ([[SessionManager sharedInstance] openFacebookSessionWithPermissions:nil]) {
         [self dismissModalViewControllerAnimated:YES];
     } else {
-        NSLog(@"facebook login failed");
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                               selector:@selector(closeLoginView)
+                                                   name:FBSessionDidBecomeOpenActiveSessionNotification
+                                                 object:[SessionManager sharedInstance]];
     }
+}
+         
+- (void)closeLoginView {
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (IBAction)twitterLogin:(id)sender {

@@ -28,6 +28,8 @@ typedef enum {
     NoSession = 4,
 } SessionType;
 
+extern NSString *const FBSessionStateChangedNotification;
+
 @interface SessionManager : NSObject
 @property (readonly) SessionState sessionState;
 @property (readonly) SessionType sessionType;
