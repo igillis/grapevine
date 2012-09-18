@@ -47,6 +47,10 @@
 }
 
 - (IBAction)facebookLogin:(id)sender {
+    AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
+    // The user has initiated a login, so call the openSession method
+    // and show the login UX if necessary.
+    [appDelegate openSessionWithAllowLoginUI:YES];
     [self dismissModalViewControllerAnimated:YES];
 }
 

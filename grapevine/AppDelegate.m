@@ -68,12 +68,16 @@ NSString *const FBSessionStateChangedNotification =
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    // this means the user switched back to this app without completing
+    // a login in Safari/Facebook App
+    if (FBSession.activeSession.state == FBSessionStateCreatedOpening) {
+        [FBSession.activeSession close]; // so we close our session and start over
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [FBSession.activeSession close];
 }
 
 /*
@@ -117,7 +121,11 @@ NSString *const FBSessionStateChangedNotification =
  * Opens a Facebook session and optionally shows the login UX.
  */
 - (BOOL)openSessionWithAllowLoginUI:(BOOL)allowLoginUI {
-    return [FBSession openActiveSessionWithPermissions:nil
+    NSArray *permissions = [[NSArray alloc] initWithObjects:
+                            @"user_likes",
+                            @"read_stream",
+                            nil];
+    return [FBSession openActiveSessionWithPermissions:permissions
                                           allowLoginUI:allowLoginUI
                                      completionHandler:^(FBSession *session,
                                                          FBSessionState state,

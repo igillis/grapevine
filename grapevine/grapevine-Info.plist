@@ -7,12 +7,12 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fbgrapevine</string>
+				<string>fb348658601895040</string>
 			</array>
 		</dict>
 	</array>
 	<key>FacebookAppID</key>
-	<string>grapevine</string>
+	<string>348658601895040</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
