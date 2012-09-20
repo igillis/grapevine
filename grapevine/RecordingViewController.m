@@ -8,6 +8,7 @@
 
 #import "RecordingViewController.h"
 #import "AudioController.h"
+#import <Parse/Parse.h>
 
 @interface RecordingViewController ()
 
@@ -114,6 +115,9 @@ static NSString* recording = nil;
 }
 
 - (IBAction)sharePost:(id)sender {
+    NSData* recordingData = [NSData dataWithContentsOfFile:self.currentRecordingLocation];
+    PFFile* recordingFile = [PFFile fileWithName:@"audioRecording" data:recordingData];
+    [recordingFile save];
     NSLog(@"post shared!");
     [self closeRecordingView:nil];
 }

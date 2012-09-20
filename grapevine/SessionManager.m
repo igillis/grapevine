@@ -43,34 +43,31 @@ static SessionManager* _sharedInstance = nil;
  * Opens a Facebook session and optionally shows the login UX.
  */
 - (BOOL)openFacebookSessionWithPermissions:(NSArray *)permissions {
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(addUserToUserFollowingList)
-                                                 name:@"newFbUser"
-                                               object:nil];
     [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
         if (!user) {
             NSLog(@"Uh oh. The user cancelled the Facebook login.");
             return;
         } else if (user.isNew) {
-            NSLog(@"User signed up and logged in through Facebook!");
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"newFbUser" object:self];
+            NSLog(@"User %@ signed up and logged in through Facebook!", user);
         } else {
-            NSLog(@"User signed in through Facebook.");
+            NSLog(@"User %@ signed in through Facebook.", user);
         }
-        [[NSNotificationCenter defaultCenter] postNotificationName:FBSessionDidBecomeOpenActiveSessionNotification object:self];
         self.currentUser = user;
+        
+        self.currentUser = user;
+        [[NSNotificationCenter defaultCenter] postNotificationName:FBSessionDidBecomeOpenActiveSessionNotification object:self];
+        return;
     }];
     return NO;
 }
 
 - (void)addUserToUserFollowingList {
-    NSLog(@"user now following themself");
+    NSLog(@"%@", self.currentUser);
     [self.currentUser addObject:self.currentUser
                          forKey:[[ParseObjects sharedInstance] userFollowingListName]];
     [self.currentUser saveInBackground];
+    NSLog(@"user now following themself");
 }
-
-
 
 - (BOOL)isOpen {
     NSLog(@"%i", self.sessionState);
