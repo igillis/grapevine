@@ -53,10 +53,7 @@ static SessionManager* _sharedInstance = nil;
             NSLog(@"User %@ signed in through Facebook.", user);
         }
         self.currentUser = user;
-        
-        self.currentUser = user;
         [[NSNotificationCenter defaultCenter] postNotificationName:FBSessionDidBecomeOpenActiveSessionNotification object:self];
-        return;
     }];
     return NO;
 }
@@ -64,7 +61,7 @@ static SessionManager* _sharedInstance = nil;
 - (void)addUserToUserFollowingList {
     NSLog(@"%@", self.currentUser);
     [self.currentUser addObject:self.currentUser
-                         forKey:[[ParseObjects sharedInstance] userFollowingListName]];
+                         forKey:[[ParseObjects sharedInstance] userFollowingListKey]];
     [self.currentUser saveInBackground];
     NSLog(@"user now following themself");
 }

@@ -60,11 +60,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "grapevine/RecordingViewController.m"
-         timestampString = "369803880.673615"
+         timestampString = "369806391.8751"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "72"
-         endingLineNumber = "72"
+         startingLineNumber = "74"
+         endingLineNumber = "74"
          landmarkName = "-viewDidUnload"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "grapevine/RecordingViewController.m"
-         timestampString = "369803880.673615"
+         timestampString = "369806391.8751"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "68"
-         endingLineNumber = "68"
+         startingLineNumber = "70"
+         endingLineNumber = "70"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,12 +86,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "grapevine/RecordingViewController.m"
-         timestampString = "369803880.673615"
+         timestampString = "369806391.8751"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "166"
-         endingLineNumber = "166"
-         landmarkName = "-recordStopButtonPressed:"
+         startingLineNumber = "175"
+         endingLineNumber = "175"
+         landmarkName = "-handleTimerFire:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -99,12 +99,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "grapevine/RecordingViewController.m"
-         timestampString = "369803880.673615"
+         timestampString = "369806391.8751"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "125"
-         endingLineNumber = "125"
-         landmarkName = "-gestureRecognizer:shouldReceiveTouch:"
+         startingLineNumber = "134"
+         endingLineNumber = "134"
+         landmarkName = "-sharePost:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -112,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "grapevine/RecordingViewController.m"
-         timestampString = "369803880.673615"
+         timestampString = "369806391.8751"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "114"
-         endingLineNumber = "114"
+         startingLineNumber = "116"
+         endingLineNumber = "116"
          landmarkName = "-closeRecordingView:"
          landmarkType = "5">
       </FileBreakpoint>

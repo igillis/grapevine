@@ -8,6 +8,8 @@
 
 #import "RecordingViewController.h"
 #import "AudioController.h"
+#import "ParseObjects.h"
+#import "SessionManager.h"
 #import <Parse/Parse.h>
 
 @interface RecordingViewController ()
@@ -115,9 +117,19 @@ static NSString* recording = nil;
 }
 
 - (IBAction)sharePost:(id)sender {
+    //save audio data to the server
     NSData* recordingData = [NSData dataWithContentsOfFile:self.currentRecordingLocation];
     PFFile* recordingFile = [PFFile fileWithName:@"audioRecording" data:recordingData];
     [recordingFile save];
+    
+    //save audio post object to the server
+    PFObject* newAudioPost = [PFObject objectWithClassName:[ParseObjects sharedInstance].audioPostClassName];
+    [newAudioPost setObject:recordingFile forKey:[ParseObjects sharedInstance].audioFileKey];
+    [newAudioPost setObject:descriptionField.text forKey:[ParseObjects sharedInstance].descriptionKey];
+    [newAudioPost setObject:[SessionManager sharedInstance].currentUser
+                     forKey:[ParseObjects sharedInstance].postOwnerKey];
+    
+    [newAudioPost saveInBackground];
     NSLog(@"post shared!");
     [self closeRecordingView:nil];
 }

@@ -10,14 +10,22 @@
 
 @interface ParseObjects ()
 
-@property (readwrite) NSString* userFollowingListName;
-@property (readwrite) NSString* audioPostObjectName;
+@property (readwrite) NSString* userFollowingListKey;
+
+@property (readwrite) NSString* audioPostClassName;
+@property (readwrite) NSString* audioFileKey;
+@property (readwrite) NSString* descriptionKey;
+@property (readwrite) NSString* postOwnerKey;
+
 
 @end
 
 @implementation ParseObjects
-@synthesize audioPostObjectName;
-@synthesize userFollowingListName;
+@synthesize audioPostClassName;
+@synthesize userFollowingListKey;
+@synthesize audioFileKey;
+@synthesize descriptionKey;
+@synthesize postOwnerKey;
 
 static ParseObjects* _sharedInstance = nil;
 
@@ -32,8 +40,12 @@ static ParseObjects* _sharedInstance = nil;
 - (id) init {
     self = [super init];
     if (self) {
-        self.userFollowingListName = @"followingList";
-        self.audioPostObjectName = @"audioPost";
+        self.userFollowingListKey = @"followingList";
+        
+        self.audioPostClassName = @"audioPost";
+        self.audioFileKey = @"audioFile";
+        self.postOwnerKey = @"postOwner";
+        self.descriptionKey = @"postDescription";
     }
     return self;
 }

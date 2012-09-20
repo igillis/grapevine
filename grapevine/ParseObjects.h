@@ -9,8 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface ParseObjects : NSObject
-@property (readonly) NSString* userFollowingListName;
-@property (readonly) NSString* audioPostObjectName;
+//Strings for parse users
+@property (readonly) NSString* userFollowingListKey;
+
+//Strings for audiopost parse objects
+@property (readonly) NSString* audioPostClassName;
+@property (readonly) NSString* audioFileKey;
+@property (readonly) NSString* descriptionKey;
+@property (readonly) NSString* postOwnerKey;
 
 + (ParseObjects*) sharedInstance;
 
