@@ -7,6 +7,7 @@
 //
 
 #import "SessionManager.h"
+#import <Parse/Parse.h>
 
 @interface SessionManager ()
 
@@ -39,16 +40,16 @@ SessionManager* sharedInstance = nil;
  * Opens a Facebook session and optionally shows the login UX.
  */
 - (BOOL)openFacebookSessionWithPermissions:(NSArray *)permissions {
-    [FBSession openActiveSessionWithPermissions:permissions
-                                          allowLoginUI:YES
-                                     completionHandler:^(FBSession *session,
-                                                         FBSessionState state,
-                                                         NSError *error) {
-                                         [self facebookSessionStateChanged:session
-                                                             state:state
-                                                             error:error];
-                                     }];
-    return self.isOpen;
+    [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
+        if (!user) {
+            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+        } else if (user.isNew) {
+            NSLog(@"User signed up and logged in through Facebook!");
+        } else {
+            NSLog(@"User logged in through Facebook!");
+        }
+    }];
+    return YES;
 }
 
 - (BOOL)isOpen {

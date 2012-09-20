@@ -12,7 +12,7 @@
 #import "ContactsViewController.h"
 #import "LoginViewController.h"
 #import "SessionManager.h"
-
+#import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
 
 @implementation AppDelegate
@@ -45,6 +45,14 @@
     [self.window makeKeyAndVisible];
     
     [self.tabBarController presentViewController:loginViewController animated:YES completion:NULL];
+    
+    [Parse setApplicationId:@"XTrDXkn1iCJN7BnNJvVgexKW9lk3zovtAloHxqR6"
+                  clientKey:@"awYmVJEAegJMTHKpht7PyZGCSdPBtMJaeUgASeO7"];
+    [PFFacebookUtils initializeWithApplicationId:@"348658601895040"];
+    
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    [testObject setObject:@"bar" forKey:@"foo"];
+    [testObject save];
     
     return YES;
 }
@@ -79,16 +87,13 @@
     [[SessionManager sharedInstance] closeSession];
 }
 
-/*
- * If we have a valid session at the time of openURL call, we handle
- * Facebook transitions by passing the url argument to handleOpenURL
- */
-- (BOOL)application:(UIApplication *)application
-            openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication
-         annotation:(id)annotation {
-    // attempt to extract a token from the url
-    return [FBSession.activeSession handleOpenURL:url];
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [PFFacebookUtils handleOpenURL:url];
+}
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [PFFacebookUtils handleOpenURL:url];
 }
 
 @end
