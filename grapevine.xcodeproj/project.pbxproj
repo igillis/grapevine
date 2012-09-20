@@ -63,6 +63,7 @@
 		49B18B1E160AAE900076F8DC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B1D160AAE900076F8DC /* StoreKit.framework */; };
 		49B18B20160AAE990076F8DC /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B1F160AAE990076F8DC /* SystemConfiguration.framework */; };
 		49B18B22160AAF080076F8DC /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B21160AAF080076F8DC /* Parse.framework */; };
+		49B18B25160AB5FA0076F8DC /* ParseObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B18B24160AB5FA0076F8DC /* ParseObjects.m */; };
 		49F572EB15F2670C008C5D8B /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F572EA15F2670C008C5D8B /* checked.png */; };
 		49F572EE15F26722008C5D8B /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F572ED15F26722008C5D8B /* unchecked.png */; };
 		49F5730515F52382008C5D8B /* FakeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 49F5730415F52382008C5D8B /* FakeSound.mp3 */; };
@@ -144,6 +145,8 @@
 		49B18B1D160AAE900076F8DC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		49B18B1F160AAE990076F8DC /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		49B18B21160AAF080076F8DC /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		49B18B23160AB5FA0076F8DC /* ParseObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseObjects.h; sourceTree = "<group>"; };
+		49B18B24160AB5FA0076F8DC /* ParseObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseObjects.m; sourceTree = "<group>"; };
 		49F572EA15F2670C008C5D8B /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		49F572ED15F26722008C5D8B /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
 		49F5730415F52382008C5D8B /* FakeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = FakeSound.mp3; sourceTree = "<group>"; };
@@ -264,6 +267,8 @@
 				498C43401604D18F005936B4 /* RecordingViewController.xib */,
 				493C1393160909BE004C51B6 /* SessionManager.h */,
 				493C1394160909BE004C51B6 /* SessionManager.m */,
+				49B18B23160AB5FA0076F8DC /* ParseObjects.h */,
+				49B18B24160AB5FA0076F8DC /* ParseObjects.m */,
 			);
 			path = grapevine;
 			sourceTree = "<group>";
@@ -417,6 +422,7 @@
 				494A3EC41603BA0300E8B0F4 /* HomeTableViewController.m in Sources */,
 				498C43411604D18F005936B4 /* RecordingViewController.m in Sources */,
 				493C1395160909BE004C51B6 /* SessionManager.m in Sources */,
+				49B18B25160AB5FA0076F8DC /* ParseObjects.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

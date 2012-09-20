@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
 
 typedef enum {
     // currently attempting to authenticate user
@@ -37,6 +38,7 @@ extern NSString *const FBSessionStateChangedNotification;
 @property (readonly, copy) NSString* accessToken;
 @property(readonly, copy) NSDate *expirationDate;
 @property(readonly, copy) NSArray *sessionPermissions;
+@property(readonly) PFUser* currentUser;
 
 + (SessionManager*) sharedInstance;
 

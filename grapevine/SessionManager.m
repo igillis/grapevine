@@ -8,11 +8,13 @@
 
 #import "SessionManager.h"
 #import <Parse/Parse.h>
+#import "ParseObjects.h"
 
 @interface SessionManager ()
 
 @property (readwrite) SessionState sessionState;
 @property (readwrite) SessionType sessionType;
+@property (readwrite) PFUser* currentUser;
 
 @end
 
@@ -23,81 +25,56 @@
 @synthesize accessToken;
 @synthesize expirationDate;
 @synthesize sessionPermissions;
+@synthesize currentUser;
 
 NSString *const FBSessionStateChangedNotification =
 @"grapevine:FBSessionStateChangedNotification";
 
-SessionManager* sharedInstance = nil;
+static SessionManager* _sharedInstance = nil;
 
 + (SessionManager*) sharedInstance {
-    if (sharedInstance == nil) {
-        sharedInstance = [[self alloc] init];
+    if (_sharedInstance == nil) {
+        _sharedInstance = [[self alloc] init];
     }
-    return sharedInstance;
+    return _sharedInstance;
 }
 
 /*
  * Opens a Facebook session and optionally shows the login UX.
  */
 - (BOOL)openFacebookSessionWithPermissions:(NSArray *)permissions {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(addUserToUserFollowingList)
+                                                 name:@"newFbUser"
+                                               object:nil];
     [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
         if (!user) {
             NSLog(@"Uh oh. The user cancelled the Facebook login.");
+            return;
         } else if (user.isNew) {
             NSLog(@"User signed up and logged in through Facebook!");
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"newFbUser" object:self];
         } else {
-            NSLog(@"User logged in through Facebook!");
+            NSLog(@"User signed in through Facebook.");
         }
+        [[NSNotificationCenter defaultCenter] postNotificationName:FBSessionDidBecomeOpenActiveSessionNotification object:self];
+        self.currentUser = user;
     }];
-    return YES;
+    return NO;
 }
+
+- (void)addUserToUserFollowingList {
+    NSLog(@"user now following themself");
+    [self.currentUser addObject:self.currentUser
+                         forKey:[[ParseObjects sharedInstance] userFollowingListName]];
+    [self.currentUser saveInBackground];
+}
+
+
 
 - (BOOL)isOpen {
     NSLog(@"%i", self.sessionState);
     return self.sessionState == SessionStateOpen;
-}
-
-- (void)facebookSessionStateChanged:(FBSession *)session
-                      state:(FBSessionState) state
-                      error:(NSError *)error
-{
-    switch (state) {
-        case FBSessionStateOpen:
-            if (!error) {
-                // We have a valid session
-                NSLog(@"User session found");
-                self.sessionState = SessionStateOpen;
-                self.sessionType = FacebookSession;
-                [[NSNotificationCenter defaultCenter] postNotificationName:FBSessionDidBecomeOpenActiveSessionNotification object:self];
-            }
-            break;
-        case FBSessionStateClosed:
-            self.sessionState = SessionStateClose;
-            self.sessionType = NoSession;
-            break;
-        case FBSessionStateClosedLoginFailed:
-            [FBSession.activeSession closeAndClearTokenInformation];
-            self.sessionState = SessionStateCloseLoginFailure;
-            self.sessionType = NoSession;
-            break;
-        default:
-            //TODO(igillis): handle other cases
-            break;
-    }
-    
-    [[NSNotificationCenter defaultCenter]
-     postNotificationName:FBSessionStateChangedNotification
-     object:session];
-    
-    if (error) {
-        UIAlertView *alertView = [[UIAlertView alloc]
-                                  initWithTitle:@"Error"
-                                  message:error.localizedDescription
-                                  delegate:nil
-                                  cancelButtonTitle:@"OK"
-                                  otherButtonTitles:nil];
-        [alertView show];
-    }
 }
 
 - (BOOL) openTwitterSessionWithPermissions:(NSArray*) permissions {

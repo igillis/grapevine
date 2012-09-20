@@ -50,10 +50,6 @@
                   clientKey:@"awYmVJEAegJMTHKpht7PyZGCSdPBtMJaeUgASeO7"];
     [PFFacebookUtils initializeWithApplicationId:@"348658601895040"];
     
-    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-    [testObject setObject:@"bar" forKey:@"foo"];
-    [testObject save];
-    
     return YES;
 }
 
