@@ -149,15 +149,12 @@ static NSDictionary* images;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return 30.0;
-    }
     CGSize labelsize;
     UILabel * label = [[UILabel alloc] init];
     labelsize = [self setCellLabel:label
                           withText:[[self objectAtIndexPath:indexPath]
                                         valueForKey:[ParseObjects sharedInstance].descriptionKey]];
-    return MAX(82.0, labelsize.height + DESCRIPTION_Y + 10.0);
+    return MAX(88.0, labelsize.height + DESCRIPTION_Y + 10.0);
 }
 
 - (CGSize) setCellLabel:(UILabel*) label withText:(NSString*) text {

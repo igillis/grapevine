@@ -23,6 +23,11 @@ static AVAudioRecorder* _audioRecorder = nil;
     return _sharedInstance;
 }
 
+-(void) prepareToPlay {
+    NSLog(@"preparing to play");
+    [_audioPlayer prepareToPlay];
+}
+
 //Should make this threaded so that it can continue in the background without holding up the UI from updating
 -(void) playAudio:(NSString *)file {
     NSURL* soundUrl = [[NSURL alloc] initFileURLWithPath:file];
@@ -105,7 +110,7 @@ static AVAudioRecorder* _audioRecorder = nil;
     if (self) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES);
         NSString *documentsDir =[paths objectAtIndex:0];
-        recordingPath =[documentsDir stringByAppendingPathComponent:@"mysound.caf"];
+        recordingPath =[documentsDir stringByAppendingPathComponent:@"mysound.aiff"];
         NSURL* recordingURL = [[NSURL alloc] initFileURLWithPath: recordingPath];
         
         NSDictionary *recordSettings = [NSDictionary

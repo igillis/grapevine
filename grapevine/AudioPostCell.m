@@ -81,7 +81,6 @@
     altView.hidden = !altView.hidden;
     if (mainView.hidden) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        [self playAudioFromData:self.audioData];
     } else {
         self.selectionStyle = UITableViewCellSelectionStyleBlue;
     }

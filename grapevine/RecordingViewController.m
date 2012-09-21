@@ -49,7 +49,7 @@ static NSString* recording = nil;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir = [paths objectAtIndex:0];
-    currentRecordingLocation = [documentsDir stringByAppendingPathComponent:@"mysound.caf"];
+    currentRecordingLocation = [documentsDir stringByAppendingPathComponent:@"mysound.aiff"];
     isRecording = NO;
     viewOriginalFrame = lowerHalf.frame;
     

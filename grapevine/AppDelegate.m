@@ -12,6 +12,7 @@
 #import "ContactsViewController.h"
 #import "LoginViewController.h"
 #import "SessionManager.h"
+#import "AudioController.h"
 #import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -49,6 +50,9 @@
     [Parse setApplicationId:@"XTrDXkn1iCJN7BnNJvVgexKW9lk3zovtAloHxqR6"
                   clientKey:@"awYmVJEAegJMTHKpht7PyZGCSdPBtMJaeUgASeO7"];
     [PFFacebookUtils initializeWithApplicationId:@"348658601895040"];
+    
+    //prime the audiocontroller so that playback isn't delayed while it initializes
+    [[AudioController sharedInstance] prepareToPlay];
     
     return YES;
 }

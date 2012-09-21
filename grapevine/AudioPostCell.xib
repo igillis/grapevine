@@ -51,7 +51,7 @@
 									<object class="IBUIImageView" id="498452390">
 										<reference key="NSNextResponder" ref="438709286"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{6, 3}, {68, 68}}</string>
+										<string key="NSFrame">{{6, 8}, {68, 68}}</string>
 										<reference key="NSSuperview" ref="438709286"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="76053227"/>
@@ -66,7 +66,7 @@
 									<object class="IBUILabel" id="76053227">
 										<reference key="NSNextResponder" ref="438709286"/>
 										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{82, 3}, {127, 21}}</string>
+										<string key="NSFrame">{{82, 8}, {127, 21}}</string>
 										<reference key="NSSuperview" ref="438709286"/>
 										<reference key="NSWindow"/>
 										<reference key="NSNextKeyView" ref="691597007"/>
@@ -437,24 +437,12 @@
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">50</int>
-						<reference key="object" ref="960946962"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="984716306"/>
-							<reference ref="653943164"/>
-							<reference ref="348562152"/>
-							<reference ref="952574965"/>
-							<reference ref="384065721"/>
-						</array>
-						<reference key="parent" ref="1035462776"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">52</int>
 						<reference key="object" ref="438709286"/>
 						<array class="NSMutableArray" key="children">
-							<reference ref="76053227"/>
-							<reference ref="498452390"/>
 							<reference ref="691597007"/>
+							<reference ref="498452390"/>
+							<reference ref="76053227"/>
 						</array>
 						<reference key="parent" ref="1035462776"/>
 					</object>
@@ -474,19 +462,16 @@
 						<reference key="parent" ref="438709286"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">58</int>
-						<reference key="object" ref="653943164"/>
-						<reference key="parent" ref="960946962"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">59</int>
-						<reference key="object" ref="984716306"/>
-						<reference key="parent" ref="960946962"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">65</int>
-						<reference key="object" ref="348562152"/>
-						<reference key="parent" ref="960946962"/>
+						<int key="objectID">50</int>
+						<reference key="object" ref="960946962"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="984716306"/>
+							<reference ref="653943164"/>
+							<reference ref="348562152"/>
+							<reference ref="952574965"/>
+							<reference ref="384065721"/>
+						</array>
+						<reference key="parent" ref="1035462776"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">68</int>
@@ -496,6 +481,21 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">70</int>
 						<reference key="object" ref="952574965"/>
+						<reference key="parent" ref="960946962"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">65</int>
+						<reference key="object" ref="348562152"/>
+						<reference key="parent" ref="960946962"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">58</int>
+						<reference key="object" ref="653943164"/>
+						<reference key="parent" ref="960946962"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">59</int>
+						<reference key="object" ref="984716306"/>
 						<reference key="parent" ref="960946962"/>
 					</object>
 				</array>
@@ -527,7 +527,7 @@
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">AudioPostCell</string>
-					<string key="superclassName">UITableViewCell</string>
+					<string key="superclassName">PFTableViewCell</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="playPauseButtonTouched:">id</string>
 						<string key="shareButtonTouched:">id</string>
@@ -594,6 +594,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/AudioPostCell.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">PFTableViewCell</string>
+					<string key="superclassName">UITableViewCell</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/PFTableViewCell.h</string>
 					</object>
 				</object>
 			</array>

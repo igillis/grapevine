@@ -17,6 +17,7 @@
 + (AudioController*) sharedInstance;
 
 //Playback methods
+-(void) prepareToPlay;
 -(void) playAudio: (NSString*) file;
 -(void) playAudioFromData: (NSData*) data;
 -(void) pauseAudio;
