@@ -21,34 +21,20 @@ typedef enum {
     SessionStateCloseLoginFailure
 } SessionState;
 
-typedef enum {
-    TwitterSession = 0,
-    GrapevineSession = 1,
-    FacebookSession = 2,
-    GoogleSession = 3,
-    NoSession = 4,
-} SessionType;
-
 extern NSString *const FBSessionStateChangedNotification;
 
 @interface SessionManager : NSObject
 @property (readonly) SessionState sessionState;
-@property (readonly) SessionType sessionType;
-@property (readonly) BOOL isOpen;
-@property (readonly, copy) NSString* accessToken;
-@property(readonly, copy) NSDate *expirationDate;
-@property(readonly, copy) NSArray *sessionPermissions;
+@property(readonly, copy) NSArray* sessionPermissions;
 @property(readonly) PFUser* currentUser;
 
 + (SessionManager*) sharedInstance;
 
 - (BOOL) openFacebookSessionWithPermissions:(NSArray*) permissions;
 - (BOOL) openTwitterSessionWithPermissions:(NSArray*) permissions;
-- (BOOL) openGoogleSessionWithPermissions:(NSArray*) permissions;
-- (BOOL) openGrapevineSessionWithLoginId:(NSString*) loginId andPassword: (NSString*) password;
+- (BOOL) openGrapevineSessionWithLoginId:(NSString*) loginId
+                             andPassword: (NSString*) password;
 
 - (void) closeSession;
-
-- (void) closeSessionAndClearTokenInfo;
 
 @end

@@ -13,17 +13,14 @@
 @interface SessionManager ()
 
 @property (readwrite) SessionState sessionState;
-@property (readwrite) SessionType sessionType;
 @property (readwrite) PFUser* currentUser;
+@property (readwrite, copy) NSArray* sessionPermissions;
 
 @end
 
 @implementation SessionManager
 
-@synthesize sessionType;
 @synthesize sessionState;
-@synthesize accessToken;
-@synthesize expirationDate;
 @synthesize sessionPermissions;
 @synthesize currentUser;
 
@@ -43,9 +40,16 @@ static SessionManager* _sharedInstance = nil;
  * Opens a Facebook session and optionally shows the login UX.
  */
 - (BOOL)openFacebookSessionWithPermissions:(NSArray *)permissions {
+    self.sessionState = SessionStatePending;
     [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
         if (!user) {
-            NSLog(@"Uh oh. The user cancelled the Facebook login.");
+            if (error) {
+                NSLog(@"error during login: %@", error);
+            }
+            else {
+                NSLog(@"Uh oh. The user cancelled the Facebook login.");
+            }
+            self.sessionState = SessionStateCloseLoginFailure;
             return;
         } else if (user.isNew) {
             NSLog(@"User %@ signed up and logged in through Facebook!", user);
@@ -53,20 +57,14 @@ static SessionManager* _sharedInstance = nil;
             NSLog(@"User %@ signed in through Facebook.", user);
         }
         self.currentUser = user;
+        self.sessionPermissions = permissions;
+        self.sessionState = SessionStateOpen;
         [[NSNotificationCenter defaultCenter] postNotificationName:FBSessionDidBecomeOpenActiveSessionNotification object:self];
     }];
     return NO;
 }
 
-- (BOOL)isOpen {
-    NSLog(@"%i", self.sessionState);
-    return self.sessionState == SessionStateOpen;
-}
-
 - (BOOL) openTwitterSessionWithPermissions:(NSArray*) permissions {
-    return NO;
-}
-- (BOOL) openGoogleSessionWithPermissions:(NSArray*) permissions {
     return NO;
 }
 
@@ -75,14 +73,6 @@ static SessionManager* _sharedInstance = nil;
 }
 
 - (void) closeSession {
-    if (self.sessionState == FacebookSession) {
-        
-    }
-}
-
-- (void) closeSessionAndClearTokenInfo {
-    if (self.sessionState == FacebookSession) {
-        
-    }
+    self.sessionState = SessionStateClose;
 }
 @end
