@@ -47,7 +47,9 @@ static NSString* recording = nil;
 {
     [super viewDidLoad];
     
-    currentRecordingLocation = nil;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDir = [paths objectAtIndex:0];
+    currentRecordingLocation = [documentsDir stringByAppendingPathComponent:@"mysound.caf"];
     isRecording = NO;
     viewOriginalFrame = lowerHalf.frame;
     
@@ -120,7 +122,7 @@ static NSString* recording = nil;
     //save audio data to the server
     NSData* recordingData = [NSData dataWithContentsOfFile:self.currentRecordingLocation];
     PFFile* recordingFile = [PFFile fileWithName:@"audioRecording" data:recordingData];
-    [recordingFile save];
+    [recordingFile saveInBackground];
     
     //save audio post object to the server
     PFObject* newAudioPost = [PFObject objectWithClassName:[ParseObjects sharedInstance].audioPostClassName];

@@ -45,7 +45,6 @@ static NSDictionary* images;
         // The number of objects to show per page
         self.objectsPerPage = 5;
     }
-    NSLog(@"init with self.className=%@", self.className);
     return self;
 }
 
@@ -64,7 +63,6 @@ static NSDictionary* images;
     
     // The number of objects to show per page
     self.objectsPerPage = 5;
-    NSLog(@"awoke with self.className=%@", self.className);
 }
 
 #pragma mark - View lifecycle
@@ -73,7 +71,6 @@ static NSDictionary* images;
 {
     [super viewDidLoad];
     cellLoader = [UINib nibWithNibName:@"AudioPostCell" bundle:[NSBundle mainBundle]];
-    NSLog(@"viewdidload with self.className=%@", self.className);
     
     self.clearsSelectionOnViewWillAppear = NO;
     
@@ -89,14 +86,12 @@ static NSDictionary* images;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    NSLog(@"viewwillappear");
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     [self viewDidLoad];
-    NSLog(@"viewdidappear");
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -162,7 +157,6 @@ static NSDictionary* images;
     labelsize = [self setCellLabel:label
                           withText:[[self objectAtIndexPath:indexPath]
                                         valueForKey:[ParseObjects sharedInstance].descriptionKey]];
-    NSLog(@"return height of %f", MAX(82.0, labelsize.height + DESCRIPTION_Y + 10.0));
     return MAX(82.0, labelsize.height + DESCRIPTION_Y + 10.0);
 }
 
@@ -193,6 +187,7 @@ static NSDictionary* images;
                                       labelsize.height);
     
     [name fetchIfNeeded];
+    cell.audioData = [[object valueForKey:parseObjects.audioFileKey] getData];
     cell.name.text = [name objectForKey:parseObjects.userFirstNameKey];
     //cell.altName.text = [name objectForKey:parseObjects.userLastNameKey];
     cell.timeSlider.continuous = NO;
@@ -212,14 +207,12 @@ static NSDictionary* images;
     
     NSString* imagePath = [[NSBundle mainBundle] pathForResource:[images objectForKey:name] ofType:@"jpg"];
     cell.profilePic.image = [[UIImage alloc] initWithContentsOfFile:imagePath];
-    NSLog(@"%f", cell.mainView.frame.origin.y);
     return cell;
 }
 
 
  // Override if you need to change the ordering of objects in the table.
  /*- (PFObject *)objectAtIndexPath:(NSIndexPath *)indexPath {
-     NSLog(@"getting object at %@", indexPath);
      if (indexPath.section == 1) {
          return [self.objects objectAtIndex:indexPath.row];
      }
