@@ -58,14 +58,6 @@ static SessionManager* _sharedInstance = nil;
     return NO;
 }
 
-- (void)addUserToUserFollowingList {
-    NSLog(@"%@", self.currentUser);
-    [self.currentUser addObject:self.currentUser
-                         forKey:[[ParseObjects sharedInstance] userFollowingListKey]];
-    [self.currentUser saveInBackground];
-    NSLog(@"user now following themself");
-}
-
 - (BOOL)isOpen {
     NSLog(@"%i", self.sessionState);
     return self.sessionState == SessionStateOpen;

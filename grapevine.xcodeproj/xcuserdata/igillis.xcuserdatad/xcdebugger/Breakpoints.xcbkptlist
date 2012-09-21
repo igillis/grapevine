@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "grapevine/AudioPostCell.h"
-         timestampString = "368549042.170876"
+         timestampString = "369888064.479047"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "32"
-         endingLineNumber = "32"
+         startingLineNumber = "35"
+         endingLineNumber = "35"
          landmarkName = "@interface AudioPostCell"
          landmarkType = "2">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AudioController.m"
-         timestampString = "368575448.028341"
+         timestampString = "369888064.479047"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "55"
-         endingLineNumber = "55"
+         startingLineNumber = "65"
+         endingLineNumber = "65"
          landmarkName = "-toggleAudio:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "AudioController.m"
-         timestampString = "369498448.953457"
+         timestampString = "369888064.479047"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "93"
-         endingLineNumber = "93"
+         startingLineNumber = "103"
+         endingLineNumber = "103"
          landmarkName = "-init"
          landmarkType = "5">
       </FileBreakpoint>
@@ -118,6 +118,45 @@
          startingLineNumber = "116"
          endingLineNumber = "116"
          landmarkName = "-closeRecordingView:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PostsTableViewController.m"
+         timestampString = "369886402.803512"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "173"
+         endingLineNumber = "173"
+         landmarkName = "-setCellLabel:withText:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PostsTableViewController.m"
+         timestampString = "369886181.470043"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "135"
+         endingLineNumber = "135"
+         landmarkName = "-objectsWillLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PostsTableViewController.m"
+         timestampString = "369886402.803512"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "176"
+         endingLineNumber = "176"
+         landmarkName = "-setCellLabel:withText:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

@@ -62,6 +62,7 @@
 }
          
 - (void)closeLoginView {
+    //tell homeviewcontroller to start loading posts
     [self dismissModalViewControllerAnimated:YES];
 }
 

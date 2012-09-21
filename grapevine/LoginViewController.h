@@ -22,7 +22,6 @@
 - (void)closeLoginView;
 
 @property (strong, nonatomic) UITextField* username;
-
 @property (strong, nonatomic) UITextField* password;
 
 @property (strong, nonatomic) IBOutlet UILabel* grapevine;

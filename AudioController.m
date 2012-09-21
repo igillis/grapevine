@@ -36,6 +36,16 @@ static AVAudioRecorder* _audioRecorder = nil;
     }
 }
 
+-(void) playAudioFromData:(NSData *)data {
+    if (_audioPlayer && [_audioPlayer.data isEqualToData:data]) {
+        [_audioPlayer play];
+    } else {
+        _audioPlayer = [[AVAudioPlayer alloc] initWithData:data error:nil];
+        [_audioPlayer setVolume:1.0];
+        [_audioPlayer play];
+    }
+}
+
 -(void) pauseAudio {
     if (_audioPlayer && [_audioPlayer isPlaying]) {
         [_audioPlayer pause];

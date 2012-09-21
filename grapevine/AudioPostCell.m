@@ -13,6 +13,7 @@
 @synthesize timeSlider;
 @synthesize playPauseButton;
 @synthesize altName;
+@synthesize audioData;
 
 @synthesize mainView;
 @synthesize profilePic;
@@ -31,6 +32,9 @@
 }
 -(void) playAudio:(NSString *) file {
     [[AudioController sharedInstance] playAudio:file];
+}
+-(void)playAudioFromData:(NSData *)data {
+    [[AudioController sharedInstance] playAudioFromData:data];
 }
 -(BOOL) isEqual:(id)object {
     if (![object isKindOfClass:[AudioPostCell class]]) {
@@ -53,7 +57,7 @@
         UIImage* pauseImage =
             [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"pause" ofType:@"png"]];
         [button setImage:pauseImage forState:UIControlStateNormal];
-        [self playAudio:self.audioPath];
+        [self playAudioFromData:self.audioData];
     }
 }
 

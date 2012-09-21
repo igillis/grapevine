@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Ian Gillis. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+/*#import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import "AudioPostCell.h"
 
@@ -17,4 +17,4 @@
 @property (nonatomic, strong) NSDictionary* posts;
 @property (nonatomic, strong) NSDictionary* images;
 @property (nonatomic, strong) AudioPostCell* currentlyPlaying;
-@end
+@end*/

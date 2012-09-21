@@ -11,6 +11,9 @@
 @interface ParseObjects ()
 
 @property (readwrite) NSString* userFollowingListKey;
+@property (readwrite) NSString* userLastNameKey;
+@property (readwrite) NSString* userFirstNameKey;
+
 
 @property (readwrite) NSString* audioPostClassName;
 @property (readwrite) NSString* audioFileKey;
@@ -41,6 +44,8 @@ static ParseObjects* _sharedInstance = nil;
     self = [super init];
     if (self) {
         self.userFollowingListKey = @"followingList";
+        self.userFirstNameKey = @"firstName";
+        self.userLastNameKey = @"lastName";
         
         self.audioPostClassName = @"audioPost";
         self.audioFileKey = @"audioFile";

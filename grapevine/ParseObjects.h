@@ -11,6 +11,8 @@
 @interface ParseObjects : NSObject
 //Strings for parse users
 @property (readonly) NSString* userFollowingListKey;
+@property (readonly) NSString* userLastNameKey;
+@property (readonly) NSString* userFirstNameKey;
 
 //Strings for audiopost parse objects
 @property (readonly) NSString* audioPostClassName;

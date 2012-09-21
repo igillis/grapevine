@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4923C744160BAC8600AA87A9 /* PostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4923C743160BAC8600AA87A9 /* PostsTableViewController.m */; };
 		492AAC6715F6CF1F001A94AD /* RecordButton1.png in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6615F6CF1F001A94AD /* RecordButton1.png */; };
 		492AAC6A15F6CF3D001A94AD /* musical_note_small.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6915F6CF3D001A94AD /* musical_note_small.jpeg */; };
 		492AAC6C15F6D8C6001A94AD /* Silver-Play-Button_small.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6B15F6D8C6001A94AD /* Silver-Play-Button_small.jpeg */; };
@@ -74,6 +75,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4923C742160BAC8600AA87A9 /* PostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostsTableViewController.h; path = ../PostsTableViewController.h; sourceTree = "<group>"; };
+		4923C743160BAC8600AA87A9 /* PostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostsTableViewController.m; path = ../PostsTableViewController.m; sourceTree = "<group>"; };
 		492AAC6615F6CF1F001A94AD /* RecordButton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordButton1.png; sourceTree = "<group>"; };
 		492AAC6915F6CF3D001A94AD /* musical_note_small.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = musical_note_small.jpeg; sourceTree = "<group>"; };
 		492AAC6B15F6D8C6001A94AD /* Silver-Play-Button_small.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Silver-Play-Button_small.jpeg"; sourceTree = "<group>"; };
@@ -198,14 +201,6 @@
 		49A5F63315ED7E2D00D3F73F = {
 			isa = PBXGroup;
 			children = (
-				49B18B1F160AAE990076F8DC /* SystemConfiguration.framework */,
-				49B18B1D160AAE900076F8DC /* StoreKit.framework */,
-				49B18B1B160AAE880076F8DC /* Security.framework */,
-				49B18B19160AAE810076F8DC /* MobileCoreServices.framework */,
-				49B18B17160AAE790076F8DC /* libz.1.1.3.dylib */,
-				49B18B15160AAE6E0076F8DC /* libsqlite3.dylib */,
-				49B18B13160AAE640076F8DC /* AudioToolbox.framework */,
-				49B18B11160AAE560076F8DC /* CFNetwork.framework */,
 				49A5F64815ED7E2D00D3F73F /* grapevine */,
 				49A5F64115ED7E2D00D3F73F /* Frameworks */,
 				49A5F63F15ED7E2D00D3F73F /* Products */,
@@ -223,6 +218,14 @@
 		49A5F64115ED7E2D00D3F73F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49B18B1F160AAE990076F8DC /* SystemConfiguration.framework */,
+				49B18B1D160AAE900076F8DC /* StoreKit.framework */,
+				49B18B1B160AAE880076F8DC /* Security.framework */,
+				49B18B19160AAE810076F8DC /* MobileCoreServices.framework */,
+				49B18B17160AAE790076F8DC /* libz.1.1.3.dylib */,
+				49B18B15160AAE6E0076F8DC /* libsqlite3.dylib */,
+				49B18B13160AAE640076F8DC /* AudioToolbox.framework */,
+				49B18B11160AAE560076F8DC /* CFNetwork.framework */,
 				49B18B21160AAF080076F8DC /* Parse.framework */,
 				493C1391160908A8004C51B6 /* FacebookSDK.framework */,
 				49F5730D15F54714008C5D8B /* QuartzCore.framework */,
@@ -238,6 +241,8 @@
 		49A5F64815ED7E2D00D3F73F /* grapevine */ = {
 			isa = PBXGroup;
 			children = (
+				4923C742160BAC8600AA87A9 /* PostsTableViewController.h */,
+				4923C743160BAC8600AA87A9 /* PostsTableViewController.m */,
 				49F5730A15F526E1008C5D8B /* AudioController.h */,
 				49F5730B15F526E1008C5D8B /* AudioController.m */,
 				49A5F65115ED7E2D00D3F73F /* AppDelegate.h */,
@@ -423,6 +428,7 @@
 				498C43411604D18F005936B4 /* RecordingViewController.m in Sources */,
 				493C1395160909BE004C51B6 /* SessionManager.m in Sources */,
 				49B18B25160AB5FA0076F8DC /* ParseObjects.m in Sources */,
+				4923C744160BAC8600AA87A9 /* PostsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -18,6 +18,7 @@
 
 //Playback methods
 -(void) playAudio: (NSString*) file;
+-(void) playAudioFromData: (NSData*) data;
 -(void) pauseAudio;
 -(void) stopAudio;
 -(BOOL) toggleAudio: (NSString*) file;
