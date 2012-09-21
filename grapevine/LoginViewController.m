@@ -8,6 +8,8 @@
 
 #import "LoginViewController.h"
 #import "SessionManager.h"
+#import "ParseObjects.h"
+#import <Parse/Parse.h>
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface LoginViewController ()
@@ -62,8 +64,19 @@
 }
          
 - (void)closeLoginView {
-    //tell homeviewcontroller to start loading posts
-    [self dismissModalViewControllerAnimated:YES];
+    PFUser* user = [SessionManager sharedInstance].currentUser;
+    if (user) {
+        [PF_FBRequestConnection startWithGraphPath:@"m/picture"
+                                 completionHandler:^(PF_FBRequestConnection* connection, id result, NSError* error) {
+                                     NSData* resultData = (NSData*) result;
+                                     PFFile* pictureFile = [PFFile fileWithName:@"audioRecording" data:resultData];
+                                     [pictureFile saveInBackground];
+                                     [user setObject:resultData forKey:[[ParseObjects sharedInstance] userProfilePictureKey]];
+                                     [user saveInBackground];
+                                 }] ;
+        [self dismissModalViewControllerAnimated:YES];
+    }
+
 }
 
 - (IBAction)twitterLogin:(id)sender {

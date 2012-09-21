@@ -13,6 +13,7 @@
 @property (readonly) NSString* userFollowingListKey;
 @property (readonly) NSString* userLastNameKey;
 @property (readonly) NSString* userFirstNameKey;
+@property (readonly) NSString* userProfilePictureKey;
 
 //Strings for audiopost parse objects
 @property (readonly) NSString* audioPostClassName;

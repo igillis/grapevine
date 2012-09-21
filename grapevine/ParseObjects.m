@@ -13,6 +13,7 @@
 @property (readwrite) NSString* userFollowingListKey;
 @property (readwrite) NSString* userLastNameKey;
 @property (readwrite) NSString* userFirstNameKey;
+@property (readwrite) NSString* userProfilePictureKey;
 
 
 @property (readwrite) NSString* audioPostClassName;
@@ -46,6 +47,7 @@ static ParseObjects* _sharedInstance = nil;
         self.userFollowingListKey = @"followingList";
         self.userFirstNameKey = @"firstName";
         self.userLastNameKey = @"lastName";
+        self.userProfilePictureKey = @"profilePic";
         
         self.audioPostClassName = @"audioPost";
         self.audioFileKey = @"audioFile";
