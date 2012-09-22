@@ -157,7 +157,7 @@ static NSDictionary* images;
     labelsize = [self setCellLabel:label
                           withText:[[self objectAtIndexPath:indexPath]
                                         valueForKey:[ParseObjects sharedInstance].descriptionKey]];
-    return MAX(88.0, labelsize.height + DESCRIPTION_Y + 10.0);
+    return MAX(71.0, labelsize.height + DESCRIPTION_Y + 10.0);
 }
 
 - (CGSize) setCellLabel:(UILabel*) label withText:(NSString*) text {
@@ -210,6 +210,8 @@ static NSDictionary* images;
             NSLog(@"usin default profile pic");
             cell.profilePic.image = nil;
         }
+        cell.profilePic.layer.cornerRadius = 5.0;
+        cell.profilePic.clipsToBounds = YES;
         
         cell.audioData = [[object valueForKey:parseObjects.audioFileKey] getData];
         cell.timeSlider.continuous = NO;
