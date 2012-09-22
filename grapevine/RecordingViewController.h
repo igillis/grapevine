@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIView *lowerHalf;
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
+@property (weak, nonatomic) IBOutlet UIImageView *profilePic;
 
 @property (nonatomic, strong) NSString* currentRecordingLocation;
 @property (nonatomic, strong) NSString* descriptionLabelPlaceholderText;

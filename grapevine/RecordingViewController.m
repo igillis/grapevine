@@ -26,6 +26,7 @@
 @synthesize lowerHalf;
 @synthesize progressLabel;
 @synthesize playButton;
+@synthesize profilePic;
 @synthesize currentRecordingLocation;
 @synthesize isRecording;
 @synthesize descriptionLabelPlaceholderText;
@@ -46,6 +47,17 @@ static NSString* recording = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIImage* userProfilePic =[[UIImage alloc] initWithData:
+                              [[[SessionManager sharedInstance].currentUser valueForKey:
+                                [ParseObjects sharedInstance].userProfilePictureKey] getData]];
+    if (userProfilePic) {
+        profilePic.image = userProfilePic;
+    } else {
+        profilePic.image = nil;
+    }
+    profilePic.layer.cornerRadius = 5.0;
+    profilePic.clipsToBounds = YES;
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir = [paths objectAtIndex:0];
@@ -84,6 +96,7 @@ static NSString* recording = nil;
     self.lowerBackgroundButton = nil;
     [self setProgressLabel:nil];
     [self setPlayButton:nil];
+    [self setProfilePic:nil];
     [super viewDidUnload];
 }
 
