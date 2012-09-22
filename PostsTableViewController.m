@@ -180,6 +180,8 @@ static NSDictionary* images;
             cell = [topLevelItems objectAtIndex:0];
         }
         PFUser* user = [object valueForKey:parseObjects.postOwnerKey];
+        [user fetchIfNeeded];
+        
         CGSize labelsize = [self setCellLabel:cell.description
                                      withText:[object valueForKey:parseObjects.descriptionKey]];
         //Don't use labelsize.width in case the description is shorter than the cell
@@ -187,11 +189,27 @@ static NSDictionary* images;
                                           295 - DESCRIPTION_X,
                                           labelsize.height);
         
-        [user fetchIfNeeded];
         NSString* name = [[NSString alloc] initWithFormat:@"%@ %@",
                           [user valueForKey:parseObjects.userFirstNameKey], [user valueForKey:parseObjects.userLastNameKey]];
         cell.name.text = name;
         cell.altName.text = name;
+        
+        //handles the case where a cell started playing and then the user scrolled away
+        //and then scrolled back
+        if ([cell isEqual:currentlyPlaying]) {
+            cell = nil;
+            return currentlyPlaying;
+        }
+        
+        UIImage* userProfilePic =[[UIImage alloc] initWithData:
+                                 [[user valueForKey:parseObjects.userProfilePictureKey] getData]];
+        if (userProfilePic) {
+            NSLog(@"found a profile pic");
+            cell.profilePic.image = userProfilePic;
+        } else {
+            NSLog(@"usin default profile pic");
+            cell.profilePic.image = nil;
+        }
         
         cell.audioData = [[object valueForKey:parseObjects.audioFileKey] getData];
         cell.timeSlider.continuous = NO;
@@ -202,15 +220,6 @@ static NSDictionary* images;
         cell.altView.layer.cornerRadius = 10.0;
         cell.mainView.layer.cornerRadius = 10.0;
         
-        //handles the case where a cell started playing and then the user scrolled away
-        //and then scrolled back
-        if ([cell isEqual:currentlyPlaying]) {
-            cell = nil;
-            return currentlyPlaying;
-        }
-        
-        NSString* imagePath = [[NSBundle mainBundle] pathForResource:[images objectForKey:name] ofType:@"jpg"];
-        cell.profilePic.image = [[UIImage alloc] initWithContentsOfFile:imagePath];
         return cell;
     } else {
         UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"SearchCell"];

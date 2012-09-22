@@ -177,11 +177,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PostsTableViewController.m"
-         timestampString = "369967411.407368"
+         timestampString = "369971460.603799"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "238"
-         endingLineNumber = "238"
+         startingLineNumber = "247"
+         endingLineNumber = "247"
          landmarkName = "-objectAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
