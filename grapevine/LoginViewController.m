@@ -66,17 +66,23 @@
 - (void)closeLoginView {
     PFUser* user = [SessionManager sharedInstance].currentUser;
     if (user) {
-        [PF_FBRequestConnection startWithGraphPath:@"m/picture"
-                                 completionHandler:^(PF_FBRequestConnection* connection, id result, NSError* error) {
-                                     NSData* resultData = (NSData*) result;
-                                     PFFile* pictureFile = [PFFile fileWithName:@"audioRecording" data:resultData];
-                                     [pictureFile saveInBackground];
-                                     [user setObject:resultData forKey:[[ParseObjects sharedInstance] userProfilePictureKey]];
-                                     [user saveInBackground];
-                                 }] ;
+        NSURL *profilePictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture?type=large", [[PFUser currentUser] objectForKey:@"authData"]]];
+        NSURLRequest *profilePictureURLRequest = [NSURLRequest requestWithURL:profilePictureURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f]; // Facebook profile picture cache policy: Expires in 2 weeks
+        [NSURLConnection connectionWithRequest:profilePictureURLRequest delegate:self];
         [self dismissModalViewControllerAnimated:YES];
     }
+}
 
+-(void)connection:(NSURLConnection*) connection didReceiveData:(NSData *)data {
+    if (!data) {
+        NSLog(@"error retrieving profile picture");
+        return;
+    }
+    PFUser* user = [SessionManager sharedInstance].currentUser;
+    PFFile* pictureFile = [PFFile fileWithName:@"profilePic" data:data];
+    [pictureFile saveInBackground];
+    [user setObject:pictureFile forKey:[[ParseObjects sharedInstance] userProfilePictureKey]];
+    [user saveInBackground];
 }
 
 - (IBAction)twitterLogin:(id)sender {

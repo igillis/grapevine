@@ -233,7 +233,6 @@ static NSDictionary* images;
     }
 }
 
-
 // Override if you need to change the ordering of objects in the table.
 -(PFObject*) objectAtIndexPath:(NSIndexPath *)indexPath {
      if (indexPath.section == 1) {
