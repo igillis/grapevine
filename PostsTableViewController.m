@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 #define DESCRIPTION_X 83.0
-#define DESCRIPTION_Y 34.0
+#define DESCRIPTION_Y 24.0
 #define DESCRIPTION_FONT_SIZE 12.0
 
 static NSDictionary* images;
@@ -157,7 +157,7 @@ static NSDictionary* images;
     labelsize = [self setCellLabel:label
                           withText:[[self objectAtIndexPath:indexPath]
                                         valueForKey:[ParseObjects sharedInstance].descriptionKey]];
-    return MAX(71.0, labelsize.height + DESCRIPTION_Y + 10.0);
+    return MAX(65.0, labelsize.height + DESCRIPTION_Y + 10.0);
 }
 
 - (CGSize) setCellLabel:(UILabel*) label withText:(NSString*) text {
