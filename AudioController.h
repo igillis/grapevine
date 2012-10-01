@@ -25,6 +25,7 @@
 -(BOOL) toggleAudio: (NSString*) file;
 -(BOOL) setTime: (int) newTime;
 -(BOOL) isPlaying;
+-(int) lengthOfCurrentTrack;
 
 //Recording methods
 -(void) beginRecording;

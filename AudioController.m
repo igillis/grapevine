@@ -24,7 +24,6 @@ static AVAudioRecorder* _audioRecorder = nil;
 }
 
 -(void) prepareToPlay {
-    NSLog(@"preparing to play");
     [_audioPlayer prepareToPlay];
 }
 
@@ -39,6 +38,13 @@ static AVAudioRecorder* _audioRecorder = nil;
         [_audioPlayer setVolume: 1.0];
         [_audioPlayer play];
     }
+}
+
+-(int) lengthOfCurrentTrack {
+    if (_audioPlayer && _audioPlayer.isPlaying) {
+        return _audioPlayer.duration;
+    }
+    return 0;
 }
 
 -(void) playAudioFromData:(NSData *)data {
@@ -72,11 +78,11 @@ static AVAudioRecorder* _audioRecorder = nil;
 //newTime represents the time to start playback at
 // in seconds (as we only have 30 secs of audio)
 -(BOOL) setTime: (int) newTime {
-    if (_audioPlayer && [_audioPlayer isPlaying]) {
-        [_audioPlayer setCurrentTime:newTime];
-        return YES;
+    [_audioPlayer setCurrentTime:newTime];
+    if (![_audioPlayer isPlaying]) {
+        [_audioPlayer play];
     }
-    return NO;
+    return YES;
 }
 
 -(void) stopAudio {

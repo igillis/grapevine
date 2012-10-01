@@ -133,7 +133,7 @@ static NSDictionary* images;
 
 // Override to customize what kind of query to perform on the class. The default is to query for
 // all objects ordered by createdAt descending.
-- (PFQuery *)queryForTable {
+/*- (PFQuery *)queryForTable {
     
     PFQuery *query = [PFQuery queryWithClassName:self.className];
     
@@ -146,7 +146,7 @@ static NSDictionary* images;
     [query orderByAscending:@"priority"];
     
     return query;
-}
+}*/
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
@@ -204,10 +204,8 @@ static NSDictionary* images;
         UIImage* userProfilePic =[[UIImage alloc] initWithData:
                                  [[user valueForKey:parseObjects.userProfilePictureKey] getData]];
         if (userProfilePic) {
-            NSLog(@"found a profile pic");
             cell.profilePic.image = userProfilePic;
         } else {
-            NSLog(@"usin default profile pic");
             cell.profilePic.image = nil;
         }
         cell.profilePic.layer.cornerRadius = 5.0;

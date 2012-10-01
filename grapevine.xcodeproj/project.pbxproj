@@ -14,6 +14,7 @@
 		492AAC6F15F6E36B001A94AD /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6D15F6E36B001A94AD /* pause.png */; };
 		492AAC7015F6E36B001A94AD /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6E15F6E36B001A94AD /* play.png */; };
 		492AAC7215F6F045001A94AD /* share.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC7115F6F045001A94AD /* share.jpeg */; };
+		492D30551613E78700C2EDAC /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 492D30541613E78700C2EDAC /* ContactsViewController.xib */; };
 		493C1392160908A8004C51B6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493C1391160908A8004C51B6 /* FacebookSDK.framework */; };
 		493C1395160909BE004C51B6 /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 493C1394160909BE004C51B6 /* SessionManager.m */; };
 		494A3EC41603BA0300E8B0F4 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494A3EC31603BA0300E8B0F4 /* HomeTableViewController.m */; };
@@ -33,7 +34,6 @@
 		49A5F66415ED7E2D00D3F73F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66215ED7E2D00D3F73F /* HomeViewController.xib */; };
 		49A5F66715ED7E2D00D3F73F /* TrendingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66515ED7E2D00D3F73F /* TrendingViewController.xib */; };
 		49A5F67015EDAE6200D3F73F /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F66E15EDAE6200D3F73F /* ContactsViewController.m */; };
-		49A5F67115EDAE6200D3F73F /* ContactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66F15EDAE6200D3F73F /* ContactsViewController.xib */; };
 		49A5F67315EDB45400D3F73F /* FakeContacts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F67215EDB45400D3F73F /* FakeContacts.plist */; };
 		49A5F67B15EDC24B00D3F73F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F67915EDC24B00D3F73F /* LoginViewController.m */; };
 		49A5F67C15EDC24B00D3F73F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F67A15EDC24B00D3F73F /* LoginViewController.xib */; };
@@ -83,6 +83,7 @@
 		492AAC6D15F6E36B001A94AD /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
 		492AAC6E15F6E36B001A94AD /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
 		492AAC7115F6F045001A94AD /* share.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = share.jpeg; sourceTree = "<group>"; };
+		492D30541613E78700C2EDAC /* ContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
 		493C138E1608F992004C51B6 /* FacebookSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKResources.bundle; sourceTree = "<group>"; };
 		493C138F1608F992004C51B6 /* FBUserSettingsViewResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FBUserSettingsViewResources.bundle; sourceTree = "<group>"; };
 		493C13901608F992004C51B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -115,7 +116,6 @@
 		49A5F66615ED7E2D00D3F73F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TrendingViewController.xib; sourceTree = "<group>"; };
 		49A5F66D15EDAE6200D3F73F /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
 		49A5F66E15EDAE6200D3F73F /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
-		49A5F66F15EDAE6200D3F73F /* ContactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContactsViewController.xib; sourceTree = "<group>"; };
 		49A5F67215EDB45400D3F73F /* FakeContacts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FakeContacts.plist; sourceTree = "<group>"; };
 		49A5F67815EDC24B00D3F73F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		49A5F67915EDC24B00D3F73F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -250,15 +250,15 @@
 				49A5F65415ED7E2D00D3F73F /* HomeViewController.h */,
 				49A5F65515ED7E2D00D3F73F /* HomeViewController.m */,
 				49A5F66215ED7E2D00D3F73F /* HomeViewController.xib */,
-				49A5F65B15ED7E2D00D3F73F /* TrendingViewController.h */,
 				494A3EC21603BA0300E8B0F4 /* HomeTableViewController.h */,
 				494A3EC31603BA0300E8B0F4 /* HomeTableViewController.m */,
+				49A5F65B15ED7E2D00D3F73F /* TrendingViewController.h */,
 				49A5F65C15ED7E2D00D3F73F /* TrendingViewController.m */,
 				49A5F66515ED7E2D00D3F73F /* TrendingViewController.xib */,
 				49A5F64915ED7E2D00D3F73F /* Supporting Files */,
 				49A5F66D15EDAE6200D3F73F /* ContactsViewController.h */,
 				49A5F66E15EDAE6200D3F73F /* ContactsViewController.m */,
-				49A5F66F15EDAE6200D3F73F /* ContactsViewController.xib */,
+				492D30541613E78700C2EDAC /* ContactsViewController.xib */,
 				49A5F67815EDC24B00D3F73F /* LoginViewController.h */,
 				49A5F67915EDC24B00D3F73F /* LoginViewController.m */,
 				49A5F67A15EDC24B00D3F73F /* LoginViewController.xib */,
@@ -372,7 +372,6 @@
 				49A5F64D15ED7E2D00D3F73F /* InfoPlist.strings in Resources */,
 				49A5F66415ED7E2D00D3F73F /* HomeViewController.xib in Resources */,
 				49A5F66715ED7E2D00D3F73F /* TrendingViewController.xib in Resources */,
-				49A5F67115EDAE6200D3F73F /* ContactsViewController.xib in Resources */,
 				49A5F67315EDB45400D3F73F /* FakeContacts.plist in Resources */,
 				49A5F67C15EDC24B00D3F73F /* LoginViewController.xib in Resources */,
 				49A5F67E15EDCD0600D3F73F /* fb-login-normal.png in Resources */,
@@ -405,6 +404,7 @@
 				49540CCC15FB765A00AF4D08 /* button.png in Resources */,
 				49540CCF15FB774A00AF4D08 /* RecordButtonPressed.png in Resources */,
 				498C43421604D18F005936B4 /* RecordingViewController.xib in Resources */,
+				492D30551613E78700C2EDAC /* ContactsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

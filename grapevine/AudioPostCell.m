@@ -58,6 +58,7 @@
             [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"pause" ofType:@"png"]];
         [button setImage:pauseImage forState:UIControlStateNormal];
         [self playAudioFromData:self.audioData];
+        timeSlider.maximumValue = [[AudioController sharedInstance] lengthOfCurrentTrack];
     }
 }
 

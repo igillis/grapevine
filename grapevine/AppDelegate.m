@@ -28,7 +28,7 @@
         initWithNibName:@"HomeViewController"bundle:nil];
     UIViewController *trendingViewController = [[TrendingViewController alloc] initWithNibName:@"TrendingViewController" bundle:nil];
     UIViewController *contactsViewController = [[ContactsViewController alloc]
-        initWithNibName:@"ContactsViewController" bundle:nil];
+                                                initWithNibName:@"ContactsViewController" bundle:nil];
     
     LoginViewController* loginViewController = [[LoginViewController alloc] init];
     
