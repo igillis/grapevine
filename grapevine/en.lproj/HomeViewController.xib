@@ -320,7 +320,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">38</int>
+			<int key="maxID">39</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -340,6 +340,7 @@
 					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="grapevine">UILabel</string>
+						<string key="postsViewController">PostsTableViewController</string>
 						<string key="recordButton">UIButton</string>
 						<string key="tableViewController">PostsTableViewController</string>
 					</dictionary>
@@ -347,6 +348,10 @@
 						<object class="IBToOneOutletInfo" key="grapevine">
 							<string key="name">grapevine</string>
 							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="postsViewController">
+							<string key="name">postsViewController</string>
+							<string key="candidateClassName">PostsTableViewController</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="recordButton">
 							<string key="name">recordButton</string>

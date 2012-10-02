@@ -10,6 +10,8 @@
 #import "ParseObjects.h"
 #import "AudioPostCell.h"
 #import <QuartzCore/QuartzCore.h>
+#import "SessionManager.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 #define DESCRIPTION_X 83.0
 #define DESCRIPTION_Y 24.0
@@ -43,7 +45,12 @@ static NSDictionary* images;
         self.paginationEnabled = YES;
         
         // The number of objects to show per page
-        self.objectsPerPage = 5;
+        self.objectsPerPage = 10;
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(loadObjects)
+                                                     name:FBSessionDidBecomeOpenActiveSessionNotification
+                                                   object:[SessionManager sharedInstance]];
     }
     return self;
 }
@@ -62,7 +69,7 @@ static NSDictionary* images;
     self.paginationEnabled = YES;
     
     // The number of objects to show per page
-    self.objectsPerPage = 5;
+    self.objectsPerPage = 10;
 }
 
 #pragma mark - View lifecycle
@@ -130,23 +137,16 @@ static NSDictionary* images;
     // This method is called before a PFQuery is fired to get more objects
 }
 
-
-// Override to customize what kind of query to perform on the class. The default is to query for
-// all objects ordered by createdAt descending.
-/*- (PFQuery *)queryForTable {
+- (PFQuery *)queryForTable {
     
-    PFQuery *query = [PFQuery queryWithClassName:self.className];
-    
-    // If no objects are loaded in memory, we look to the cache first to fill the table
-    // and then subsequently do a query against the network.
-    if ([self.objects count] == 0) {
-        query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    if (![SessionManager sharedInstance].currentUser) {
+        return nil;
     }
     
-    [query orderByAscending:@"priority"];
-    
+    PFQuery *query = [PFQuery queryWithClassName:self.className];
+    [query orderByDescending:@"createdAt"];
     return query;
-}*/
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
@@ -201,12 +201,13 @@ static NSDictionary* images;
             return currentlyPlaying;
         }
         
-        UIImage* userProfilePic =[[UIImage alloc] initWithData:
-                                 [[user valueForKey:parseObjects.userProfilePictureKey] getData]];
-        if (userProfilePic) {
-            cell.profilePic.image = userProfilePic;
+        PFFile* userProfilePicFile = [user valueForKey:parseObjects.userProfilePictureKey];
+       if (![userProfilePicFile isEqual:[[NSNull alloc] init]]) {
+           UIImage* userProfilePic =[[UIImage alloc] initWithData:[userProfilePicFile getData]];
+
+           cell.profilePic.image = userProfilePic;
         } else {
-            cell.profilePic.image = nil;
+           cell.profilePic.image = nil;
         }
         cell.profilePic.layer.cornerRadius = 5.0;
         cell.profilePic.clipsToBounds = YES;

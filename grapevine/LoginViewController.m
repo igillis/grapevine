@@ -54,21 +54,23 @@
 - (IBAction)facebookLogin:(id)sender {
     // The user has initiated a login, so call the openSession method
     // and show the login UX if necessary.
-    if ([[SessionManager sharedInstance] openFacebookSessionWithPermissions:nil]) {
-        [self dismissModalViewControllerAnimated:YES];
-    } else {
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                               selector:@selector(closeLoginView)
-                                                   name:FBSessionDidBecomeOpenActiveSessionNotification
-                                                 object:[SessionManager sharedInstance]];
-    }
+    [[SessionManager sharedInstance] openFacebookSessionWithPermissions:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(closeLoginView)
+                                               name:FBSessionDidBecomeOpenActiveSessionNotification
+                                             object:[SessionManager sharedInstance]];
 }
          
 - (void)closeLoginView {
     PFUser* user = [SessionManager sharedInstance].currentUser;
     if (user) {
-        NSURL *profilePictureURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://graph.facebook.com/%@/picture", @"ian.gillis2"]];
-        NSURLRequest *profilePictureURLRequest = [NSURLRequest requestWithURL:profilePictureURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10.0f]; // Facebook profile picture cache policy: Expires in 2 weeks
+        NSURL *profilePictureURL = [NSURL URLWithString:
+                                    [NSString stringWithFormat:@"https://graph.facebook.com/me/picture?access_token=%@",
+                                     [PFFacebookUtils session].accessToken]];
+        NSLog(@"%@", profilePictureURL);
+        NSURLRequest *profilePictureURLRequest = [NSURLRequest requestWithURL:profilePictureURL
+                                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                              timeoutInterval:8.0f];
         [NSURLConnection connectionWithRequest:profilePictureURLRequest delegate:self];
         [self dismissModalViewControllerAnimated:YES];
     }
@@ -87,7 +89,6 @@
         NSLog(@"error retrieving profile picture");
         return;
     }
-    
     PFFile* pictureFile = [PFFile fileWithName:@"profilePic" data:_data];
     [pictureFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {

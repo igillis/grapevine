@@ -125,7 +125,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PostsTableViewController.m"
-         timestampString = "369954104.570279"
+         timestampString = "370903721.489926"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "167"
@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PostsTableViewController.m"
-         timestampString = "369889632.223742"
+         timestampString = "370902505.145915"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "130"
-         endingLineNumber = "130"
+         startingLineNumber = "137"
+         endingLineNumber = "137"
          landmarkName = "-objectsWillLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -151,7 +151,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PostsTableViewController.m"
-         timestampString = "369954104.570279"
+         timestampString = "370903721.489926"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "170"
@@ -164,7 +164,7 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PostsTableViewController.m"
-         timestampString = "369954104.570279"
+         timestampString = "370903721.489926"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "155"
@@ -177,11 +177,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "PostsTableViewController.m"
-         timestampString = "370043401.35521"
+         timestampString = "370912195.074159"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "247"
-         endingLineNumber = "247"
+         startingLineNumber = "248"
+         endingLineNumber = "248"
          landmarkName = "-objectAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -196,6 +196,19 @@
          startingLineNumber = "71"
          endingLineNumber = "71"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "PostsTableViewController.m"
+         timestampString = "370902763.47743"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "52"
+         endingLineNumber = "52"
+         landmarkName = "-initWithStyle:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
