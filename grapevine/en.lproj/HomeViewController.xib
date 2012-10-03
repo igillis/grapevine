@@ -270,25 +270,6 @@
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">14</int>
-						<reference key="object" ref="92392282"/>
-						<array class="NSMutableArray" key="children">
-							<reference ref="166622384"/>
-							<reference ref="796202000"/>
-						</array>
-						<reference key="parent" ref="191373211"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">15</int>
-						<reference key="object" ref="166622384"/>
-						<reference key="parent" ref="92392282"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">17</int>
-						<reference key="object" ref="796202000"/>
-						<reference key="parent" ref="92392282"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">21</int>
 						<reference key="object" ref="841780961"/>
 						<array class="NSMutableArray" key="children"/>
@@ -298,6 +279,25 @@
 						<int key="objectID">8</int>
 						<reference key="object" ref="416920586"/>
 						<reference key="parent" ref="191373211"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">14</int>
+						<reference key="object" ref="92392282"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="166622384"/>
+							<reference ref="796202000"/>
+						</array>
+						<reference key="parent" ref="191373211"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">17</int>
+						<reference key="object" ref="796202000"/>
+						<reference key="parent" ref="92392282"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">15</int>
+						<reference key="object" ref="166622384"/>
+						<reference key="parent" ref="92392282"/>
 					</object>
 				</array>
 			</object>
@@ -340,7 +340,6 @@
 					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="grapevine">UILabel</string>
-						<string key="postsViewController">PostsTableViewController</string>
 						<string key="recordButton">UIButton</string>
 						<string key="tableViewController">PostsTableViewController</string>
 					</dictionary>
@@ -348,10 +347,6 @@
 						<object class="IBToOneOutletInfo" key="grapevine">
 							<string key="name">grapevine</string>
 							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="postsViewController">
-							<string key="name">postsViewController</string>
-							<string key="candidateClassName">PostsTableViewController</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="recordButton">
 							<string key="name">recordButton</string>

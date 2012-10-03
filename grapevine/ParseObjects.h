@@ -20,6 +20,7 @@
 @property (readonly) NSString* audioFileKey;
 @property (readonly) NSString* descriptionKey;
 @property (readonly) NSString* postOwnerKey;
+@property (readonly) NSString* numViewsKey;
 
 + (ParseObjects*) sharedInstance;
 

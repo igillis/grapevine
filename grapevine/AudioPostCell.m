@@ -8,12 +8,14 @@
 
 #import "AudioPostCell.h"
 #import "AudioController.h"
+#import "ParseObjects.h"
 
 @implementation AudioPostCell
 @synthesize timeSlider;
 @synthesize playPauseButton;
 @synthesize altName;
 @synthesize audioData;
+@synthesize post;
 
 @synthesize mainView;
 @synthesize profilePic;
@@ -59,6 +61,8 @@
         [button setImage:pauseImage forState:UIControlStateNormal];
         [self playAudioFromData:self.audioData];
         timeSlider.maximumValue = [[AudioController sharedInstance] lengthOfCurrentTrack];
+        [self.post incrementKey:[ParseObjects sharedInstance].numViewsKey];
+        [self.post saveInBackground];
     }
 }
 

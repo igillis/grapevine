@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
 @property (weak, nonatomic) IBOutlet UILabel *altName;
 @property (strong, nonatomic) NSData* audioData;
+@property (strong, nonatomic) PFObject* post;
 
 - (IBAction)playPauseButtonTouched:(id)sender;
 - (IBAction)timeSliderChanged:(id)sender;

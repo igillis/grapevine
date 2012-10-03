@@ -20,16 +20,12 @@
 @property (readwrite) NSString* audioFileKey;
 @property (readwrite) NSString* descriptionKey;
 @property (readwrite) NSString* postOwnerKey;
+@property (readwrite) NSString* numViewsKey;
 
 
 @end
 
 @implementation ParseObjects
-@synthesize audioPostClassName;
-@synthesize userFollowingListKey;
-@synthesize audioFileKey;
-@synthesize descriptionKey;
-@synthesize postOwnerKey;
 
 static ParseObjects* _sharedInstance = nil;
 
@@ -53,6 +49,7 @@ static ParseObjects* _sharedInstance = nil;
         self.audioFileKey = @"audioFile";
         self.postOwnerKey = @"postOwner";
         self.descriptionKey = @"postDescription";
+        self.numViewsKey = @"numViews";
     }
     return self;
 }

@@ -179,6 +179,7 @@ static NSDictionary* images;
             NSArray *topLevelItems = [cellLoader instantiateWithOwner:cell options:nil];
             cell = [topLevelItems objectAtIndex:0];
         }
+        cell.post = object;
         PFUser* user = [object valueForKey:parseObjects.postOwnerKey];
         [user fetchIfNeeded];
         
