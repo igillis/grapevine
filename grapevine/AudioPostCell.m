@@ -10,8 +10,19 @@
 #import "AudioController.h"
 #import "ParseObjects.h"
 
+@interface AudioPostCell ()
+
+@property float duration;
+@property float currentTime;
+@property NSTimer* timer;
+@property UIImage* playImage;
+@property UIImage* pauseImage;
+
+@end
+
 @implementation AudioPostCell
-@synthesize timeSlider;
+
+@synthesize progressBar;
 @synthesize playPauseButton;
 @synthesize altName;
 @synthesize audioData;
@@ -22,6 +33,15 @@
 @synthesize name;
 @synthesize description;
 @synthesize altView;
+
+-(void) awakeFromNib {
+    self.playImage =
+    [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle]
+                                             pathForResource:@"play" ofType:@"png"]];
+    self.pauseImage =
+    [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle]
+                                             pathForResource:@"pause" ofType:@"png"]];
+}
 
 -(void) toggleAudio: (NSString*) file {
     [[AudioController sharedInstance] toggleAudio:file];
@@ -51,25 +71,30 @@
 - (IBAction)playPauseButtonTouched:(id)sender {
     UIButton* button = (UIButton*) sender;
     if ([[AudioController sharedInstance] isPlaying]) {
-        UIImage* playImage =
-            [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"play" ofType:@"png"]];
-        [button setImage:playImage forState:UIControlStateNormal];
+        [button setImage:self.playImage forState:UIControlStateNormal];
         [self pauseAudio];
     } else {
-        UIImage* pauseImage =
-            [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"pause" ofType:@"png"]];
-        [button setImage:pauseImage forState:UIControlStateNormal];
+        [button setImage:self.pauseImage forState:UIControlStateNormal];
         [self playAudioFromData:self.audioData];
-        timeSlider.maximumValue = [[AudioController sharedInstance] lengthOfCurrentTrack];
+        self.timer = [NSTimer scheduledTimerWithTimeInterval: 0.1f target:self selector:@selector(handleTimerFire:) userInfo:nil repeats:YES];
+        self.duration = [[AudioController sharedInstance] lengthOfCurrentTrack];
         [self.post incrementKey:[ParseObjects sharedInstance].numViewsKey];
         [self.post saveInBackground];
     }
 }
 
-- (IBAction)timeSliderChanged:(id)sender {
-    UISlider* slider = (UISlider*) sender;
-    float newTime = slider.value;
-    [[AudioController sharedInstance] setTime:newTime];
+- (void) handleTimerFire: (NSTimer*) timer {
+    self.currentTime += timer.timeInterval;
+    [progressBar setProgress:self.currentTime / self.duration];
+    //[progressLabel setText:[NSString stringWithFormat:@"%.01f", self.currentTime]];
+    if (self.currentTime >= self.duration) {
+        [self audioComplete];
+    }
+}
+
+-(void) audioComplete {
+    [self.playPauseButton setImage:self.playImage forState:UIControlStateNormal];
+    [progressBar setProgress:0.0];
 }
 
 - (IBAction)shareButtonTouched:(id)sender {

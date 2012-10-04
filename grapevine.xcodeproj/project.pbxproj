@@ -18,6 +18,9 @@
 		493C1392160908A8004C51B6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 493C1391160908A8004C51B6 /* FacebookSDK.framework */; };
 		493C1395160909BE004C51B6 /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 493C1394160909BE004C51B6 /* SessionManager.m */; };
 		494A3EC41603BA0300E8B0F4 /* HomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494A3EC31603BA0300E8B0F4 /* HomeTableViewController.m */; };
+		49533898161CDC0F00571DB4 /* TrendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49533896161CDC0F00571DB4 /* TrendingViewController.m */; };
+		49533899161CDC0F00571DB4 /* TrendingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49533897161CDC0F00571DB4 /* TrendingViewController.xib */; };
+		4953389C161CE2D900571DB4 /* TrendingPostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4953389B161CE2D900571DB4 /* TrendingPostsTableViewController.m */; };
 		49540CCC15FB765A00AF4D08 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 49540CCB15FB765A00AF4D08 /* button.png */; };
 		49540CCF15FB774A00AF4D08 /* RecordButtonPressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 49540CCE15FB774A00AF4D08 /* RecordButtonPressed.png */; };
 		49716FA515F8021C00A32FB5 /* RecordButton1Pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 49716FA415F8021C00A32FB5 /* RecordButton1Pressed.png */; };
@@ -30,9 +33,7 @@
 		49A5F64F15ED7E2D00D3F73F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F64E15ED7E2D00D3F73F /* main.m */; };
 		49A5F65315ED7E2D00D3F73F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F65215ED7E2D00D3F73F /* AppDelegate.m */; };
 		49A5F65615ED7E2D00D3F73F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F65515ED7E2D00D3F73F /* HomeViewController.m */; };
-		49A5F65D15ED7E2D00D3F73F /* TrendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F65C15ED7E2D00D3F73F /* TrendingViewController.m */; };
 		49A5F66415ED7E2D00D3F73F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66215ED7E2D00D3F73F /* HomeViewController.xib */; };
-		49A5F66715ED7E2D00D3F73F /* TrendingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66515ED7E2D00D3F73F /* TrendingViewController.xib */; };
 		49A5F67015EDAE6200D3F73F /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F66E15EDAE6200D3F73F /* ContactsViewController.m */; };
 		49A5F67315EDB45400D3F73F /* FakeContacts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F67215EDB45400D3F73F /* FakeContacts.plist */; };
 		49A5F67B15EDC24B00D3F73F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F67915EDC24B00D3F73F /* LoginViewController.m */; };
@@ -92,6 +93,11 @@
 		493C1394160909BE004C51B6 /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
 		494A3EC21603BA0300E8B0F4 /* HomeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeTableViewController.h; sourceTree = "<group>"; };
 		494A3EC31603BA0300E8B0F4 /* HomeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeTableViewController.m; sourceTree = "<group>"; };
+		49533895161CDC0F00571DB4 /* TrendingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingViewController.h; sourceTree = "<group>"; };
+		49533896161CDC0F00571DB4 /* TrendingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingViewController.m; sourceTree = "<group>"; };
+		49533897161CDC0F00571DB4 /* TrendingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrendingViewController.xib; sourceTree = "<group>"; };
+		4953389A161CE2D900571DB4 /* TrendingPostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrendingPostsTableViewController.h; sourceTree = "<group>"; };
+		4953389B161CE2D900571DB4 /* TrendingPostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrendingPostsTableViewController.m; sourceTree = "<group>"; };
 		49540CCB15FB765A00AF4D08 /* button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button.png; sourceTree = "<group>"; };
 		49540CCE15FB774A00AF4D08 /* RecordButtonPressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordButtonPressed.png; sourceTree = "<group>"; };
 		49716FA415F8021C00A32FB5 /* RecordButton1Pressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordButton1Pressed.png; sourceTree = "<group>"; };
@@ -110,10 +116,7 @@
 		49A5F65215ED7E2D00D3F73F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		49A5F65415ED7E2D00D3F73F /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		49A5F65515ED7E2D00D3F73F /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		49A5F65B15ED7E2D00D3F73F /* TrendingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrendingViewController.h; sourceTree = "<group>"; };
-		49A5F65C15ED7E2D00D3F73F /* TrendingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrendingViewController.m; sourceTree = "<group>"; };
 		49A5F66315ED7E2D00D3F73F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController.xib; sourceTree = "<group>"; };
-		49A5F66615ED7E2D00D3F73F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/TrendingViewController.xib; sourceTree = "<group>"; };
 		49A5F66D15EDAE6200D3F73F /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
 		49A5F66E15EDAE6200D3F73F /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
 		49A5F67215EDB45400D3F73F /* FakeContacts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FakeContacts.plist; sourceTree = "<group>"; };
@@ -249,16 +252,18 @@
 				49A5F65215ED7E2D00D3F73F /* AppDelegate.m */,
 				49A5F65415ED7E2D00D3F73F /* HomeViewController.h */,
 				49A5F65515ED7E2D00D3F73F /* HomeViewController.m */,
+				4953389A161CE2D900571DB4 /* TrendingPostsTableViewController.h */,
+				4953389B161CE2D900571DB4 /* TrendingPostsTableViewController.m */,
 				49A5F66215ED7E2D00D3F73F /* HomeViewController.xib */,
 				494A3EC21603BA0300E8B0F4 /* HomeTableViewController.h */,
 				494A3EC31603BA0300E8B0F4 /* HomeTableViewController.m */,
-				49A5F65B15ED7E2D00D3F73F /* TrendingViewController.h */,
-				49A5F65C15ED7E2D00D3F73F /* TrendingViewController.m */,
-				49A5F66515ED7E2D00D3F73F /* TrendingViewController.xib */,
 				49A5F64915ED7E2D00D3F73F /* Supporting Files */,
 				49A5F66D15EDAE6200D3F73F /* ContactsViewController.h */,
 				49A5F66E15EDAE6200D3F73F /* ContactsViewController.m */,
 				492D30541613E78700C2EDAC /* ContactsViewController.xib */,
+				49533895161CDC0F00571DB4 /* TrendingViewController.h */,
+				49533896161CDC0F00571DB4 /* TrendingViewController.m */,
+				49533897161CDC0F00571DB4 /* TrendingViewController.xib */,
 				49A5F67815EDC24B00D3F73F /* LoginViewController.h */,
 				49A5F67915EDC24B00D3F73F /* LoginViewController.m */,
 				49A5F67A15EDC24B00D3F73F /* LoginViewController.xib */,
@@ -371,7 +376,6 @@
 			files = (
 				49A5F64D15ED7E2D00D3F73F /* InfoPlist.strings in Resources */,
 				49A5F66415ED7E2D00D3F73F /* HomeViewController.xib in Resources */,
-				49A5F66715ED7E2D00D3F73F /* TrendingViewController.xib in Resources */,
 				49A5F67315EDB45400D3F73F /* FakeContacts.plist in Resources */,
 				49A5F67C15EDC24B00D3F73F /* LoginViewController.xib in Resources */,
 				49A5F67E15EDCD0600D3F73F /* fb-login-normal.png in Resources */,
@@ -405,6 +409,7 @@
 				49540CCF15FB774A00AF4D08 /* RecordButtonPressed.png in Resources */,
 				498C43421604D18F005936B4 /* RecordingViewController.xib in Resources */,
 				492D30551613E78700C2EDAC /* ContactsViewController.xib in Resources */,
+				49533899161CDC0F00571DB4 /* TrendingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +423,6 @@
 				49A5F64F15ED7E2D00D3F73F /* main.m in Sources */,
 				49A5F65315ED7E2D00D3F73F /* AppDelegate.m in Sources */,
 				49A5F65615ED7E2D00D3F73F /* HomeViewController.m in Sources */,
-				49A5F65D15ED7E2D00D3F73F /* TrendingViewController.m in Sources */,
 				49A5F67015EDAE6200D3F73F /* ContactsViewController.m in Sources */,
 				49A5F67B15EDC24B00D3F73F /* LoginViewController.m in Sources */,
 				49A5F68815F05F1C00D3F73F /* AudioPostCell.m in Sources */,
@@ -429,6 +433,8 @@
 				493C1395160909BE004C51B6 /* SessionManager.m in Sources */,
 				49B18B25160AB5FA0076F8DC /* ParseObjects.m in Sources */,
 				4923C744160BAC8600AA87A9 /* PostsTableViewController.m in Sources */,
+				49533898161CDC0F00571DB4 /* TrendingViewController.m in Sources */,
+				4953389C161CE2D900571DB4 /* TrendingPostsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,14 +455,6 @@
 				49A5F66315ED7E2D00D3F73F /* en */,
 			);
 			name = HomeViewController.xib;
-			sourceTree = "<group>";
-		};
-		49A5F66515ED7E2D00D3F73F /* TrendingViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49A5F66615ED7E2D00D3F73F /* en */,
-			);
-			name = TrendingViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

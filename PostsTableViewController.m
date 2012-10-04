@@ -17,8 +17,6 @@
 #define DESCRIPTION_Y 24.0
 #define DESCRIPTION_FONT_SIZE 12.0
 
-static NSDictionary* images;
-
 @interface PostsTableViewController ()
 
 @end
@@ -30,6 +28,7 @@ static NSDictionary* images;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
+    NSLog(@"init with style called");
     self = [super initWithStyle:style];
     if (self) {
         // Custom the table
@@ -57,7 +56,7 @@ static NSDictionary* images;
 
 - (void) awakeFromNib {
     // Custom the table
-    
+    NSLog(@"AWAKE FROM NIB CALLED");
     // The className to query on
     self.className =
     [[ParseObjects sharedInstance] audioPostClassName];
@@ -80,9 +79,6 @@ static NSDictionary* images;
     cellLoader = [UINib nibWithNibName:@"AudioPostCell" bundle:[NSBundle mainBundle]];
     
     self.clearsSelectionOnViewWillAppear = NO;
-    
-    NSString* imagesFile = [[NSBundle mainBundle] pathForResource:@"FakeImages" ofType:@"plist"];
-    images = [[NSDictionary alloc] initWithContentsOfFile:imagesFile];
 }
 
 - (void)viewDidUnload
@@ -214,7 +210,6 @@ static NSDictionary* images;
         cell.profilePic.clipsToBounds = YES;
         
         cell.audioData = [[object valueForKey:parseObjects.audioFileKey] getData];
-        cell.timeSlider.continuous = NO;
         
         CGRect newFrame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width-5.0, cell.frame.size.height);
         cell.altView.frame = newFrame;

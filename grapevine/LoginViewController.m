@@ -67,7 +67,6 @@
         NSURL *profilePictureURL = [NSURL URLWithString:
                                     [NSString stringWithFormat:@"https://graph.facebook.com/me/picture?access_token=%@",
                                      [PFFacebookUtils session].accessToken]];
-        NSLog(@"%@", profilePictureURL);
         NSURLRequest *profilePictureURLRequest = [NSURLRequest requestWithURL:profilePictureURL
                                                                   cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                               timeoutInterval:8.0f];
@@ -92,7 +91,6 @@
     PFFile* pictureFile = [PFFile fileWithName:@"profilePic" data:_data];
     [pictureFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error) {
-            NSLog(@"Uploaded Profile Picture");
             [[PFUser currentUser] setObject:pictureFile forKey:[ParseObjects sharedInstance].userProfilePictureKey];
             [[PFUser currentUser] saveEventually];
         } else {

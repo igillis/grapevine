@@ -39,10 +39,6 @@
     [super viewDidLoad];
     [grapevine setFont:[UIFont fontWithName:@"TalkingtotheMoon" size:26.0]];
     
-
-    [self addChildViewController:[[PostsTableViewController alloc] init]];
-    
-    
     self.recordButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.recordButton.layer.borderWidth = 0.5;
     self.recordButton.layer.cornerRadius = 3.0;

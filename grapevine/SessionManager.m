@@ -52,9 +52,9 @@ static SessionManager* _sharedInstance = nil;
             self.sessionState = SessionStateCloseLoginFailure;
             return;
         } else if (user.isNew) {
-            NSLog(@"User %@ signed up and logged in through Facebook!", user);
+            NSLog(@"User signed up and logged in through Facebook!");
         } else {
-            NSLog(@"User %@ signed in through Facebook.", user);
+            NSLog(@"User signed in through Facebook.");
         }
         self.currentUser = user;
         self.sessionPermissions = permissions;

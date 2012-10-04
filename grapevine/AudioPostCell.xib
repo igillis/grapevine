@@ -15,7 +15,7 @@
 			<string>IBUIButton</string>
 			<string>IBUIImageView</string>
 			<string>IBUILabel</string>
-			<string>IBUISlider</string>
+			<string>IBUIProgressView</string>
 			<string>IBUITableViewCell</string>
 			<string>IBUITextView</string>
 			<string>IBUIView</string>
@@ -148,7 +148,7 @@
 										<string key="NSFrame">{{20, 26}, {24, 24}}</string>
 										<reference key="NSSuperview" ref="960946962"/>
 										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="984716306"/>
+										<reference key="NSNextKeyView" ref="13387303"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -178,20 +178,6 @@
 											<int key="NSfFlags">16</int>
 										</object>
 									</object>
-									<object class="IBUISlider" id="984716306">
-										<reference key="NSNextResponder" ref="960946962"/>
-										<int key="NSvFlags">292</int>
-										<string key="NSFrame">{{56, 28}, {118, 23}}</string>
-										<reference key="NSSuperview" ref="960946962"/>
-										<reference key="NSWindow"/>
-										<reference key="NSNextKeyView" ref="952574965"/>
-										<string key="NSReuseIdentifierKey">_NS:9</string>
-										<bool key="IBUIOpaque">NO</bool>
-										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-										<int key="IBUIContentHorizontalAlignment">0</int>
-										<int key="IBUIContentVerticalAlignment">0</int>
-										<float key="IBUIMaxValue">30</float>
-									</object>
 									<object class="IBUILabel" id="348562152">
 										<reference key="NSNextResponder" ref="960946962"/>
 										<int key="NSvFlags">292</int>
@@ -213,12 +199,24 @@
 										<reference key="IBUIFontDescription" ref="387122708"/>
 										<reference key="IBUIFont" ref="813258318"/>
 									</object>
+									<object class="IBUIProgressView" id="13387303">
+										<reference key="NSNextResponder" ref="960946962"/>
+										<int key="NSvFlags">292</int>
+										<string key="NSFrame">{{60, 33}, {103, 9}}</string>
+										<reference key="NSSuperview" ref="960946962"/>
+										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView" ref="952574965"/>
+										<string key="NSReuseIdentifierKey">_NS:9</string>
+										<bool key="IBUIOpaque">NO</bool>
+										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+									</object>
 									<object class="IBUIButton" id="384065721">
 										<reference key="NSNextResponder" ref="960946962"/>
 										<int key="NSvFlags">292</int>
 										<string key="NSFrame">{{261, 20}, {25, 21}}</string>
 										<reference key="NSSuperview" ref="960946962"/>
 										<reference key="NSWindow"/>
+										<reference key="NSNextKeyView"/>
 										<string key="NSReuseIdentifierKey">_NS:9</string>
 										<bool key="IBUIOpaque">NO</bool>
 										<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -348,14 +346,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">timeSlider</string>
-						<reference key="source" ref="1035462776"/>
-						<reference key="destination" ref="984716306"/>
-					</object>
-					<int key="connectionID">63</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">playPauseButton</string>
 						<reference key="source" ref="1035462776"/>
 						<reference key="destination" ref="653943164"/>
@@ -371,6 +361,14 @@
 					<int key="connectionID">56</int>
 				</object>
 				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">progressBar</string>
+						<reference key="source" ref="1035462776"/>
+						<reference key="destination" ref="13387303"/>
+					</object>
+					<int key="connectionID">75</int>
+				</object>
+				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">playPauseButtonTouched:</string>
 						<reference key="source" ref="653943164"/>
@@ -378,15 +376,6 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">62</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">timeSliderChanged:</string>
-						<reference key="source" ref="984716306"/>
-						<reference key="destination" ref="1035462776"/>
-						<int key="IBEventType">13</int>
-					</object>
-					<int key="connectionID">61</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
@@ -457,9 +446,9 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="384065721"/>
 							<reference ref="653943164"/>
-							<reference ref="984716306"/>
 							<reference ref="952574965"/>
 							<reference ref="348562152"/>
+							<reference ref="13387303"/>
 						</array>
 						<reference key="parent" ref="1035462776"/>
 					</object>
@@ -474,11 +463,6 @@
 						<reference key="parent" ref="960946962"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">59</int>
-						<reference key="object" ref="984716306"/>
-						<reference key="parent" ref="960946962"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">58</int>
 						<reference key="object" ref="653943164"/>
 						<reference key="parent" ref="960946962"/>
@@ -486,6 +470,11 @@
 					<object class="IBObjectRecord">
 						<int key="objectID">68</int>
 						<reference key="object" ref="384065721"/>
+						<reference key="parent" ref="960946962"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">74</int>
+						<reference key="object" ref="13387303"/>
 						<reference key="parent" ref="960946962"/>
 					</object>
 				</array>
@@ -501,17 +490,17 @@
 				<string key="50.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="52.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="58.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="59.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="65.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="68.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="70.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="74.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">73</int>
+			<int key="maxID">75</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -545,6 +534,7 @@
 						<string key="name">UILabel</string>
 						<string key="playPauseButton">UIButton</string>
 						<string key="profilePic">UIImageView</string>
+						<string key="progressBar">UIProgressView</string>
 						<string key="timeSlider">UISlider</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -575,6 +565,10 @@
 						<object class="IBToOneOutletInfo" key="profilePic">
 							<string key="name">profilePic</string>
 							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="progressBar">
+							<string key="name">progressBar</string>
+							<string key="candidateClassName">UIProgressView</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="timeSlider">
 							<string key="name">timeSlider</string>
