@@ -23,6 +23,7 @@
 
 @implementation PostsTableViewController
 
+@synthesize currentlySelected;
 @synthesize currentlyPlaying;
 
 
@@ -176,6 +177,7 @@
             cell = [topLevelItems objectAtIndex:0];
         }
         cell.post = object;
+        cell.tableView = self;
         PFUser* user = [object valueForKey:parseObjects.postOwnerKey];
         [user fetchIfNeeded];
         
@@ -193,9 +195,9 @@
         
         //handles the case where a cell started playing and then the user scrolled away
         //and then scrolled back
-        if ([cell isEqual:currentlyPlaying]) {
+        if ([cell isEqual:currentlySelected]) {
             cell = nil;
-            return currentlyPlaying;
+            return currentlySelected;
         }
         
         PFFile* userProfilePicFile = [user valueForKey:parseObjects.userProfilePictureKey];
@@ -288,12 +290,12 @@
 {
     UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
     if ([cell class] == [AudioPostCell class]) {
-        if(currentlyPlaying) {
-            [currentlyPlaying toggleViews];
+        if(currentlySelected) {
+            [currentlySelected toggleViews];
         }
         AudioPostCell* audioPostCell = (AudioPostCell*) cell;
         [audioPostCell toggleViews];
-        currentlyPlaying = audioPostCell;
+        currentlySelected = audioPostCell;
     }
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }

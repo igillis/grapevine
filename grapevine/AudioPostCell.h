@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "PostsTableViewController.h"
+
+@class PostsTableViewController;
 
 @interface AudioPostCell : PFTableViewCell
+
+//The table view to which this cell belongs
+@property PostsTableViewController* tableView;
 
 @property (weak, nonatomic) IBOutlet UIView *mainView;
 @property (strong, nonatomic) IBOutlet UIImageView* profilePic;
@@ -26,10 +32,8 @@
 - (IBAction)playPauseButtonTouched:(id)sender;
 - (IBAction)shareButtonTouched:(id)sender;
 -(void) toggleViews;
--(void) toggleAudio: (NSString*) file;
 -(void) pauseAudio;
 -(void) stopAudio;
--(void) playAudio: (NSString*) file;
--(void) playAudioFromData: (NSData*) data;
+-(void) playAudio;
 
 @end

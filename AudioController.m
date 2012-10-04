@@ -27,19 +27,6 @@ static AVAudioRecorder* _audioRecorder = nil;
     [_audioPlayer prepareToPlay];
 }
 
-//Should make this threaded so that it can continue in the background without holding up the UI from updating
--(void) playAudio:(NSString *)file {
-    NSURL* soundUrl = [[NSURL alloc] initFileURLWithPath:file];
-    if (_audioPlayer && [_audioPlayer.url isEqual:soundUrl]) {
-        [_audioPlayer play];
-    }
-    else {
-        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL: soundUrl error: nil];
-        [_audioPlayer setVolume: 1.0];
-        [_audioPlayer play];
-    }
-}
-
 -(int) lengthOfCurrentTrack {
     if (_audioPlayer && _audioPlayer.isPlaying) {
         return _audioPlayer.duration;
@@ -47,31 +34,17 @@ static AVAudioRecorder* _audioRecorder = nil;
     return 0;
 }
 
--(void) playAudioFromData:(NSData *)data {
-    if (_audioPlayer && [_audioPlayer.data isEqualToData:data]) {
-        [_audioPlayer play];
-    } else {
+-(void) playAudio:(NSData *)data {
+    if (!(_audioPlayer && [_audioPlayer.data isEqualToData:data])) {
         _audioPlayer = [[AVAudioPlayer alloc] initWithData:data error:nil];
         [_audioPlayer setVolume:1.0];
-        [_audioPlayer play];
     }
+    [_audioPlayer play];
 }
 
 -(void) pauseAudio {
     if (_audioPlayer && [_audioPlayer isPlaying]) {
         [_audioPlayer pause];
-    }
-}
-
-//file represents the file to play if none currently playing
-//return value represents whether or not the file is now playing
--(BOOL) toggleAudio: (NSString*) file {
-    if (_audioPlayer && [_audioPlayer isPlaying]) {
-        [_audioPlayer pause];
-        return NO;
-    } else {
-        [self playAudio:file];
-        return YES;
     }
 }
 
@@ -97,6 +70,13 @@ static AVAudioRecorder* _audioRecorder = nil;
         return [_audioPlayer isPlaying];
     }
     return NO;
+}
+
+-(NSData*) currentlyPlayingTrack {
+    if (_audioPlayer) {
+        return _audioPlayer.data;
+    }
+    return nil;
 }
 
 -(BOOL) isRecording {

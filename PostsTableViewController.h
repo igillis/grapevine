@@ -9,10 +9,13 @@
 #import <Parse/Parse.h>
 #import "AudioPostCell.h"
 
+@class AudioPostCell;
+
 @interface PostsTableViewController : PFQueryTableViewController{
     UINib* cellLoader;
 }
 
+@property (nonatomic, strong) AudioPostCell* currentlySelected;
 @property (nonatomic, strong) AudioPostCell* currentlyPlaying;
 
 @end

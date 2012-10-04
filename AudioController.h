@@ -18,14 +18,13 @@
 
 //Playback methods
 -(void) prepareToPlay;
--(void) playAudio: (NSString*) file;
--(void) playAudioFromData: (NSData*) data;
+-(void) playAudio: (NSData*) data;
 -(void) pauseAudio;
 -(void) stopAudio;
--(BOOL) toggleAudio: (NSString*) file;
 -(BOOL) setTime: (int) newTime;
 -(BOOL) isPlaying;
 -(int) lengthOfCurrentTrack;
+-(NSData*) currentlyPlayingTrack;
 
 //Recording methods
 -(void) beginRecording;

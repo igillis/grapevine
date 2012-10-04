@@ -57,7 +57,7 @@
 - (void)recordButtonPressed:(id)sender {
     //TODO: decide what to do when record button is pressed
     if (tableViewController.currentlyPlaying) {
-        [tableViewController.currentlyPlaying pauseAudio];
+        [tableViewController.currentlyPlaying stopAudio];
     }
     RecordingViewController* recordingViewController = [[RecordingViewController alloc] init];
     [self presentViewController:recordingViewController animated:YES completion:NULL];

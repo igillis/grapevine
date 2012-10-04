@@ -22,6 +22,8 @@
 
 @implementation AudioPostCell
 
+@synthesize tableView;
+
 @synthesize progressBar;
 @synthesize playPauseButton;
 @synthesize altName;
@@ -42,21 +44,29 @@
     [[UIImage alloc] initWithContentsOfFile:[[NSBundle mainBundle]
                                              pathForResource:@"pause" ofType:@"png"]];
 }
-
--(void) toggleAudio: (NSString*) file {
-    [[AudioController sharedInstance] toggleAudio:file];
-}
 -(void) pauseAudio {
+    NSLog(@"pausing audio for file with description %@", self.description.text);
+    [self.playPauseButton setImage:self.playImage forState:UIControlStateNormal];
+    [self.timer invalidate];
     [[AudioController sharedInstance] pauseAudio];
 }
 -(void) stopAudio {
+    NSLog(@"stopping audio for file with description %@", self.description.text);
+    [self.playPauseButton setImage:self.playImage forState:UIControlStateNormal];
+    [self.timer invalidate];
+    [self.progressBar setProgress:0.0];
+    self.currentTime = 0.0;
     [[AudioController sharedInstance] stopAudio];
 }
--(void) playAudio:(NSString *) file {
-    [[AudioController sharedInstance] playAudio:file];
-}
--(void)playAudioFromData:(NSData *)data {
-    [[AudioController sharedInstance] playAudioFromData:data];
+-(void)playAudio {
+    [self.playPauseButton setImage:self.pauseImage forState:UIControlStateNormal];
+    self.tableView.currentlyPlaying = self;
+    [[AudioController sharedInstance] playAudio:self.audioData];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval: 0.1f target:self selector:@selector(handleTimerFire:) userInfo:nil repeats:YES];
+    self.duration = [[AudioController sharedInstance] lengthOfCurrentTrack];
+    [self.post incrementKey:[ParseObjects sharedInstance].numViewsKey];
+    [self.post saveInBackground];
+
 }
 -(BOOL) isEqual:(id)object {
     if (![object isKindOfClass:[AudioPostCell class]]) {
@@ -69,18 +79,16 @@
 }
 
 - (IBAction)playPauseButtonTouched:(id)sender {
-    UIButton* button = (UIButton*) sender;
-    if ([[AudioController sharedInstance] isPlaying]) {
-        [button setImage:self.playImage forState:UIControlStateNormal];
-        [self pauseAudio];
-    } else {
-        [button setImage:self.pauseImage forState:UIControlStateNormal];
-        [self playAudioFromData:self.audioData];
-        self.timer = [NSTimer scheduledTimerWithTimeInterval: 0.1f target:self selector:@selector(handleTimerFire:) userInfo:nil repeats:YES];
-        self.duration = [[AudioController sharedInstance] lengthOfCurrentTrack];
-        [self.post incrementKey:[ParseObjects sharedInstance].numViewsKey];
-        [self.post saveInBackground];
+    AudioController* audioController = [AudioController sharedInstance];
+    if ([audioController isPlaying]) {
+        if (self.tableView.currentlyPlaying == self) {
+            [self pauseAudio];
+            return;
+        } else {
+            [self.tableView.currentlyPlaying stopAudio];
+        }
     }
+    [self playAudio];
 }
 
 - (void) handleTimerFire: (NSTimer*) timer {

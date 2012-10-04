@@ -7,7 +7,6 @@
 //
 
 #import "ContactsViewController.h"
-#import "Contact.h"
 #import <Parse/Parse.h>
 #import "ParseObjects.h"
 #import "SessionManager.h"
