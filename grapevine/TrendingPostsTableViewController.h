@@ -6,12 +6,8 @@
 //  Copyright (c) 2012 Ian Gillis. All rights reserved.
 //
 
-#import "PostsTableViewController.h"
+#import "HomePostsTableViewController.h"
 
-@interface TrendingPostsTableViewController : PFQueryTableViewController {
-    UINib* cellLoader;
-}
-
-@property (nonatomic, strong) AudioPostCell* currentlyPlaying;
+@interface TrendingPostsTableViewController : PostsTableViewController
 
 @end

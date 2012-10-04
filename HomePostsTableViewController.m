@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Ian Gillis. All rights reserved.
 //
 
-#import "PostsTableViewController.h"
+#import "HomePostsTableViewController.h"
 #import "ParseObjects.h"
 #import "AudioPostCell.h"
 #import <QuartzCore/QuartzCore.h>
@@ -17,11 +17,11 @@
 #define DESCRIPTION_Y 24.0
 #define DESCRIPTION_FONT_SIZE 12.0
 
-@interface PostsTableViewController ()
+@interface HomePostsTableViewController ()
 
 @end
 
-@implementation PostsTableViewController
+@implementation HomePostsTableViewController
 
 @synthesize currentlySelected;
 @synthesize currentlyPlaying;

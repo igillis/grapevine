@@ -7,7 +7,6 @@
 //
 
 #import "HomeViewController.h"
-#import "HomeTableViewController.h"
 #import "RecordingViewController.h"
 
 #define DESCRIPTION_X 83.0

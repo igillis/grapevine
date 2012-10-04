@@ -10,5 +10,11 @@
 #import "TrendingPostsTableViewController.h"
 
 @interface TrendingViewController : UIViewController
+
 @property (strong, nonatomic) IBOutlet TrendingPostsTableViewController *postsTableViewController;
+@property (weak, nonatomic) IBOutlet UIButton *recordButton;
+@property (weak, nonatomic) IBOutlet UILabel *grapevine;
+
+- (IBAction)recordButtonPressed:(id)sender;
+
 @end

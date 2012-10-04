@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import "HomeTableViewController.h"
-#import "PostsTableViewController.h"
+#import "HomePostsTableViewController.h"
 
 @interface HomeViewController : UIViewController
 
@@ -17,7 +16,7 @@
 @property (nonatomic, strong) AVAudioPlayer* player;
 @property (nonatomic, strong) IBOutlet UIButton* recordButton;
 @property (nonatomic, strong) IBOutlet UILabel* grapevine;
-@property (nonatomic, retain) IBOutlet PostsTableViewController* tableViewController;
+@property (nonatomic, retain) IBOutlet HomePostsTableViewController* tableViewController;
 
 -(IBAction)recordButtonPressed:(id)sender;
 

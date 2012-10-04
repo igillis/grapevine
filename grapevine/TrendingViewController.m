@@ -7,19 +7,23 @@
 //
 
 #import "TrendingViewController.h"
+#import "RecordingViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface TrendingViewController ()
 
 @end
 
 @implementation TrendingViewController
+@synthesize recordButton;
+@synthesize grapevine;
 @synthesize postsTableViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:99];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMostViewed tag:99];
     }
     return self;
 }
@@ -27,13 +31,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [grapevine setFont:[UIFont fontWithName:@"TalkingtotheMoon" size:26.0]];
+    
+    self.recordButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.recordButton.layer.borderWidth = 0.5;
+    self.recordButton.layer.cornerRadius = 3.0;
 }
 
 - (void)viewDidUnload
 {
     [self setPostsTableViewController:nil];
     [self setPostsTableViewController:nil];
+    [self setGrapevine:nil];
+    [self setRecordButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -44,4 +54,12 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)recordButtonPressed:(id)sender {
+    //TODO: decide what to do when record button is pressed
+    if (postsTableViewController.currentlyPlaying) {
+        [postsTableViewController.currentlyPlaying stopAudio];
+    }
+    RecordingViewController* recordingViewController = [[RecordingViewController alloc] init];
+    [self presentViewController:recordingViewController animated:YES completion:NULL];
+}
 @end
