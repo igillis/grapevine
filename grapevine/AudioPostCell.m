@@ -95,13 +95,8 @@
     [progressBar setProgress:self.currentTime / self.duration];
     //[progressLabel setText:[NSString stringWithFormat:@"%.01f", self.currentTime]];
     if (self.currentTime >= self.duration) {
-        [self audioComplete];
+        [self stopAudio];
     }
-}
-
--(void) audioComplete {
-    [self.playPauseButton setImage:self.playImage forState:UIControlStateNormal];
-    [progressBar setProgress:0.0];
 }
 
 - (IBAction)shareButtonTouched:(id)sender {
