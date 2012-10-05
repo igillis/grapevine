@@ -26,6 +26,7 @@
 @synthesize lowerHalf;
 @synthesize progressLabel;
 @synthesize playButton;
+@synthesize grapevine;
 @synthesize profilePic;
 @synthesize currentRecordingLocation;
 @synthesize isRecording;
@@ -47,7 +48,7 @@ static NSString* recording = nil;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [grapevine setFont:[UIFont fontWithName:@"TalkingtotheMoon" size:26.0]]; 
     UIImage* userProfilePic =[[UIImage alloc] initWithData:
                               [[[SessionManager sharedInstance].currentUser valueForKey:
                                 [ParseObjects sharedInstance].userProfilePictureKey] getData]];
@@ -97,6 +98,7 @@ static NSString* recording = nil;
     [self setProgressLabel:nil];
     [self setPlayButton:nil];
     [self setProfilePic:nil];
+    [self setGrapevine:nil];
     [super viewDidUnload];
 }
 

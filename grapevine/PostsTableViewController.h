@@ -18,4 +18,6 @@
 @property (nonatomic, strong) AudioPostCell* currentlySelected;
 @property (nonatomic, strong) AudioPostCell* currentlyPlaying;
 
+-(void) formatCell:(AudioPostCell*) cell withObject:(PFObject*) object;
+-(CGSize) setCellLabel:(UILabel*) label withText:(NSString*) text;
 @end

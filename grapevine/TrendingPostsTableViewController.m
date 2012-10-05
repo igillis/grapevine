@@ -23,16 +23,6 @@
 
 @synthesize currentlySelected;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    NSLog(@"INIT WITH NIB NAME CALLED");
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void) awakeFromNib {
     // Custom the table
     self.className =
@@ -46,26 +36,6 @@
     
     // The number of objects to show per page
     self.objectsPerPage = 5;
-    [self viewDidLoad];
-}
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    cellLoader = [UINib nibWithNibName:@"AudioPostCell" bundle:[NSBundle mainBundle]];
-	// Do any additional setup after loading the view.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
     [self viewDidLoad];
 }
 
@@ -100,55 +70,18 @@
 // a UITableViewCellStyleDefault style cell with the label being the first key in the object.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *) indexPath
                         object:(PFObject *)object{
-    ParseObjects* parseObjects = [ParseObjects sharedInstance];
     AudioPostCell* cell = (AudioPostCell *)[tableView dequeueReusableCellWithIdentifier:@"AudioPostCell%i"];
     if (!cell) {
         NSArray *topLevelItems = [cellLoader instantiateWithOwner:cell options:nil];
         cell = [topLevelItems objectAtIndex:0];
     }
-    cell.post = object;
-    cell.tableView = self;
-    PFUser* user = [object valueForKey:parseObjects.postOwnerKey];
-    [user fetchIfNeeded];
-    
-    CGSize labelsize = [self setCellLabel:cell.description
-                                 withText:[object valueForKey:parseObjects.descriptionKey]];
-    //Don't use labelsize.width in case the description is shorter than the cell
-    cell.description.frame=CGRectMake(DESCRIPTION_X, DESCRIPTION_Y,
-                                      295 - DESCRIPTION_X,
-                                      labelsize.height);
-    
-    NSString* name = [[NSString alloc] initWithFormat:@"%@ %@",
-                      [user valueForKey:parseObjects.userFirstNameKey], [user valueForKey:parseObjects.userLastNameKey]];
-    cell.name.text = name;
-    cell.altName.text = name;
-    
+    [self formatCell:cell withObject:object];
     //handles the case where a cell started playing and then the user scrolled away
     //and then scrolled back
     if ([cell isEqual:currentlySelected]) {
         cell = nil;
         return currentlySelected;
     }
-    
-    PFFile* userProfilePicFile = [user valueForKey:parseObjects.userProfilePictureKey];
-    if (![userProfilePicFile isEqual:[[NSNull alloc] init]]) {
-        UIImage* userProfilePic =[[UIImage alloc] initWithData:[userProfilePicFile getData]];
-        
-        cell.profilePic.image = userProfilePic;
-    } else {
-        cell.profilePic.image = nil;
-    }
-    cell.profilePic.layer.cornerRadius = 5.0;
-    cell.profilePic.clipsToBounds = YES;
-    
-    cell.audioData = [[object valueForKey:parseObjects.audioFileKey] getData];
-    
-    CGRect newFrame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width-5.0, cell.frame.size.height);
-    cell.altView.frame = newFrame;
-    cell.mainView.frame = newFrame;
-    cell.altView.layer.cornerRadius = 10.0;
-    cell.mainView.layer.cornerRadius = 10.0;
-    
     return cell;
 }
 - (CGSize) setCellLabel:(UILabel*) label withText:(NSString*) text {
@@ -168,22 +101,4 @@
                                     valueForKey:[ParseObjects sharedInstance].descriptionKey]];
     return MAX(65.0, labelsize.height + DESCRIPTION_Y + 10.0);
 }
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell* cell = [tableView cellForRowAtIndexPath:indexPath];
-    if ([cell class] == [AudioPostCell class]) {
-        if(currentlySelected) {
-            [currentlySelected toggleViews];
-        }
-        AudioPostCell* audioPostCell = (AudioPostCell*) cell;
-        [audioPostCell toggleViews];
-        currentlySelected = audioPostCell;
-    }
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
-}
-
-
-
-
 @end
