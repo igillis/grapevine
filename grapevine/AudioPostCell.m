@@ -93,7 +93,6 @@
 - (void) handleTimerFire: (NSTimer*) timer {
     self.currentTime += timer.timeInterval;
     [progressBar setProgress:self.currentTime / self.duration];
-    //[progressLabel setText:[NSString stringWithFormat:@"%.01f", self.currentTime]];
     if (self.currentTime >= self.duration) {
         [self stopAudio];
     }
