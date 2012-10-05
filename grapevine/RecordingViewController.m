@@ -52,11 +52,13 @@ static NSString* recording = nil;
     UIImage* userProfilePic =[[UIImage alloc] initWithData:
                               [[[SessionManager sharedInstance].currentUser valueForKey:
                                 [ParseObjects sharedInstance].userProfilePictureKey] getData]];
+    
     if (userProfilePic) {
         profilePic.image = userProfilePic;
     } else {
         profilePic.image = nil;
     }
+    
     profilePic.layer.cornerRadius = 5.0;
     profilePic.clipsToBounds = YES;
     
@@ -206,7 +208,7 @@ static NSString* recording = nil;
 
 - (IBAction)playButtonPressed:(id)sender {
     if (recording != nil) {
-        [[AudioController sharedInstance] playAudio:recording];
+        [[AudioController sharedInstance] playAudioFromFile:recording];
     }
 }
 

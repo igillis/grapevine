@@ -74,8 +74,13 @@
     NSString* name = [[NSString alloc] initWithFormat:@"%@ %@",
                       [user valueForKey:parseObjects.userFirstNameKey], [user valueForKey:parseObjects.userLastNameKey]];
     cell.name.text = name;
-    cell.altName.text = name;
     
+    //Add an identical label to the alternate view
+    UILabel* altName = [[UILabel alloc] initWithFrame:cell.name.frame];
+    altName.text = name;
+    altName.font = [UIFont systemFontOfSize:15.0];
+    [cell.altView addSubview:altName];
+
 
     
     PFFile* userProfilePicFile = [user valueForKey:parseObjects.userProfilePictureKey];
@@ -83,6 +88,13 @@
         UIImage* userProfilePic =[[UIImage alloc] initWithData:[userProfilePicFile getData]];
         
         cell.profilePic.image = userProfilePic;
+        
+        //Add the same image view to the view users see after selecting a cell
+        UIImageView* altViewImage = [[UIImageView alloc] initWithFrame:cell.profilePic.frame];
+        altViewImage.image = userProfilePic;
+        altViewImage.layer.cornerRadius = 5.0;
+        altViewImage.clipsToBounds = YES;
+        [cell.altView addSubview:altViewImage];
     } else {
         cell.profilePic.image = nil;
     }

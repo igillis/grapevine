@@ -26,7 +26,6 @@
 
 @synthesize progressBar;
 @synthesize playPauseButton;
-@synthesize altName;
 @synthesize audioData;
 @synthesize post;
 
@@ -110,11 +109,11 @@
 }
 
 -(void) toggleViews {
-    CATransition *animation = [CATransition animation];
-    animation.type = kCATransitionFade;
-    animation.duration = 0.3;
-    [mainView.layer addAnimation:animation forKey:nil];
-    [altView.layer addAnimation:animation forKey:nil];
+    //CATransition *animation = [CATransition animation];
+    //animation.type = kCATransitionFade;
+    //animation.duration = 0.3;
+    //[mainView.layer addAnimation:animation forKey:nil];
+    //[altView.layer addAnimation:animation forKey:nil];
     mainView.hidden = !mainView.hidden;
     altView.hidden = !altView.hidden;
     if (mainView.hidden) {

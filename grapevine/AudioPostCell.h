@@ -25,7 +25,6 @@
 @property (strong, nonatomic) NSString* audioPath;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 @property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
-@property (weak, nonatomic) IBOutlet UILabel *altName;
 @property (strong, nonatomic) NSData* audioData;
 @property (strong, nonatomic) PFObject* post;
 
