@@ -19,7 +19,7 @@
 
 @interface HomePostsTableViewController ()
 @property NSString* searchTerm;
-
+@property UISearchBar* mySearchBar;
 @end
 
 @implementation HomePostsTableViewController
@@ -27,6 +27,7 @@
 @synthesize currentlySelected;
 @synthesize currentlyPlaying;
 @synthesize searchTerm;
+@synthesize mySearchBar;
 
 - (void) awakeFromNib {
     // The className to query on
@@ -136,12 +137,18 @@
             for (UIView* view in [searchBar subviews]) {
                 if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
                     [view removeFromSuperview];
+                } else if ([view isKindOfClass:NSClassFromString(@"UITextField")]) {
+                    UITextField* tf = (UITextField*) view;
+                    tf.enablesReturnKeyAutomatically = NO;
+                    tf.returnKeyType = UIReturnKeyDone;
                 }
             }
         }
         return cell;
     }
 }
+
+
 
 -(PFObject*) objectAtIndexPath:(NSIndexPath *)indexPath {
      if (indexPath.section == 1) {
