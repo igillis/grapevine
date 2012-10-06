@@ -18,6 +18,7 @@
 #define DESCRIPTION_FONT_SIZE 12.0
 
 @interface HomePostsTableViewController ()
+@property NSString* searchTerm;
 
 @end
 
@@ -25,6 +26,7 @@
 
 @synthesize currentlySelected;
 @synthesize currentlyPlaying;
+@synthesize searchTerm;
 
 - (void) awakeFromNib {
     // The className to query on
@@ -39,6 +41,8 @@
     
     // The number of objects to show per page
     self.objectsPerPage = 6;
+    
+    self.searchTerm = nil;
 }
 
 #pragma mark - Parse
@@ -57,9 +61,30 @@
         PFQuery* query = [PFQuery queryWithClassName:self.className];
         [query whereKey:parseObjects.postOwnerKey containedIn:following];
         [query orderByDescending:@"createdAt"];
+        
+        if (self.searchTerm && ![self.searchTerm isEqualToString:@""]) {
+            [query whereKey:parseObjects.descriptionKey matchesRegex:searchTerm modifiers:@"imx"];
+        }
+        
         return query;
     }
     return nil;
+}
+
+#pragma mark - UISearchBarDelegate
+
+-(void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    self.searchTerm = searchText;
+}
+
+-(void) searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    [self loadObjects];
+    [searchBar resignFirstResponder];
+}
+
+-(void) searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [self loadObjects];
+    [searchBar resignFirstResponder];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -99,12 +124,15 @@
         if (!cell) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SearchCell"];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
             UIView* bgView = [[UIView alloc] initWithFrame:[cell bounds]];
             bgView.backgroundColor = [UIColor clearColor];
             cell.backgroundView = bgView;
+            
             UISearchBar* searchBar = [[UISearchBar alloc] initWithFrame:[cell bounds]];
             [cell addSubview:searchBar];
             searchBar.showsBookmarkButton = NO;
+            searchBar.delegate = self;
             for (UIView* view in [searchBar subviews]) {
                 if ([view isKindOfClass:NSClassFromString(@"UISearchBarBackground")]) {
                     [view removeFromSuperview];

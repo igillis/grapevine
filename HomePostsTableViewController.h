@@ -13,5 +13,6 @@
 @class AudioPostCell;
 
 @interface HomePostsTableViewController : PostsTableViewController
+<UISearchBarDelegate>
 
 @end

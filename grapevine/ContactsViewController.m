@@ -97,21 +97,42 @@
 
 - (void)tableView:(UITableView *)tableView  didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    ParseObjects* parseObjects = [ParseObjects sharedInstance];
+    
+    //get the user whose cell was selected
     PFUser* resultAtIndex = (PFUser*) [searchResults_ objectAtIndex:indexPath.row];
+    [resultAtIndex fetchIfNeeded];
+    
+    //get the current logged in user
+    PFUser* currentUser = [SessionManager sharedInstance].currentUser;
+    [currentUser fetchIfNeeded];
+    
+    NSArray* following = [currentUser objectForKey:parseObjects.userFollowingListKey];
+    NSMutableArray* followingMutable;
     if (![self alreadyFollowing:resultAtIndex]) {
-        PFUser* currentUser = [SessionManager sharedInstance].currentUser;
-        NSArray* following = [currentUser objectForKey:[ParseObjects sharedInstance].userFollowingListKey];
-        NSMutableArray* followingMutable;
         if ([following isEqual:[[NSNull alloc] init]]) {
             followingMutable = [[NSMutableArray alloc] init];
         } else {
             followingMutable = [NSMutableArray arrayWithArray:following];
         }
         [followingMutable addObject:resultAtIndex];
-        [currentUser setObject:followingMutable forKey:[ParseObjects sharedInstance].userFollowingListKey];
-        [currentUser save];
-        [tableView reloadData];
+        
+    } else {
+        //following shouldn't be null otherwise we wouldn't be following the
+        //selected user
+        followingMutable = [[NSMutableArray alloc] init];
+        for (int i = 0; i < [following count]; i++) {
+            PFUser* user = [following objectAtIndex:i];
+            [user fetchIfNeeded];
+            if ([user.objectId isEqualToString:resultAtIndex.objectId]) {
+                continue;
+            }
+            [followingMutable addObject:user];
+        }
     }
+    [currentUser setObject:followingMutable forKey:parseObjects.userFollowingListKey];
+    [currentUser save];
+    [tableView reloadData];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
