@@ -38,7 +38,7 @@
     self.paginationEnabled = YES;
     
     // The number of objects to show per page
-    self.objectsPerPage = 10;
+    self.objectsPerPage = 6;
 }
 
 #pragma mark - Parse
@@ -49,7 +49,13 @@
         return nil;
     }
     
-    PFQuery *query = [PFQuery queryWithClassName:self.className];
+    PFUser* user = [SessionManager sharedInstance].currentUser;
+    ParseObjects* parseObjects = [ParseObjects sharedInstance];
+    [user fetchIfNeeded];
+    NSArray* following = [user objectForKey:parseObjects.userFollowingListKey];
+    
+    PFQuery* query = [PFQuery queryWithClassName:self.className];
+    [query whereKey:parseObjects.postOwnerKey containedIn:following];
     [query orderByDescending:@"createdAt"];
     return query;
 }

@@ -35,7 +35,7 @@
     self.paginationEnabled = YES;
     
     // The number of objects to show per page
-    self.objectsPerPage = 5;
+    self.objectsPerPage = 4;
     [self viewDidLoad];
 }
 
@@ -51,7 +51,7 @@
     }
     
     PFQuery *query = [PFQuery queryWithClassName:self.className];
-    [query setLimit:5];
+    [query setLimit:2];
     [query orderByDescending:@"numViews"];
     return query;
 }
