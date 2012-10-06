@@ -14,6 +14,9 @@
 @property (readonly) NSString* userLastNameKey;
 @property (readonly) NSString* userFirstNameKey;
 @property (readonly) NSString* userProfilePictureKey;
+@property (readonly) NSString* userFacebookIdKey;
+@property (readonly) NSString* userFacebookUsernameKey;
+
 
 //Strings for audiopost parse objects
 @property (readonly) NSString* audioPostClassName;

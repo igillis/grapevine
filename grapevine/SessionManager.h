@@ -10,21 +10,9 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
 
-typedef enum {
-    // currently attempting to authenticate user
-    SessionStatePending = 0,
-    // session was opened
-    SessionStateOpen = 1,
-    // session was closed
-    SessionStateClose = 2,
-    // session closed due to login failure,
-    SessionStateCloseLoginFailure
-} SessionState;
-
 extern NSString *const FBSessionStateChangedNotification;
 
 @interface SessionManager : NSObject
-@property (readonly) SessionState sessionState;
 @property(readonly, copy) NSArray* sessionPermissions;
 @property(readonly) PFUser* currentUser;
 
@@ -34,7 +22,4 @@ extern NSString *const FBSessionStateChangedNotification;
 - (BOOL) openTwitterSessionWithPermissions:(NSArray*) permissions;
 - (BOOL) openGrapevineSessionWithLoginId:(NSString*) loginId
                              andPassword: (NSString*) password;
-
-- (void) closeSession;
-
 @end

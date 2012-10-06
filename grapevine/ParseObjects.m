@@ -14,6 +14,8 @@
 @property (readwrite) NSString* userLastNameKey;
 @property (readwrite) NSString* userFirstNameKey;
 @property (readwrite) NSString* userProfilePictureKey;
+@property (readwrite) NSString* userFacebookIdKey;
+@property (readwrite) NSString* userFacebookUsernameKey;
 
 
 @property (readwrite) NSString* audioPostClassName;
@@ -44,6 +46,8 @@ static ParseObjects* _sharedInstance = nil;
         self.userFirstNameKey = @"firstName";
         self.userLastNameKey = @"lastName";
         self.userProfilePictureKey = @"profilePic";
+        self.userFacebookIdKey = @"facebookdId";
+        self.userFacebookUsernameKey = @"facebookUsername";
         
         self.audioPostClassName = @"audioPost";
         self.audioFileKey = @"audioFile";

@@ -13,7 +13,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 
 @interface LoginViewController ()
-    @property NSMutableData* _data;
+
 @end
 
 @implementation LoginViewController
@@ -21,7 +21,6 @@
 @synthesize username;
 @synthesize password;
 @synthesize grapevine;
-@synthesize _data;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -64,39 +63,8 @@
 - (void)closeLoginView {
     PFUser* user = [SessionManager sharedInstance].currentUser;
     if (user) {
-        NSURL *profilePictureURL = [NSURL URLWithString:
-                                    [NSString stringWithFormat:@"https://graph.facebook.com/me/picture?access_token=%@",
-                                     [PFFacebookUtils session].accessToken]];
-        NSURLRequest *profilePictureURLRequest = [NSURLRequest requestWithURL:profilePictureURL
-                                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                              timeoutInterval:8.0f];
-        [NSURLConnection connectionWithRequest:profilePictureURLRequest delegate:self];
         [self dismissModalViewControllerAnimated:YES];
     }
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    _data = [[NSMutableData alloc] init];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [_data appendData:data];
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    if (!_data) {
-        NSLog(@"error retrieving profile picture");
-        return;
-    }
-    PFFile* pictureFile = [PFFile fileWithName:@"profilePic" data:_data];
-    [pictureFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error) {
-            [[PFUser currentUser] setObject:pictureFile forKey:[ParseObjects sharedInstance].userProfilePictureKey];
-            [[PFUser currentUser] saveEventually];
-        } else {
-            NSLog(@"%@", error);
-        }
-    }];
 }
 
 - (IBAction)twitterLogin:(id)sender {
