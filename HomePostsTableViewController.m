@@ -53,11 +53,13 @@
     ParseObjects* parseObjects = [ParseObjects sharedInstance];
     [user fetchIfNeeded];
     NSArray* following = [user objectForKey:parseObjects.userFollowingListKey];
-    
-    PFQuery* query = [PFQuery queryWithClassName:self.className];
-    [query whereKey:parseObjects.postOwnerKey containedIn:following];
-    [query orderByDescending:@"createdAt"];
-    return query;
+    if (![following isEqual:[[NSNull alloc] init]]) {
+        PFQuery* query = [PFQuery queryWithClassName:self.className];
+        [query whereKey:parseObjects.postOwnerKey containedIn:following];
+        [query orderByDescending:@"createdAt"];
+        return query;
+    }
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

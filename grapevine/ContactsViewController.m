@@ -78,10 +78,13 @@
 }
 
 -(BOOL) alreadyFollowing:(PFUser*) user {
+    //TODO: stop calling this every time
     [user fetchIfNeeded];
     NSArray* following = [[SessionManager sharedInstance].currentUser
              objectForKey:[ParseObjects sharedInstance].userFollowingListKey];
-    
+    if ([following isEqual:[[NSNull alloc] init] ]) {
+        return NO;
+    }
     for (PFUser* followedUser in following) {
         [followedUser fetchIfNeeded];
         if ([followedUser.username isEqualToString:user.username]) {
@@ -97,9 +100,15 @@
     PFUser* resultAtIndex = (PFUser*) [searchResults_ objectAtIndex:indexPath.row];
     if (![self alreadyFollowing:resultAtIndex]) {
         PFUser* currentUser = [SessionManager sharedInstance].currentUser;
-        NSMutableArray* following =[NSMutableArray arrayWithArray:[currentUser objectForKey:[ParseObjects sharedInstance].userFollowingListKey]];
-        [following addObject:resultAtIndex];
-        [currentUser setObject:following forKey:[ParseObjects sharedInstance].userFollowingListKey];
+        NSArray* following = [currentUser objectForKey:[ParseObjects sharedInstance].userFollowingListKey];
+        NSMutableArray* followingMutable;
+        if ([following isEqual:[[NSNull alloc] init]]) {
+            followingMutable = [[NSMutableArray alloc] init];
+        } else {
+            followingMutable = [NSMutableArray arrayWithArray:following];
+        }
+        [followingMutable addObject:resultAtIndex];
+        [currentUser setObject:followingMutable forKey:[ParseObjects sharedInstance].userFollowingListKey];
         [currentUser save];
         [tableView reloadData];
     }
