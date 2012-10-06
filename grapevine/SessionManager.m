@@ -45,8 +45,8 @@ static SessionManager* _sharedInstance = nil;
             return;
         } else if (user.isNew) {
             NSLog(@"User signed up and logged in through Facebook!");
-            //consider updating user name if it changes on fb (move this to every login
-            //and only update if data is stale
+            //consider updating if it changes on fb (move this to every login
+            //and only update if data is stale)
             [PF_FBRequestConnection startForMeWithCompletionHandler:^(PF_FBRequestConnection* connection,
                                                                       id result,
                                                                       NSError* error) {
@@ -66,18 +66,16 @@ static SessionManager* _sharedInstance = nil;
                 [user setValue:username forKey:parseObjects.userFacebookUsernameKey];
                 [user saveEventually];
             }];
+        } else {
+            NSLog(@"User signed in through Facebook.");
             //update their profile pic
-            //TODO: only update if stale
             NSURL *profilePictureURL = [NSURL URLWithString:
-                                        [NSString stringWithFormat:@"https://graph.facebook.com/me/picture?access_token=%@",
+                                        [NSString stringWithFormat:@"https://graph.facebook.com/me/picture?access_token=%@&type=large",
                                          [PFFacebookUtils session].accessToken]];
             NSURLRequest *profilePictureURLRequest = [NSURLRequest requestWithURL:profilePictureURL
                                                                       cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                                   timeoutInterval:8.0f];
             [NSURLConnection connectionWithRequest:profilePictureURLRequest delegate:self];
-
-        } else {
-            NSLog(@"User signed in through Facebook.");
         }
         self.currentUser = user;
         self.sessionPermissions = permissions;
