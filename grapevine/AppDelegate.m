@@ -16,17 +16,18 @@
 #import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
 
-@implementation AppDelegate
-
-
+@implementation AppDelegate {
+    HomeViewController* homeViewController;
+    TrendingViewController* trendingViewController;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    UIViewController *homeViewController = [[HomeViewController alloc]
+    homeViewController = [[HomeViewController alloc]
         initWithNibName:@"HomeViewController"bundle:nil];
-    UIViewController *trendingViewController = [[TrendingViewController alloc]
+    trendingViewController = [[TrendingViewController alloc]
                                                 initWithNibName:@"TrendingViewController"bundle:nil];
 
     UIViewController *contactsViewController = [[ContactsViewController alloc]
@@ -37,7 +38,7 @@
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers =
         @[homeViewController, trendingViewController, contactsViewController];
-    
+    self.tabBarController.delegate = self;
     
     
     self.window.rootViewController = self.tabBarController;
@@ -68,4 +69,12 @@
     return [PFFacebookUtils handleOpenURL:url];
 }
 
+- (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
+    NSLog(@"changed views %@", viewController.view.subviews);
+    if (viewController == trendingViewController) {
+        [trendingViewController.postsTableViewController loadObjects];
+    } else if (viewController == homeViewController) {
+        [homeViewController.tableViewController loadObjects];
+    }
+}
 @end

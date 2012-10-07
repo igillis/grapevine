@@ -45,7 +45,6 @@
 }
 
 - (PFQuery *)queryForTable {
-    NSLog(@"query for table called");
     if (![SessionManager sharedInstance].currentUser) {
         return nil;
     }
@@ -101,4 +100,10 @@
                                     valueForKey:[ParseObjects sharedInstance].descriptionKey]];
     return MAX(65.0, labelsize.height + DESCRIPTION_Y + 10.0);
 }
+
+-(PFTableViewCell*) tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"this should get called as pagination is enabled");
+}
+
+
 @end
