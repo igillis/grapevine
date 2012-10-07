@@ -23,7 +23,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Trending" image:[UIImage imageNamed:@"stock.png"] tag:98];
+        self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Trending" image:[UIImage imageNamed:@"16-line-chart.png"] tag:98];
     }
     return self;
 }
