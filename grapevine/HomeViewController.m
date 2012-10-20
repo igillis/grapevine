@@ -22,6 +22,7 @@
 @synthesize recordButton;
 @synthesize grapevine;
 @synthesize tableViewController;
+@synthesize refreshButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,10 +42,15 @@
     self.recordButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.recordButton.layer.borderWidth = 0.5;
     self.recordButton.layer.cornerRadius = 3.0;
+    
+    self.refreshButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.refreshButton.layer.borderWidth = 0.5;
+    self.refreshButton.layer.cornerRadius = 3.0;
 }
 
 - (void)viewDidUnload
 {
+    [self setRefreshButton:nil];
     [super viewDidUnload];
 }
 
@@ -60,5 +66,10 @@
     }
     RecordingViewController* recordingViewController = [[RecordingViewController alloc] init];
     [self presentViewController:recordingViewController animated:YES completion:NULL];
+}
+
+- (IBAction)refreshButtonPressed:(id)sender {
+    [self.tableViewController loadObjects];
+    [self.tableViewController.tableView reloadData];
 }
 @end

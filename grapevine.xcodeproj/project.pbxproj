@@ -28,6 +28,7 @@
 		498C43421604D18F005936B4 /* RecordingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 498C43401604D18F005936B4 /* RecordingViewController.xib */; };
 		49A17EF31632E25400236107 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A17EF21632E25400236107 /* AudioStreamer.m */; };
 		49A17EF51632EE1C00236107 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A17EF41632EE1C00236107 /* CoreMedia.framework */; };
+		49A17EF71633200300236107 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A17EF61633200300236107 /* refresh.png */; };
 		49A5F64315ED7E2D00D3F73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64215ED7E2D00D3F73F /* UIKit.framework */; };
 		49A5F64515ED7E2D00D3F73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64415ED7E2D00D3F73F /* Foundation.framework */; };
 		49A5F64715ED7E2D00D3F73F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64615ED7E2D00D3F73F /* CoreGraphics.framework */; };
@@ -98,6 +99,7 @@
 		49A17EF11632E25400236107 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStreamer.h; path = ../AudioStreamer.h; sourceTree = "<group>"; };
 		49A17EF21632E25400236107 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioStreamer.m; path = ../AudioStreamer.m; sourceTree = "<group>"; };
 		49A17EF41632EE1C00236107 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		49A17EF61633200300236107 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		49A5F63E15ED7E2D00D3F73F /* grapevine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grapevine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A5F64215ED7E2D00D3F73F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49A5F64415ED7E2D00D3F73F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -270,6 +272,7 @@
 		49A5F64915ED7E2D00D3F73F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				49A17EF61633200300236107 /* refresh.png */,
 				49CC000C1620C1DB0061BBFE /* 53-house.png */,
 				49CC000A1620C1BC0061BBFE /* 16-line-chart.png */,
 				49540CCB15FB765A00AF4D08 /* button.png */,
@@ -374,6 +377,7 @@
 				49533899161CDC0F00571DB4 /* TrendingViewController.xib in Resources */,
 				49CC000B1620C1BC0061BBFE /* 16-line-chart.png in Resources */,
 				49CC000D1620C1DB0061BBFE /* 53-house.png in Resources */,
+				49A17EF71633200300236107 /* refresh.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

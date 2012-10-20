@@ -17,7 +17,9 @@
 @property (nonatomic, strong) IBOutlet UIButton* recordButton;
 @property (nonatomic, strong) IBOutlet UILabel* grapevine;
 @property (nonatomic, retain) IBOutlet HomePostsTableViewController* tableViewController;
+@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 
 -(IBAction)recordButtonPressed:(id)sender;
+- (IBAction)refreshButtonPressed:(id)sender;
 
 @end
