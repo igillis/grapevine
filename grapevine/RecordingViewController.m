@@ -138,7 +138,7 @@ static NSString* recording = nil;
 - (IBAction)sharePost:(id)sender {
     //save audio data to the server
     NSData* recordingData = [NSData dataWithContentsOfFile:self.currentRecordingLocation];
-    PFFile* recordingFile = [PFFile fileWithName:@"audioRecording" data:recordingData];
+    PFFile* recordingFile = [PFFile fileWithName:@"audioRecording.aif" data:recordingData];
     [recordingFile saveInBackground];
     
     //save audio post object to the server

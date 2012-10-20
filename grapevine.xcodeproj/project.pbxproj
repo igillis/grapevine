@@ -26,6 +26,8 @@
 		49716FA515F8021C00A32FB5 /* RecordButton1Pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 49716FA415F8021C00A32FB5 /* RecordButton1Pressed.png */; };
 		498C43411604D18F005936B4 /* RecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C433F1604D18F005936B4 /* RecordingViewController.m */; };
 		498C43421604D18F005936B4 /* RecordingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 498C43401604D18F005936B4 /* RecordingViewController.xib */; };
+		49A17EF31632E25400236107 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A17EF21632E25400236107 /* AudioStreamer.m */; };
+		49A17EF51632EE1C00236107 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A17EF41632EE1C00236107 /* CoreMedia.framework */; };
 		49A5F64315ED7E2D00D3F73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64215ED7E2D00D3F73F /* UIKit.framework */; };
 		49A5F64515ED7E2D00D3F73F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64415ED7E2D00D3F73F /* Foundation.framework */; };
 		49A5F64715ED7E2D00D3F73F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64615ED7E2D00D3F73F /* CoreGraphics.framework */; };
@@ -35,20 +37,15 @@
 		49A5F65615ED7E2D00D3F73F /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F65515ED7E2D00D3F73F /* HomeViewController.m */; };
 		49A5F66415ED7E2D00D3F73F /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F66215ED7E2D00D3F73F /* HomeViewController.xib */; };
 		49A5F67015EDAE6200D3F73F /* ContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F66E15EDAE6200D3F73F /* ContactsViewController.m */; };
-		49A5F67315EDB45400D3F73F /* FakeContacts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F67215EDB45400D3F73F /* FakeContacts.plist */; };
 		49A5F67B15EDC24B00D3F73F /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F67915EDC24B00D3F73F /* LoginViewController.m */; };
 		49A5F67C15EDC24B00D3F73F /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F67A15EDC24B00D3F73F /* LoginViewController.xib */; };
 		49A5F67E15EDCD0600D3F73F /* fb-login-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F67D15EDCD0600D3F73F /* fb-login-normal.png */; };
-		49A5F68515F04C1000D3F73F /* FakePosts.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68415F04C1000D3F73F /* FakePosts.plist */; };
 		49A5F68815F05F1C00D3F73F /* AudioPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A5F68715F05F1C00D3F73F /* AudioPostCell.m */; };
 		49A5F68A15F05F6B00D3F73F /* AudioPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68915F05F6B00D3F73F /* AudioPostCell.xib */; };
 		49A5F68C15F060BE00D3F73F /* IanGillis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68B15F060BE00D3F73F /* IanGillis.jpg */; };
-		49A5F68E15F0753600D3F73F /* FakeImages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68D15F0753600D3F73F /* FakeImages.plist */; };
 		49A5F6A415F1585800D3F73F /* TalkingToTheMoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F6A215F1585800D3F73F /* TalkingToTheMoon.ttf */; };
 		49A5F6AB15F1A39000D3F73F /* FakeSuggestedTopics.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F6A915F1A39000D3F73F /* FakeSuggestedTopics.plist */; };
 		49A5F6AC15F1A39000D3F73F /* FakeSuggestedUsers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F6AA15F1A39000D3F73F /* FakeSuggestedUsers.plist */; };
-		49A5F6B015F1A3B200D3F73F /* trendingDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F6AE15F1A3B200D3F73F /* trendingDown.png */; };
-		49A5F6B115F1A3B200D3F73F /* trendingUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F6AF15F1A3B200D3F73F /* trendingUp.png */; };
 		49B18B12160AAE560076F8DC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B11160AAE560076F8DC /* CFNetwork.framework */; };
 		49B18B14160AAE640076F8DC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B13160AAE640076F8DC /* AudioToolbox.framework */; };
 		49B18B16160AAE6E0076F8DC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B15160AAE6E0076F8DC /* libsqlite3.dylib */; };
@@ -98,6 +95,9 @@
 		498C433E1604D18F005936B4 /* RecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordingViewController.h; sourceTree = "<group>"; };
 		498C433F1604D18F005936B4 /* RecordingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordingViewController.m; sourceTree = "<group>"; };
 		498C43401604D18F005936B4 /* RecordingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordingViewController.xib; sourceTree = "<group>"; };
+		49A17EF11632E25400236107 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStreamer.h; path = ../AudioStreamer.h; sourceTree = "<group>"; };
+		49A17EF21632E25400236107 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioStreamer.m; path = ../AudioStreamer.m; sourceTree = "<group>"; };
+		49A17EF41632EE1C00236107 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		49A5F63E15ED7E2D00D3F73F /* grapevine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grapevine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49A5F64215ED7E2D00D3F73F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49A5F64415ED7E2D00D3F73F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -113,22 +113,17 @@
 		49A5F66315ED7E2D00D3F73F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController.xib; sourceTree = "<group>"; };
 		49A5F66D15EDAE6200D3F73F /* ContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactsViewController.h; sourceTree = "<group>"; };
 		49A5F66E15EDAE6200D3F73F /* ContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactsViewController.m; sourceTree = "<group>"; };
-		49A5F67215EDB45400D3F73F /* FakeContacts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FakeContacts.plist; sourceTree = "<group>"; };
 		49A5F67815EDC24B00D3F73F /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		49A5F67915EDC24B00D3F73F /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		49A5F67A15EDC24B00D3F73F /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		49A5F67D15EDCD0600D3F73F /* fb-login-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "fb-login-normal.png"; sourceTree = "<group>"; };
-		49A5F68415F04C1000D3F73F /* FakePosts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FakePosts.plist; sourceTree = "<group>"; };
 		49A5F68615F05F1C00D3F73F /* AudioPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPostCell.h; sourceTree = "<group>"; };
 		49A5F68715F05F1C00D3F73F /* AudioPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPostCell.m; sourceTree = "<group>"; };
 		49A5F68915F05F6B00D3F73F /* AudioPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioPostCell.xib; sourceTree = "<group>"; };
 		49A5F68B15F060BE00D3F73F /* IanGillis.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IanGillis.jpg; sourceTree = "<group>"; };
-		49A5F68D15F0753600D3F73F /* FakeImages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FakeImages.plist; sourceTree = "<group>"; };
 		49A5F6A215F1585800D3F73F /* TalkingToTheMoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TalkingToTheMoon.ttf; sourceTree = "<group>"; };
 		49A5F6A915F1A39000D3F73F /* FakeSuggestedTopics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FakeSuggestedTopics.plist; sourceTree = "<group>"; };
 		49A5F6AA15F1A39000D3F73F /* FakeSuggestedUsers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FakeSuggestedUsers.plist; sourceTree = "<group>"; };
-		49A5F6AE15F1A3B200D3F73F /* trendingDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trendingDown.png; sourceTree = "<group>"; };
-		49A5F6AF15F1A3B200D3F73F /* trendingUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trendingUp.png; sourceTree = "<group>"; };
 		49B18B11160AAE560076F8DC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		49B18B13160AAE640076F8DC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		49B18B15160AAE6E0076F8DC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -156,6 +151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49A17EF51632EE1C00236107 /* CoreMedia.framework in Frameworks */,
 				49B18B20160AAE990076F8DC /* SystemConfiguration.framework in Frameworks */,
 				49B18B1E160AAE900076F8DC /* StoreKit.framework in Frameworks */,
 				49B18B1C160AAE880076F8DC /* Security.framework in Frameworks */,
@@ -191,6 +187,7 @@
 		49A5F63315ED7E2D00D3F73F = {
 			isa = PBXGroup;
 			children = (
+				49A17EF41632EE1C00236107 /* CoreMedia.framework */,
 				49A5F64815ED7E2D00D3F73F /* grapevine */,
 				49A5F64115ED7E2D00D3F73F /* Frameworks */,
 				49A5F63F15ED7E2D00D3F73F /* Products */,
@@ -231,6 +228,8 @@
 		49A5F64815ED7E2D00D3F73F /* grapevine */ = {
 			isa = PBXGroup;
 			children = (
+				49A17EF11632E25400236107 /* AudioStreamer.h */,
+				49A17EF21632E25400236107 /* AudioStreamer.m */,
 				4969D418161E303E00322B92 /* PostsTableViewController.h */,
 				4969D419161E303E00322B92 /* PostsTableViewController.m */,
 				4923C742160BAC8600AA87A9 /* HomePostsTableViewController.h */,
@@ -286,8 +285,6 @@
 				49F572ED15F26722008C5D8B /* unchecked.png */,
 				49F572EA15F2670C008C5D8B /* checked.png */,
 				49A5F6A215F1585800D3F73F /* TalkingToTheMoon.ttf */,
-				49A5F6AE15F1A3B200D3F73F /* trendingDown.png */,
-				49A5F6AF15F1A3B200D3F73F /* trendingUp.png */,
 				49A5F6A915F1A39000D3F73F /* FakeSuggestedTopics.plist */,
 				49A5F6AA15F1A39000D3F73F /* FakeSuggestedUsers.plist */,
 				49A5F68B15F060BE00D3F73F /* IanGillis.jpg */,
@@ -296,9 +293,6 @@
 				49A5F64B15ED7E2D00D3F73F /* InfoPlist.strings */,
 				49A5F64E15ED7E2D00D3F73F /* main.m */,
 				49A5F65015ED7E2D00D3F73F /* grapevine-Prefix.pch */,
-				49A5F67215EDB45400D3F73F /* FakeContacts.plist */,
-				49A5F68415F04C1000D3F73F /* FakePosts.plist */,
-				49A5F68D15F0753600D3F73F /* FakeImages.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -356,18 +350,13 @@
 			files = (
 				49A5F64D15ED7E2D00D3F73F /* InfoPlist.strings in Resources */,
 				49A5F66415ED7E2D00D3F73F /* HomeViewController.xib in Resources */,
-				49A5F67315EDB45400D3F73F /* FakeContacts.plist in Resources */,
 				49A5F67C15EDC24B00D3F73F /* LoginViewController.xib in Resources */,
 				49A5F67E15EDCD0600D3F73F /* fb-login-normal.png in Resources */,
-				49A5F68515F04C1000D3F73F /* FakePosts.plist in Resources */,
 				49A5F68A15F05F6B00D3F73F /* AudioPostCell.xib in Resources */,
 				49A5F68C15F060BE00D3F73F /* IanGillis.jpg in Resources */,
-				49A5F68E15F0753600D3F73F /* FakeImages.plist in Resources */,
 				49A5F6A415F1585800D3F73F /* TalkingToTheMoon.ttf in Resources */,
 				49A5F6AB15F1A39000D3F73F /* FakeSuggestedTopics.plist in Resources */,
 				49A5F6AC15F1A39000D3F73F /* FakeSuggestedUsers.plist in Resources */,
-				49A5F6B015F1A3B200D3F73F /* trendingDown.png in Resources */,
-				49A5F6B115F1A3B200D3F73F /* trendingUp.png in Resources */,
 				49F572EB15F2670C008C5D8B /* checked.png in Resources */,
 				49F572EE15F26722008C5D8B /* unchecked.png in Resources */,
 				49F5730515F52382008C5D8B /* FakeSound.mp3 in Resources */,
@@ -409,6 +398,7 @@
 				49533898161CDC0F00571DB4 /* TrendingViewController.m in Sources */,
 				4953389C161CE2D900571DB4 /* TrendingPostsTableViewController.m in Sources */,
 				4969D41A161E303E00322B92 /* PostsTableViewController.m in Sources */,
+				49A17EF31632E25400236107 /* AudioStreamer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

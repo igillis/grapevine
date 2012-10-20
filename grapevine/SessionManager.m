@@ -66,22 +66,27 @@ static SessionManager* _sharedInstance = nil;
                 [user setValue:username forKey:parseObjects.userFacebookUsernameKey];
                 [user saveEventually];
             }];
+            [self startProfilePictureRequest];
         } else {
             NSLog(@"User signed in through Facebook.");
             //update their profile pic
-            NSURL *profilePictureURL = [NSURL URLWithString:
-                                        [NSString stringWithFormat:@"https://graph.facebook.com/me/picture?access_token=%@&type=large",
-                                         [PFFacebookUtils session].accessToken]];
-            NSURLRequest *profilePictureURLRequest = [NSURLRequest requestWithURL:profilePictureURL
-                                                                      cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                                  timeoutInterval:8.0f];
-            [NSURLConnection connectionWithRequest:profilePictureURLRequest delegate:self];
+            [self startProfilePictureRequest];
         }
         self.currentUser = user;
         self.sessionPermissions = permissions;
         [[NSNotificationCenter defaultCenter] postNotificationName:FBSessionDidBecomeOpenActiveSessionNotification object:self];
     }];
     return NO;
+}
+
+-(void) startProfilePictureRequest {
+    NSURL *profilePictureURL = [NSURL URLWithString:
+                                [NSString stringWithFormat:@"https://graph.facebook.com/me/picture?access_token=%@&type=large",
+                                 [PFFacebookUtils session].accessToken]];
+    NSURLRequest *profilePictureURLRequest = [NSURLRequest requestWithURL:profilePictureURL
+                                                              cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                          timeoutInterval:8.0f];
+    [NSURLConnection connectionWithRequest:profilePictureURLRequest delegate:self];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {

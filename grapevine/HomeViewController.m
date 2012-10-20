@@ -27,8 +27,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // placeholder until we design a home tab bar item
-//        self.tabBarItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemFavorites tag:99];
         NSLog(@"%i",[UIImage imageNamed:@"home_w.png"] == nil);
         self.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"Home" image:[UIImage imageNamed:@"53-house.png"] tag:99];
     }

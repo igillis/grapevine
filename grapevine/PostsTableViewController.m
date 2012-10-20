@@ -101,7 +101,7 @@
     cell.profilePic.layer.cornerRadius = 5.0;
     cell.profilePic.clipsToBounds = YES;
     
-    cell.audioData = [[object valueForKey:parseObjects.audioFileKey] getData];
+    cell.audioURL = ((PFFile*)[object valueForKey:parseObjects.audioFileKey]).url;
     
     CGRect newFrame = CGRectMake(cell.frame.origin.x, cell.frame.origin.y, cell.frame.size.width-5.0, cell.frame.size.height);
     cell.altView.frame = newFrame;

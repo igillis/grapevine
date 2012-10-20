@@ -101,9 +101,4 @@
     return MAX(65.0, labelsize.height + DESCRIPTION_Y + 10.0);
 }
 
--(PFTableViewCell*) tableView:(UITableView *)tableView cellForNextPageAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"this should get called as pagination is enabled");
-}
-
-
 @end

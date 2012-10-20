@@ -70,7 +70,6 @@
 }
 
 - (void) tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController {
-    NSLog(@"changed views %@", viewController.view.subviews);
     if (viewController == trendingViewController) {
         [trendingViewController.postsTableViewController loadObjects];
     } else if (viewController == homeViewController) {

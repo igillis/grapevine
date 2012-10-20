@@ -32,4 +32,10 @@
 -(void) stopRecording;
 -(BOOL) isRecording;
 
+//Streaming methods
+-(void) playStreamedAudio:(NSString*) url;
+-(void) pauseStreamedAudio;
+-(void) stopStreamedAudio;
+-(BOOL) isStreaming;
+-(double) lengthOfStreamingTrack;
 @end

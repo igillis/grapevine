@@ -7,6 +7,8 @@
 //
 
 #import "AudioController.h"
+#import "AudioStreamer.h"
+#import <CoreMedia/CoreMedia.h>
 #import <AVFoundation/AVFoundation.h>
 
 @implementation AudioController
@@ -15,6 +17,7 @@
 static AudioController* _sharedInstance = nil;
 static AVAudioPlayer* _audioPlayer = nil;
 static AVAudioRecorder* _audioRecorder = nil;
+static AVPlayer* _audioStreamer = nil;
 
 +(AudioController*) sharedInstance {
     if (_sharedInstance == nil) {
@@ -76,6 +79,9 @@ static AVAudioRecorder* _audioRecorder = nil;
     if (_audioPlayer) {
         return [_audioPlayer isPlaying];
     }
+    if (_audioStreamer) {
+        return _audioStreamer.rate > 0.0;
+    }
     return NO;
 }
 
@@ -96,6 +102,32 @@ static AVAudioRecorder* _audioRecorder = nil;
 
 -(void) stopRecording {
     [_audioRecorder stop];
+}
+
+-(void) pauseStreamedAudio {
+    [_audioStreamer pause];
+}
+
+-(void) playStreamedAudio:(NSString *)url {
+    if (!_audioStreamer) {
+        NSURL* urlObj = [NSURL URLWithString:url];
+        _audioStreamer = [[AVPlayer alloc] initWithURL:urlObj];
+    }
+    [_audioStreamer play];
+}
+
+-(void) stopStreamedAudio {
+    NSLog(@"stopping the streamed audio");
+    [_audioStreamer pause];
+    _audioStreamer = nil;
+}
+
+-(BOOL) isStreaming {
+    return YES;
+}
+
+-(double) lengthOfStreamingTrack {
+    return CMTimeGetSeconds(_audioStreamer.currentItem.duration);
 }
 
 -(AudioController*) init {

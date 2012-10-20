@@ -26,7 +26,7 @@
 
 @synthesize progressBar;
 @synthesize playPauseButton;
-@synthesize audioData;
+@synthesize audioURL;
 @synthesize post;
 
 @synthesize mainView;
@@ -47,7 +47,7 @@
     NSLog(@"pausing audio for file with description %@", self.description.text);
     [self.playPauseButton setImage:self.playImage forState:UIControlStateNormal];
     [self.timer invalidate];
-    [[AudioController sharedInstance] pauseAudio];
+    [[AudioController sharedInstance] pauseStreamedAudio];
 }
 -(void) stopAudio {
     NSLog(@"stopping audio for file with description %@", self.description.text);
@@ -55,14 +55,14 @@
     [self.timer invalidate];
     [self.progressBar setProgress:0.0];
     self.currentTime = 0.0;
-    [[AudioController sharedInstance] stopAudio];
+    [[AudioController sharedInstance] stopStreamedAudio];
 }
 -(void)playAudio {
     [self.playPauseButton setImage:self.pauseImage forState:UIControlStateNormal];
     self.tableView.currentlyPlaying = self;
-    [[AudioController sharedInstance] playAudio:self.audioData];
-    self.timer = [NSTimer scheduledTimerWithTimeInterval: 0.1f target:self selector:@selector(handleTimerFire:) userInfo:nil repeats:YES];
-    self.duration = [[AudioController sharedInstance] lengthOfCurrentTrack];
+    [[AudioController sharedInstance] playStreamedAudio:self.audioURL];
+    self.duration = [[AudioController sharedInstance] lengthOfStreamingTrack];
+    /*self.timer = [NSTimer scheduledTimerWithTimeInterval: 0.1f target:self selector:@selector(handleTimerFire:) userInfo:nil repeats:YES];*/
     [self.post incrementKey:[ParseObjects sharedInstance].numViewsKey];
     [self.post saveInBackground];
 

@@ -25,7 +25,7 @@
 @property (strong, nonatomic) NSString* audioPath;
 @property (weak, nonatomic) IBOutlet UIProgressView *progressBar;
 @property (weak, nonatomic) IBOutlet UIButton *playPauseButton;
-@property (strong, nonatomic) NSData* audioData;
+@property (strong, nonatomic) NSString* audioURL;
 @property (strong, nonatomic) PFObject* post;
 
 - (IBAction)playPauseButtonTouched:(id)sender;
