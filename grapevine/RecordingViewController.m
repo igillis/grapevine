@@ -28,6 +28,7 @@
 @synthesize playButton;
 @synthesize grapevine;
 @synthesize profilePic;
+@synthesize userName;
 @synthesize currentRecordingLocation;
 @synthesize isRecording;
 @synthesize descriptionLabelPlaceholderText;
@@ -61,6 +62,12 @@ static NSString* recording = nil;
     
     profilePic.layer.cornerRadius = 5.0;
     profilePic.clipsToBounds = YES;
+    
+    PFUser* user = [SessionManager sharedInstance].currentUser;
+    [user fetchIfNeeded];
+    NSString* firstName = [user objectForKey:[ParseObjects sharedInstance].userFirstNameKey];
+    NSString* lastName = [user objectForKey:[ParseObjects sharedInstance].userLastNameKey];
+    self.userName.text = [NSString stringWithFormat:@"%@ %@",firstName, lastName];
     
     NSArray *paths = NSSearchPathForDirectoriesInDomains( NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDir = [paths objectAtIndex:0];
@@ -101,6 +108,8 @@ static NSString* recording = nil;
     [self setPlayButton:nil];
     [self setProfilePic:nil];
     [self setGrapevine:nil];
+    [self setUserName:nil];
+    [self setUserName:nil];
     [super viewDidUnload];
 }
 

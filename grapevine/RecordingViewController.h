@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UILabel *grapevine;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePic;
+@property (weak, nonatomic) IBOutlet UILabel *userName;
 
 @property (nonatomic, strong) NSString* currentRecordingLocation;
 @property (nonatomic, strong) NSString* descriptionLabelPlaceholderText;
