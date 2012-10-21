@@ -140,10 +140,11 @@
     if ([searchString length] > 1) {
         ParseObjects* parseObjects = [ParseObjects sharedInstance];
         PFQuery* userFirstNameQuery = [PFUser query];
-        [userFirstNameQuery whereKey:parseObjects.userFirstNameKey containsString:searchString];
+        NSString* regex = [NSString stringWithFormat:@"^%@",searchString];
+        [userFirstNameQuery whereKey:parseObjects.userFirstNameKey matchesRegex:regex modifiers:@"im"];
         
         PFQuery* userLastNameQuery = [PFUser query];
-        [userLastNameQuery whereKey:parseObjects.userLastNameKey containsString:searchString];
+        [userLastNameQuery whereKey:parseObjects.userLastNameKey matchesRegex:regex modifiers:@"im"];
         
         PFQuery* userQuery = [PFQuery orQueryWithSubqueries:[NSArray arrayWithObjects:userFirstNameQuery, userLastNameQuery, nil]];
         

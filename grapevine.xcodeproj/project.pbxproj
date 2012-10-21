@@ -26,7 +26,6 @@
 		49716FA515F8021C00A32FB5 /* RecordButton1Pressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 49716FA415F8021C00A32FB5 /* RecordButton1Pressed.png */; };
 		498C43411604D18F005936B4 /* RecordingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498C433F1604D18F005936B4 /* RecordingViewController.m */; };
 		498C43421604D18F005936B4 /* RecordingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 498C43401604D18F005936B4 /* RecordingViewController.xib */; };
-		49A17EF31632E25400236107 /* AudioStreamer.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A17EF21632E25400236107 /* AudioStreamer.m */; };
 		49A17EF51632EE1C00236107 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A17EF41632EE1C00236107 /* CoreMedia.framework */; };
 		49A17EF71633200300236107 /* refresh.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A17EF61633200300236107 /* refresh.png */; };
 		49A5F64315ED7E2D00D3F73F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49A5F64215ED7E2D00D3F73F /* UIKit.framework */; };
@@ -96,8 +95,6 @@
 		498C433E1604D18F005936B4 /* RecordingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordingViewController.h; sourceTree = "<group>"; };
 		498C433F1604D18F005936B4 /* RecordingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordingViewController.m; sourceTree = "<group>"; };
 		498C43401604D18F005936B4 /* RecordingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordingViewController.xib; sourceTree = "<group>"; };
-		49A17EF11632E25400236107 /* AudioStreamer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioStreamer.h; path = ../AudioStreamer.h; sourceTree = "<group>"; };
-		49A17EF21632E25400236107 /* AudioStreamer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioStreamer.m; path = ../AudioStreamer.m; sourceTree = "<group>"; };
 		49A17EF41632EE1C00236107 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		49A17EF61633200300236107 /* refresh.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh.png; sourceTree = "<group>"; };
 		49A5F63E15ED7E2D00D3F73F /* grapevine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = grapevine.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -230,8 +227,6 @@
 		49A5F64815ED7E2D00D3F73F /* grapevine */ = {
 			isa = PBXGroup;
 			children = (
-				49A17EF11632E25400236107 /* AudioStreamer.h */,
-				49A17EF21632E25400236107 /* AudioStreamer.m */,
 				4969D418161E303E00322B92 /* PostsTableViewController.h */,
 				4969D419161E303E00322B92 /* PostsTableViewController.m */,
 				4923C742160BAC8600AA87A9 /* HomePostsTableViewController.h */,
@@ -402,7 +397,6 @@
 				49533898161CDC0F00571DB4 /* TrendingViewController.m in Sources */,
 				4953389C161CE2D900571DB4 /* TrendingPostsTableViewController.m in Sources */,
 				4969D41A161E303E00322B92 /* PostsTableViewController.m in Sources */,
-				49A17EF31632E25400236107 /* AudioStreamer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -480,6 +474,7 @@
 		49A5F66B15ED7E2D00D3F73F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../FacebookSDK\"",
@@ -497,6 +492,7 @@
 		49A5F66C15ED7E2D00D3F73F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../FacebookSDK\"",
