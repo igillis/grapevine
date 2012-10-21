@@ -140,6 +140,7 @@
     if ([searchString length] > 1) {
         ParseObjects* parseObjects = [ParseObjects sharedInstance];
         PFQuery* userFirstNameQuery = [PFUser query];
+        //search for names that begin with the search term
         NSString* regex = [NSString stringWithFormat:@"^%@",searchString];
         [userFirstNameQuery whereKey:parseObjects.userFirstNameKey matchesRegex:regex modifiers:@"im"];
         
