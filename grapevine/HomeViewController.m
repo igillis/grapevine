@@ -59,6 +59,7 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+//function called when the record button pressed
 - (void)recordButtonPressed:(id)sender {
     //TODO: decide what to do when record button is pressed
     if (tableViewController.currentlyPlaying) {
