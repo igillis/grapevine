@@ -17,6 +17,7 @@
 @implementation TrendingViewController
 @synthesize recordButton;
 @synthesize grapevine;
+@synthesize refreshButton;
 @synthesize postsTableViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -36,6 +37,10 @@
     self.recordButton.layer.borderColor = [[UIColor whiteColor] CGColor];
     self.recordButton.layer.borderWidth = 0.5;
     self.recordButton.layer.cornerRadius = 3.0;
+    
+    self.refreshButton.layer.borderColor = [[UIColor whiteColor] CGColor];
+    self.refreshButton.layer.borderWidth = 0.5;
+    self.refreshButton.layer.cornerRadius = 3.0;
 }
 
 - (void)viewDidUnload
@@ -44,6 +49,7 @@
     [self setPostsTableViewController:nil];
     [self setGrapevine:nil];
     [self setRecordButton:nil];
+    [self setRefreshButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -61,5 +67,10 @@
     }
     RecordingViewController* recordingViewController = [[RecordingViewController alloc] init];
     [self presentViewController:recordingViewController animated:YES completion:NULL];
+}
+
+- (IBAction)refreshButtonPressed:(id)sender {
+    [self.postsTableViewController loadObjects];
+    [self.postsTableViewController.tableView reloadData];
 }
 @end

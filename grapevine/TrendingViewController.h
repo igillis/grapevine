@@ -14,7 +14,9 @@
 @property (strong, nonatomic) IBOutlet TrendingPostsTableViewController *postsTableViewController;
 @property (weak, nonatomic) IBOutlet UIButton *recordButton;
 @property (weak, nonatomic) IBOutlet UILabel *grapevine;
+@property (weak, nonatomic) IBOutlet UIButton *refreshButton;
 
 - (IBAction)recordButtonPressed:(id)sender;
+- (IBAction)refreshButtonPressed:(id)sender;
 
 @end
