@@ -39,7 +39,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    searchResults_ = [[NSArray alloc] init];
+    [[SessionManager sharedInstance].currentUser fetchIfNeeded];
+    searchResults_ =
+        [[SessionManager sharedInstance].currentUser objectForKey:[ParseObjects sharedInstance].userFollowingListKey];
 }
 
 - (void)viewDidUnload
@@ -64,6 +66,7 @@
     
     ParseObjects* parseObjects = [ParseObjects sharedInstance];
     PFUser* resultAtIndex = (PFUser*) [searchResults_ objectAtIndex:indexPath.row];
+    [resultAtIndex fetchIfNeeded];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",
                            [resultAtIndex objectForKey:parseObjects.userFirstNameKey],
                            [resultAtIndex objectForKey: parseObjects.userLastNameKey]];
