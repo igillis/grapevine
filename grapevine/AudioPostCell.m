@@ -62,7 +62,7 @@
     self.tableView.currentlyPlaying = self;
     [[AudioController sharedInstance] playStreamedAudio:self.audioURL];
     self.duration = [[AudioController sharedInstance] lengthOfStreamingTrack];
-    /*self.timer = [NSTimer scheduledTimerWithTimeInterval: 0.1f target:self selector:@selector(handleTimerFire:) userInfo:nil repeats:YES];*/
+    self.timer = [NSTimer scheduledTimerWithTimeInterval: 0.1f target:self selector:@selector(handleTimerFire:) userInfo:nil repeats:YES];
     [self.post incrementKey:[ParseObjects sharedInstance].numViewsKey];
     [self.post saveInBackground];
 

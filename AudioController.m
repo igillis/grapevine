@@ -108,10 +108,8 @@ static AVPlayer* _audioStreamer = nil;
 }
 
 -(void) playStreamedAudio:(NSString *)url {
-    if (!_audioStreamer) {
-        NSURL* urlObj = [NSURL URLWithString:url];
-        _audioStreamer = [[AVPlayer alloc] initWithURL:urlObj];
-    }
+    NSURL* urlObj = [NSURL URLWithString:url];
+    _audioStreamer = [[AVPlayer alloc] initWithURL:urlObj];
     [_audioStreamer play];
 }
 

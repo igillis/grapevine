@@ -45,8 +45,6 @@
 		49A5F68A15F05F6B00D3F73F /* AudioPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68915F05F6B00D3F73F /* AudioPostCell.xib */; };
 		49A5F68C15F060BE00D3F73F /* IanGillis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68B15F060BE00D3F73F /* IanGillis.jpg */; };
 		49A5F6A415F1585800D3F73F /* TalkingToTheMoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F6A215F1585800D3F73F /* TalkingToTheMoon.ttf */; };
-		49A5F6AB15F1A39000D3F73F /* FakeSuggestedTopics.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F6A915F1A39000D3F73F /* FakeSuggestedTopics.plist */; };
-		49A5F6AC15F1A39000D3F73F /* FakeSuggestedUsers.plist in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F6AA15F1A39000D3F73F /* FakeSuggestedUsers.plist */; };
 		49B18B12160AAE560076F8DC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B11160AAE560076F8DC /* CFNetwork.framework */; };
 		49B18B14160AAE640076F8DC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B13160AAE640076F8DC /* AudioToolbox.framework */; };
 		49B18B16160AAE6E0076F8DC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B15160AAE6E0076F8DC /* libsqlite3.dylib */; };
@@ -61,7 +59,6 @@
 		49CC000D1620C1DB0061BBFE /* 53-house.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CC000C1620C1DB0061BBFE /* 53-house.png */; };
 		49F572EB15F2670C008C5D8B /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F572EA15F2670C008C5D8B /* checked.png */; };
 		49F572EE15F26722008C5D8B /* unchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = 49F572ED15F26722008C5D8B /* unchecked.png */; };
-		49F5730515F52382008C5D8B /* FakeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 49F5730415F52382008C5D8B /* FakeSound.mp3 */; };
 		49F5730C15F526E1008C5D8B /* AudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F5730B15F526E1008C5D8B /* AudioController.m */; };
 		49F5730E15F54714008C5D8B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F5730D15F54714008C5D8B /* QuartzCore.framework */; };
 		C970262A15F31C8E004B1C50 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C970262915F31C8E004B1C50 /* AVFoundation.framework */; };
@@ -123,8 +120,6 @@
 		49A5F68915F05F6B00D3F73F /* AudioPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioPostCell.xib; sourceTree = "<group>"; };
 		49A5F68B15F060BE00D3F73F /* IanGillis.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IanGillis.jpg; sourceTree = "<group>"; };
 		49A5F6A215F1585800D3F73F /* TalkingToTheMoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TalkingToTheMoon.ttf; sourceTree = "<group>"; };
-		49A5F6A915F1A39000D3F73F /* FakeSuggestedTopics.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FakeSuggestedTopics.plist; sourceTree = "<group>"; };
-		49A5F6AA15F1A39000D3F73F /* FakeSuggestedUsers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = FakeSuggestedUsers.plist; sourceTree = "<group>"; };
 		49B18B11160AAE560076F8DC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		49B18B13160AAE640076F8DC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		49B18B15160AAE6E0076F8DC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -140,7 +135,6 @@
 		49CC000C1620C1DB0061BBFE /* 53-house.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "53-house.png"; sourceTree = "<group>"; };
 		49F572EA15F2670C008C5D8B /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
 		49F572ED15F26722008C5D8B /* unchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unchecked.png; sourceTree = "<group>"; };
-		49F5730415F52382008C5D8B /* FakeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = FakeSound.mp3; sourceTree = "<group>"; };
 		49F5730A15F526E1008C5D8B /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioController.h; path = ../AudioController.h; sourceTree = "<group>"; };
 		49F5730B15F526E1008C5D8B /* AudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AudioController.m; path = ../AudioController.m; sourceTree = "<group>"; };
 		49F5730D15F54714008C5D8B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -274,12 +268,6 @@
 				49CC000C1620C1DB0061BBFE /* 53-house.png */,
 				49CC000A1620C1BC0061BBFE /* 16-line-chart.png */,
 				49540CCB15FB765A00AF4D08 /* button.png */,
-				C997CE6515FE3E3B0082B342 /* ashtyn_hemendinger.jpg */,
-				C997CE6615FE3E3B0082B342 /* charles_rawlins.jpg */,
-				C997CE6715FE3E3B0082B342 /* emerson_stoldt.jpg */,
-				C997CE6815FE3E3B0082B342 /* junki_nakayama.jpg */,
-				C997CE6915FE3E3B0082B342 /* mohit_moondra.jpg */,
-				C997CE6215FE3C060082B342 /* harley_montano.jpg */,
 				492AAC7115F6F045001A94AD /* share.jpeg */,
 				49540CCE15FB774A00AF4D08 /* RecordButtonPressed.png */,
 				492AAC6D15F6E36B001A94AD /* pause.png */,
@@ -287,13 +275,10 @@
 				492AAC6615F6CF1F001A94AD /* RecordButton1.png */,
 				49716FA415F8021C00A32FB5 /* RecordButton1Pressed.png */,
 				492AAC6915F6CF3D001A94AD /* musical_note_small.jpeg */,
-				49F5730415F52382008C5D8B /* FakeSound.mp3 */,
 				492AAC6B15F6D8C6001A94AD /* Silver-Play-Button_small.jpeg */,
 				49F572ED15F26722008C5D8B /* unchecked.png */,
 				49F572EA15F2670C008C5D8B /* checked.png */,
 				49A5F6A215F1585800D3F73F /* TalkingToTheMoon.ttf */,
-				49A5F6A915F1A39000D3F73F /* FakeSuggestedTopics.plist */,
-				49A5F6AA15F1A39000D3F73F /* FakeSuggestedUsers.plist */,
 				49A5F68B15F060BE00D3F73F /* IanGillis.jpg */,
 				49A5F67D15EDCD0600D3F73F /* fb-login-normal.png */,
 				49A5F64A15ED7E2D00D3F73F /* grapevine-Info.plist */,
@@ -362,11 +347,8 @@
 				49A5F68A15F05F6B00D3F73F /* AudioPostCell.xib in Resources */,
 				49A5F68C15F060BE00D3F73F /* IanGillis.jpg in Resources */,
 				49A5F6A415F1585800D3F73F /* TalkingToTheMoon.ttf in Resources */,
-				49A5F6AB15F1A39000D3F73F /* FakeSuggestedTopics.plist in Resources */,
-				49A5F6AC15F1A39000D3F73F /* FakeSuggestedUsers.plist in Resources */,
 				49F572EB15F2670C008C5D8B /* checked.png in Resources */,
 				49F572EE15F26722008C5D8B /* unchecked.png in Resources */,
-				49F5730515F52382008C5D8B /* FakeSound.mp3 in Resources */,
 				492AAC6715F6CF1F001A94AD /* RecordButton1.png in Resources */,
 				492AAC6A15F6CF3D001A94AD /* musical_note_small.jpeg in Resources */,
 				492AAC6C15F6D8C6001A94AD /* Silver-Play-Button_small.jpeg in Resources */,
