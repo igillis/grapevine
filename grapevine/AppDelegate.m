@@ -13,6 +13,7 @@
 #import "LoginViewController.h"
 #import "SessionManager.h"
 #import "AudioController.h"
+#import "AccountViewController.h"
 #import <Parse/Parse.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -35,9 +36,14 @@
     
     LoginViewController* loginViewController = [[LoginViewController alloc] init];
     
+    UIViewController* accountViewController = [[AccountViewController alloc] initWithNibName:@"AccountViewController" bundle:nil];
+    UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:accountViewController];
+    
+    navController.navigationBarHidden = YES;
+    
     self.tabBarController = [[UITabBarController alloc] init];
     self.tabBarController.viewControllers =
-        @[homeViewController, trendingViewController, contactsViewController];
+        @[homeViewController, trendingViewController, contactsViewController, navController];
     self.tabBarController.delegate = self;
     
     
@@ -48,7 +54,8 @@
     self.window.rootViewController.view.layer.masksToBounds = YES;
     [self.window makeKeyAndVisible];
     
-    [self.tabBarController presentViewController:loginViewController animated:YES completion:NULL];
+    self.tabBarController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self.tabBarController presentModalViewController:loginViewController animated:YES];
     
     [Parse setApplicationId:@"XTrDXkn1iCJN7BnNJvVgexKW9lk3zovtAloHxqR6"
                   clientKey:@"awYmVJEAegJMTHKpht7PyZGCSdPBtMJaeUgASeO7"];

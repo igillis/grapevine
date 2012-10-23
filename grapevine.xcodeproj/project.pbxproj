@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4923C744160BAC8600AA87A9 /* HomePostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4923C743160BAC8600AA87A9 /* HomePostsTableViewController.m */; };
+		4928D7271636250D0039807A /* AccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4928D7251636250D0039807A /* AccountViewController.m */; };
+		4928D7281636250D0039807A /* AccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4928D7261636250D0039807A /* AccountViewController.xib */; };
 		492AAC6715F6CF1F001A94AD /* RecordButton1.png in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6615F6CF1F001A94AD /* RecordButton1.png */; };
 		492AAC6A15F6CF3D001A94AD /* musical_note_small.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6915F6CF3D001A94AD /* musical_note_small.jpeg */; };
 		492AAC6C15F6D8C6001A94AD /* Silver-Play-Button_small.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 492AAC6B15F6D8C6001A94AD /* Silver-Play-Button_small.jpeg */; };
@@ -45,6 +47,7 @@
 		49A5F68A15F05F6B00D3F73F /* AudioPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68915F05F6B00D3F73F /* AudioPostCell.xib */; };
 		49A5F68C15F060BE00D3F73F /* IanGillis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68B15F060BE00D3F73F /* IanGillis.jpg */; };
 		49A5F6A415F1585800D3F73F /* TalkingToTheMoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F6A215F1585800D3F73F /* TalkingToTheMoon.ttf */; };
+		49B0485716372E3700639918 /* navbarbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B0485616372E3700639918 /* navbarbackground.png */; };
 		49B18B12160AAE560076F8DC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B11160AAE560076F8DC /* CFNetwork.framework */; };
 		49B18B14160AAE640076F8DC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B13160AAE640076F8DC /* AudioToolbox.framework */; };
 		49B18B16160AAE6E0076F8DC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B15160AAE6E0076F8DC /* libsqlite3.dylib */; };
@@ -67,6 +70,9 @@
 /* Begin PBXFileReference section */
 		4923C742160BAC8600AA87A9 /* HomePostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomePostsTableViewController.h; path = ../HomePostsTableViewController.h; sourceTree = "<group>"; };
 		4923C743160BAC8600AA87A9 /* HomePostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomePostsTableViewController.m; path = ../HomePostsTableViewController.m; sourceTree = "<group>"; };
+		4928D7241636250D0039807A /* AccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountViewController.h; sourceTree = "<group>"; };
+		4928D7251636250D0039807A /* AccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountViewController.m; sourceTree = "<group>"; };
+		4928D7261636250D0039807A /* AccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountViewController.xib; sourceTree = "<group>"; };
 		492AAC6615F6CF1F001A94AD /* RecordButton1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RecordButton1.png; sourceTree = "<group>"; };
 		492AAC6915F6CF3D001A94AD /* musical_note_small.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = musical_note_small.jpeg; sourceTree = "<group>"; };
 		492AAC6B15F6D8C6001A94AD /* Silver-Play-Button_small.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Silver-Play-Button_small.jpeg"; sourceTree = "<group>"; };
@@ -120,6 +126,7 @@
 		49A5F68915F05F6B00D3F73F /* AudioPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AudioPostCell.xib; sourceTree = "<group>"; };
 		49A5F68B15F060BE00D3F73F /* IanGillis.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IanGillis.jpg; sourceTree = "<group>"; };
 		49A5F6A215F1585800D3F73F /* TalkingToTheMoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TalkingToTheMoon.ttf; sourceTree = "<group>"; };
+		49B0485616372E3700639918 /* navbarbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbarbackground.png; sourceTree = "<group>"; };
 		49B18B11160AAE560076F8DC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		49B18B13160AAE640076F8DC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		49B18B15160AAE6E0076F8DC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -256,6 +263,9 @@
 				493C1394160909BE004C51B6 /* SessionManager.m */,
 				49B18B23160AB5FA0076F8DC /* ParseObjects.h */,
 				49B18B24160AB5FA0076F8DC /* ParseObjects.m */,
+				4928D7241636250D0039807A /* AccountViewController.h */,
+				4928D7251636250D0039807A /* AccountViewController.m */,
+				4928D7261636250D0039807A /* AccountViewController.xib */,
 			);
 			path = grapevine;
 			sourceTree = "<group>";
@@ -271,6 +281,7 @@
 				492AAC7115F6F045001A94AD /* share.jpeg */,
 				49540CCE15FB774A00AF4D08 /* RecordButtonPressed.png */,
 				492AAC6D15F6E36B001A94AD /* pause.png */,
+				49B0485616372E3700639918 /* navbarbackground.png */,
 				492AAC6E15F6E36B001A94AD /* play.png */,
 				492AAC6615F6CF1F001A94AD /* RecordButton1.png */,
 				49716FA415F8021C00A32FB5 /* RecordButton1Pressed.png */,
@@ -365,6 +376,8 @@
 				49CC000D1620C1DB0061BBFE /* 53-house.png in Resources */,
 				49A17EF71633200300236107 /* refresh.png in Resources */,
 				49758E57163463FE005C78E6 /* refresh1.png in Resources */,
+				4928D7281636250D0039807A /* AccountViewController.xib in Resources */,
+				49B0485716372E3700639918 /* navbarbackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +402,7 @@
 				49533898161CDC0F00571DB4 /* TrendingViewController.m in Sources */,
 				4953389C161CE2D900571DB4 /* TrendingPostsTableViewController.m in Sources */,
 				4969D41A161E303E00322B92 /* PostsTableViewController.m in Sources */,
+				4928D7271636250D0039807A /* AccountViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,6 +436,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ian Gillis (K89S3EFLAB)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -437,6 +452,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				PROVISIONING_PROFILE = "CEAA85D6-2C9C-4B04-9FED-C9A0A4F6EE9C";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -449,6 +465,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ian Gillis (K89S3EFLAB)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -458,6 +475,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "CEAA85D6-2C9C-4B04-9FED-C9A0A4F6EE9C";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -466,7 +484,7 @@
 		49A5F66B15ED7E2D00D3F73F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ian Gillis (K89S3EFLAB)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../FacebookSDK\"",
@@ -477,6 +495,7 @@
 				INFOPLIST_FILE = "grapevine/grapevine-Info.plist";
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "CEAA85D6-2C9C-4B04-9FED-C9A0A4F6EE9C";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -485,7 +504,7 @@
 		49A5F66C15ED7E2D00D3F73F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Ian Gillis";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../FacebookSDK\"",
@@ -496,6 +515,7 @@
 				INFOPLIST_FILE = "grapevine/grapevine-Info.plist";
 				OTHER_LDFLAGS = "-lsqlite3.0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "699B2424-5CCC-4EAD-B2EC-A0EE39656329";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
