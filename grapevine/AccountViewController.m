@@ -18,7 +18,8 @@
 @implementation AccountViewController
 @synthesize profilePic;
 @synthesize userName;
-@synthesize tableView;
+@synthesize grapevine;
+@synthesize signOutButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,9 +34,15 @@
 {
     [super viewDidLoad];
     self.title = @"grapevine";
+    [self.grapevine setFont:[UIFont fontWithName:@"TalkingtotheMoon" size:26.0]];
+    ParseObjects* parseObjects = [ParseObjects sharedInstance];
+    PFUser* currentUser = [SessionManager sharedInstance].currentUser;
+    [currentUser fetchIfNeeded];
+    
+    
     UIImage* userProfilePic =[[UIImage alloc] initWithData:
-                              [[[SessionManager sharedInstance].currentUser valueForKey:
-                                [ParseObjects sharedInstance].userProfilePictureKey] getData]];
+                                 [[currentUser valueForKey:
+                                   parseObjects.userProfilePictureKey] getData]];
     
     if (userProfilePic) {
         self.profilePic.image = userProfilePic;
@@ -44,16 +51,21 @@
     } else {
         self.profilePic.image = nil;
     }
+    
+    NSString* first = [currentUser objectForKey:parseObjects.userFirstNameKey];
+    NSString* last = [currentUser objectForKey:parseObjects.userLastNameKey];
+    self.userName.text = [NSString stringWithFormat:@"%@ %@", first, last];
+    
+    
 }
 
 - (void)viewDidUnload
 {
     [self setProfilePic:nil];
     [self setUserName:nil];
-    [self setTableView:nil];
+    [self setGrapevine:nil];
+    [self setSignOutButton:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -62,12 +74,39 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return 3;
+    }
     return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return nil;
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"accountCell"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc]
+                initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"accountCell"];
+    }
+    NSString* label;
+    switch (indexPath.row) {
+        case 0:
+            label = @"My posts";
+            break;
+        case 1:
+            label = @"Following";
+            break;
+        case 2:
+            label = @"Followed by";
+            break;
+        default:
+            break;
+    }
+    cell.textLabel.text = label;
+    [cell.textLabel setFont:[UIFont fontWithName:nil size:10.0f]];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    return cell;
 }
 
 
+- (IBAction)signOutButtonTouched:(id)sender {
+}
 @end

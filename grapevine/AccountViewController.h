@@ -13,6 +13,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePic;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *grapevine;
+@property (weak, nonatomic) IBOutlet UIButton *signOutButton;
 
+- (IBAction)signOutButtonTouched:(id)sender;
 @end
