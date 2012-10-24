@@ -39,7 +39,7 @@ static SessionManager* _sharedInstance = nil;
 /*
  * Opens a Facebook session and optionally shows the login UX.
  */
-- (BOOL)openFacebookSessionWithPermissions:(NSArray *)permissions {
+- (void)openFacebookSessionWithPermissions:(NSArray *)permissions {
     [PFFacebookUtils logInWithPermissions:permissions block:^(PFUser *user, NSError *error) {
         if (!user) {
             return;
@@ -76,7 +76,6 @@ static SessionManager* _sharedInstance = nil;
         self.sessionPermissions = permissions;
         [[NSNotificationCenter defaultCenter] postNotificationName:FBSessionDidBecomeOpenActiveSessionNotification object:self];
     }];
-    return NO;
 }
 
 -(void) startProfilePictureRequest {
@@ -113,11 +112,7 @@ static SessionManager* _sharedInstance = nil;
     }];
 }
 
-- (BOOL) openTwitterSessionWithPermissions:(NSArray*) permissions {
-    return NO;
-}
-
-- (BOOL) openGrapevineSessionWithLoginId:(NSString*) loginId andPassword: (NSString*) password {
-    return NO;
+-(void) closeFacebookSession {
+    [PF_FBSession.activeSession closeAndClearTokenInformation];
 }
 @end

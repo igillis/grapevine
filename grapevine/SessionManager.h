@@ -18,8 +18,6 @@ extern NSString *const FBSessionStateChangedNotification;
 
 + (SessionManager*) sharedInstance;
 
-- (BOOL) openFacebookSessionWithPermissions:(NSArray*) permissions;
-- (BOOL) openTwitterSessionWithPermissions:(NSArray*) permissions;
-- (BOOL) openGrapevineSessionWithLoginId:(NSString*) loginId
-                             andPassword: (NSString*) password;
+-(void) openFacebookSessionWithPermissions:(NSArray*) permissions;
+-(void) closeFacebookSession;
 @end

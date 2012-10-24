@@ -9,6 +9,7 @@
 #import "AccountViewController.h"
 #import "SessionManager.h"
 #import "ParseObjects.h"
+#import "LoginViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface AccountViewController ()
@@ -108,5 +109,8 @@
 
 
 - (IBAction)signOutButtonTouched:(id)sender {
+    LoginViewController* loginView = [[LoginViewController alloc] init];
+    [[SessionManager sharedInstance] closeFacebookSession];
+    [self presentModalViewController:loginView animated:YES];
 }
 @end
