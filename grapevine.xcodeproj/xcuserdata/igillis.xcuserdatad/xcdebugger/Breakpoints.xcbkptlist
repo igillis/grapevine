@@ -203,11 +203,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HomePostsTableViewController.m"
-         timestampString = "371261503.627524"
+         timestampString = "372832722.182511"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "48"
+         endingLineNumber = "48"
          landmarkName = "-queryForTable"
          landmarkType = "5">
       </FileBreakpoint>
@@ -216,11 +216,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HomePostsTableViewController.m"
-         timestampString = "371261503.627524"
+         timestampString = "372832722.182511"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "52"
-         endingLineNumber = "52"
+         startingLineNumber = "41"
+         endingLineNumber = "41"
          landmarkName = "-queryForTable"
          landmarkType = "5">
       </FileBreakpoint>
@@ -391,6 +391,19 @@
          startingLineNumber = "110"
          endingLineNumber = "110"
          landmarkName = "-playStreamedAudio:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "grapevine/TrendingPostsTableViewController.m"
+         timestampString = "372879718.449817"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "24"
+         endingLineNumber = "24"
+         landmarkName = "-awakeFromNib"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

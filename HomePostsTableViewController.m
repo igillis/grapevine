@@ -30,20 +30,9 @@
 @synthesize mySearchBar;
 
 - (void) awakeFromNib {
-    // The className to query on
-    self.className =
-    [[ParseObjects sharedInstance] audioPostClassName];
-    
-    // Whether the built-in pull-to-refresh is enabled
-    self.pullToRefreshEnabled = YES;
-    
-    // Whether the built-in pagination is enabled
-    self.paginationEnabled = YES;
-    
-    // The number of objects to show per page
     self.objectsPerPage = 6;
-    
     self.searchTerm = nil;
+    [super awakeFromNib];
 }
 
 #pragma mark - Parse
@@ -92,12 +81,7 @@
     if (indexPath.section == 0) {
         return 30.0;
     }
-    CGSize labelsize;
-    UILabel * label = [[UILabel alloc] init];
-    labelsize = [self setCellLabel:label
-                          withText:[[self objectAtIndexPath:indexPath]
-                                        valueForKey:[ParseObjects sharedInstance].descriptionKey]];
-    return MAX(65.0, labelsize.height + DESCRIPTION_Y + 10.0);
+    return [super tableView:tableView heightForRowAtIndexPath:indexPath];
 }
 
 // Override to customize the look of a cell representing an object. The default is to display

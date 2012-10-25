@@ -48,6 +48,9 @@
 		49A5F68C15F060BE00D3F73F /* IanGillis.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F68B15F060BE00D3F73F /* IanGillis.jpg */; };
 		49A5F6A415F1585800D3F73F /* TalkingToTheMoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 49A5F6A215F1585800D3F73F /* TalkingToTheMoon.ttf */; };
 		49B0485716372E3700639918 /* navbarbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 49B0485616372E3700639918 /* navbarbackground.png */; };
+		49B048731638AB1600639918 /* UserPostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B048721638AB1600639918 /* UserPostsTableViewController.m */; };
+		49B048771638AD9600639918 /* UserPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B048751638AD9600639918 /* UserPostsViewController.m */; };
+		49B048781638AD9600639918 /* UserPostsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B048761638AD9600639918 /* UserPostsViewController.xib */; };
 		49B18B12160AAE560076F8DC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B11160AAE560076F8DC /* CFNetwork.framework */; };
 		49B18B14160AAE640076F8DC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B13160AAE640076F8DC /* AudioToolbox.framework */; };
 		49B18B16160AAE6E0076F8DC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B15160AAE6E0076F8DC /* libsqlite3.dylib */; };
@@ -127,6 +130,11 @@
 		49A5F68B15F060BE00D3F73F /* IanGillis.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IanGillis.jpg; sourceTree = "<group>"; };
 		49A5F6A215F1585800D3F73F /* TalkingToTheMoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TalkingToTheMoon.ttf; sourceTree = "<group>"; };
 		49B0485616372E3700639918 /* navbarbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbarbackground.png; sourceTree = "<group>"; };
+		49B048711638AB1600639918 /* UserPostsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPostsTableViewController.h; sourceTree = "<group>"; };
+		49B048721638AB1600639918 /* UserPostsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPostsTableViewController.m; sourceTree = "<group>"; };
+		49B048741638AD9500639918 /* UserPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPostsViewController.h; sourceTree = "<group>"; };
+		49B048751638AD9600639918 /* UserPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPostsViewController.m; sourceTree = "<group>"; };
+		49B048761638AD9600639918 /* UserPostsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserPostsViewController.xib; sourceTree = "<group>"; };
 		49B18B11160AAE560076F8DC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		49B18B13160AAE640076F8DC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		49B18B15160AAE6E0076F8DC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -266,6 +274,11 @@
 				4928D7241636250D0039807A /* AccountViewController.h */,
 				4928D7251636250D0039807A /* AccountViewController.m */,
 				4928D7261636250D0039807A /* AccountViewController.xib */,
+				49B048741638AD9500639918 /* UserPostsViewController.h */,
+				49B048751638AD9600639918 /* UserPostsViewController.m */,
+				49B048761638AD9600639918 /* UserPostsViewController.xib */,
+				49B048711638AB1600639918 /* UserPostsTableViewController.h */,
+				49B048721638AB1600639918 /* UserPostsTableViewController.m */,
 			);
 			path = grapevine;
 			sourceTree = "<group>";
@@ -378,6 +391,7 @@
 				49758E57163463FE005C78E6 /* refresh1.png in Resources */,
 				4928D7281636250D0039807A /* AccountViewController.xib in Resources */,
 				49B0485716372E3700639918 /* navbarbackground.png in Resources */,
+				49B048781638AD9600639918 /* UserPostsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +417,8 @@
 				4953389C161CE2D900571DB4 /* TrendingPostsTableViewController.m in Sources */,
 				4969D41A161E303E00322B92 /* PostsTableViewController.m in Sources */,
 				4928D7271636250D0039807A /* AccountViewController.m in Sources */,
+				49B048731638AB1600639918 /* UserPostsTableViewController.m in Sources */,
+				49B048771638AD9600639918 /* UserPostsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

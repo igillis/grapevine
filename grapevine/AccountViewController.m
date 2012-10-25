@@ -10,6 +10,7 @@
 #import "SessionManager.h"
 #import "ParseObjects.h"
 #import "LoginViewController.h"
+#import "UserPostsViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface AccountViewController ()
@@ -34,7 +35,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"grapevine";
     [self.grapevine setFont:[UIFont fontWithName:@"TalkingtotheMoon" size:26.0]];
     ParseObjects* parseObjects = [ParseObjects sharedInstance];
     PFUser* currentUser = [SessionManager sharedInstance].currentUser;
@@ -107,10 +107,25 @@
     return cell;
 }
 
-
 - (IBAction)signOutButtonTouched:(id)sender {
     LoginViewController* loginView = [[LoginViewController alloc] init];
     [[SessionManager sharedInstance] closeFacebookSession];
     [self presentModalViewController:loginView animated:YES];
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    switch (indexPath.row) {
+        case 0:
+            [self.navigationController pushViewController:
+             [[UserPostsViewController alloc] initWithNibName:@"UserPostsViewController"
+                                                       bundle:nil
+                                                      andUser:[SessionManager sharedInstance].currentUser]
+                                                 animated:YES];
+            break;
+            
+        default:
+            break;
+    }
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 @end
