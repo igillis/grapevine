@@ -51,6 +51,8 @@
 		49B048731638AB1600639918 /* UserPostsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B048721638AB1600639918 /* UserPostsTableViewController.m */; };
 		49B048771638AD9600639918 /* UserPostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B048751638AD9600639918 /* UserPostsViewController.m */; };
 		49B048781638AD9600639918 /* UserPostsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B048761638AD9600639918 /* UserPostsViewController.xib */; };
+		49B0487F163C55D400639918 /* FollowingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49B0487D163C55D300639918 /* FollowingViewController.m */; };
+		49B04880163C55D400639918 /* FollowingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49B0487E163C55D300639918 /* FollowingViewController.xib */; };
 		49B18B12160AAE560076F8DC /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B11160AAE560076F8DC /* CFNetwork.framework */; };
 		49B18B14160AAE640076F8DC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B13160AAE640076F8DC /* AudioToolbox.framework */; };
 		49B18B16160AAE6E0076F8DC /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 49B18B15160AAE6E0076F8DC /* libsqlite3.dylib */; };
@@ -135,6 +137,9 @@
 		49B048741638AD9500639918 /* UserPostsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPostsViewController.h; sourceTree = "<group>"; };
 		49B048751638AD9600639918 /* UserPostsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPostsViewController.m; sourceTree = "<group>"; };
 		49B048761638AD9600639918 /* UserPostsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserPostsViewController.xib; sourceTree = "<group>"; };
+		49B0487C163C55D300639918 /* FollowingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FollowingViewController.h; path = ../FollowingViewController.h; sourceTree = "<group>"; };
+		49B0487D163C55D300639918 /* FollowingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FollowingViewController.m; path = ../FollowingViewController.m; sourceTree = "<group>"; };
+		49B0487E163C55D300639918 /* FollowingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FollowingViewController.xib; path = ../FollowingViewController.xib; sourceTree = "<group>"; };
 		49B18B11160AAE560076F8DC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		49B18B13160AAE640076F8DC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		49B18B15160AAE6E0076F8DC /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -238,6 +243,9 @@
 		49A5F64815ED7E2D00D3F73F /* grapevine */ = {
 			isa = PBXGroup;
 			children = (
+				49B0487C163C55D300639918 /* FollowingViewController.h */,
+				49B0487D163C55D300639918 /* FollowingViewController.m */,
+				49B0487E163C55D300639918 /* FollowingViewController.xib */,
 				4969D418161E303E00322B92 /* PostsTableViewController.h */,
 				4969D419161E303E00322B92 /* PostsTableViewController.m */,
 				4923C742160BAC8600AA87A9 /* HomePostsTableViewController.h */,
@@ -392,6 +400,7 @@
 				4928D7281636250D0039807A /* AccountViewController.xib in Resources */,
 				49B0485716372E3700639918 /* navbarbackground.png in Resources */,
 				49B048781638AD9600639918 /* UserPostsViewController.xib in Resources */,
+				49B04880163C55D400639918 /* FollowingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +428,7 @@
 				4928D7271636250D0039807A /* AccountViewController.m in Sources */,
 				49B048731638AB1600639918 /* UserPostsTableViewController.m in Sources */,
 				49B048771638AD9600639918 /* UserPostsViewController.m in Sources */,
+				49B0487F163C55D400639918 /* FollowingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

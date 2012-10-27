@@ -22,12 +22,6 @@
 
 @synthesize currentlySelected;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    return self;
-}
-
 -(void) awakeFromNib {
     self.className =
     [[ParseObjects sharedInstance] audioPostClassName];
@@ -65,19 +59,9 @@
     self.clearsSelectionOnViewWillAppear = NO;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [self.objects count];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
 }
 
 -(void) formatCell: (AudioPostCell*)cell withObject:(PFObject*) object {

@@ -9,5 +9,5 @@
 #import "PostsTableViewController.h"
 
 @interface UserPostsTableViewController : PostsTableViewController
-
+@property (strong, nonatomic) PFUser* user;
 @end

@@ -15,19 +15,17 @@
 
 @end
 
-#define DESCRIPTION_X 83.0
-#define DESCRIPTION_Y 24.0
-#define DESCRIPTION_FONT_SIZE 12.0
-
 @implementation UserPostsTableViewController
+@synthesize user;
+
 - (PFQuery *)queryForTable {
-    if (![SessionManager sharedInstance].currentUser) {
+    if (!self.user) {
         return nil;
     }
     
     PFQuery *query = [PFQuery queryWithClassName:self.className];
     [query whereKey:[ParseObjects sharedInstance].postOwnerKey
-            equalTo:[SessionManager sharedInstance].currentUser];
+            equalTo:self.user];
     return query;
 }
 @end

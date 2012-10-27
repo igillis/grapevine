@@ -31,6 +31,8 @@
 {
     [super viewDidLoad];
     [self.grapevine setFont:[UIFont fontWithName:@"TalkingtotheMoon" size:26.0]];
+    self.userPostsViewController.user = self.user;
+    [self.userPostsViewController loadObjects];
 }
 
 - (void)viewDidUnload

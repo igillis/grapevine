@@ -11,6 +11,7 @@
 #import "ParseObjects.h"
 #import "LoginViewController.h"
 #import "UserPostsViewController.h"
+#import "FollowingViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface AccountViewController ()
@@ -122,7 +123,9 @@
                                                       andUser:[SessionManager sharedInstance].currentUser]
                                                  animated:YES];
             break;
-            
+        case 1:
+            [self.navigationController pushViewController:[[FollowingViewController alloc] initWithNibName:@"FollowingViewController" bundle:nil] animated:YES];
+            break;
         default:
             break;
     }
