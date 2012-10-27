@@ -33,7 +33,8 @@
 -(BOOL) isRecording;
 
 //Streaming methods
--(void) playStreamedAudio:(NSString*) url;
+-(void) prepareToStream:(NSString*) url;
+-(void) playStreamedAudio;
 -(void) pauseStreamedAudio;
 -(void) stopStreamedAudio;
 -(BOOL) isStreaming;

@@ -44,29 +44,28 @@
                                              pathForResource:@"pause" ofType:@"png"]];
 }
 -(void) pauseAudio {
-    NSLog(@"pausing audio for file with description %@", self.description.text);
     [self.playPauseButton setImage:self.playImage forState:UIControlStateNormal];
     [self.timer invalidate];
-    [[AudioController sharedInstance] pauseStreamedAudio];
+    [[AudioController sharedInstance] pauseAudio];
 }
 -(void) stopAudio {
-    NSLog(@"stopping audio for file with description %@", self.description.text);
     [self.playPauseButton setImage:self.playImage forState:UIControlStateNormal];
     [self.timer invalidate];
     [self.progressBar setProgress:0.0];
     self.currentTime = 0.0;
-    [[AudioController sharedInstance] stopStreamedAudio];
+    [[AudioController sharedInstance] stopAudio];
 }
 -(void)playAudio {
     [self.playPauseButton setImage:self.pauseImage forState:UIControlStateNormal];
     self.tableView.currentlyPlaying = self;
-    [[AudioController sharedInstance] playStreamedAudio:self.audioURL];
-    self.duration = [[AudioController sharedInstance] lengthOfStreamingTrack];
+    PFFile* audioFile = (PFFile*)[post objectForKey:[ParseObjects sharedInstance].audioFileKey];
+    [[AudioController sharedInstance] playAudio:[audioFile getData]];
+    self.duration = [[AudioController sharedInstance] lengthOfCurrentTrack];
     self.timer = [NSTimer scheduledTimerWithTimeInterval: 0.1f target:self selector:@selector(handleTimerFire:) userInfo:nil repeats:YES];
     [self.post incrementKey:[ParseObjects sharedInstance].numViewsKey];
     [self.post saveInBackground];
-
 }
+
 -(BOOL) isEqual:(id)object {
     if (![object isKindOfClass:[AudioPostCell class]]) {
         return NO;
@@ -103,11 +102,6 @@
 }
 
 -(void) toggleViews {
-    //CATransition *animation = [CATransition animation];
-    //animation.type = kCATransitionFade;
-    //animation.duration = 0.3;
-    //[mainView.layer addAnimation:animation forKey:nil];
-    //[altView.layer addAnimation:animation forKey:nil];
     mainView.hidden = !mainView.hidden;
     altView.hidden = !altView.hidden;
     if (mainView.hidden) {
